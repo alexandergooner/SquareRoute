@@ -288,6 +288,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\controllers\" />
+    <Folder Include="app\services\" />
+    <Folder Include="app\views\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
