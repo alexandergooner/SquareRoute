@@ -29,5 +29,7 @@ namespace SquareRouteProject.Presentation.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<SquareRouteProject.Presentation.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

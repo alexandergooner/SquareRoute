@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="SquareRouteProject.Presentation.Presentation.WebApiApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="SquareRouteProject.Presentation.WebApiApplication" Language="C#" %>
