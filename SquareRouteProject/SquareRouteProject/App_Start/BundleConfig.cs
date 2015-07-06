@@ -24,7 +24,12 @@ namespace SquareRouteProject.Presentation
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/angular").Include("~/Scripts/angular.js", "~/Scripts/angular-route.js", "~/app/app.js", "~/app/controllers/controllers.js", "~/app/services/services.js"));
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/angular.js", 
+                "~/Scripts/angular-route.js", 
+                "~/app/app.js", 
+                "~/app/controllers/controllers.js", 
+                "~/app/services/services.js"));
         }
     }
 }
