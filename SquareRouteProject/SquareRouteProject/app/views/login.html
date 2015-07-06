@@ -1,1 +1,29 @@
 ﻿{{vm.message}}
+<h3>Login Form</h3>
+
+<div>
+    <form name="loginForm" novalidate ng-submit="vm.login()">
+        <div>
+            <label>
+                Username:
+                <input name="username" ng-required="true" ng-model="vm.username" />
+                <span ng-show="loginForm.username.$touched && loginForm.username.$error.required">Required</span>
+            </label>
+        </div>
+        <div>
+            <label>
+                Password:
+                <input name="password" ng-required="true" ng-model="password" />
+                <span ng-show="loginForm.password.$touched && loginForm.password.$error.required">Required</span>
+            </label>
+        </div>
+        <input type="submit" value="Login" />
+    </form>
+</div>
+
+<div>
+    <a href="X">Register</a>
+</div>
+<div>
+    <a href="X">Forgot Password?</a>
+</div>
