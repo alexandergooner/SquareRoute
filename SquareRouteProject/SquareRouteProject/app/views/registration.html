@@ -6,7 +6,7 @@
     <title>Registration</title>
     <style>
         .ng-invalid.ng-touched {
-            background-color: rgba(248, 26, 26, 0.51);
+            background-color: rgba(255, 15, 15, 0.25);
         }
 
         .error {
@@ -16,11 +16,9 @@
 
 </head>
 <body>
-
     <h3>Registration Form</h3>
-
     <div>
-        <form nae="registrationForm" novalidate ng-submit="vm.register()">
+        <form name="registrationForm" novalidate ng-submit="vm.register()">
             <div>
                 <label>
                     First Name:
@@ -101,14 +99,8 @@
             <br />
             <div>
                 <label>
-                    School(s):<br />
-                    <input name="school1" ng-required="true" ng-model="vm.school1" />
-                    <span ng-show="registrationForm.school1.$touched && registrationForm.school1.$error.required" class="error">Required</span>
-                    <br />
-                    <br />
-                    <input name="school2" ng-model="vm.school2" /><br />
-                    <br />
-                    <input name="school3" ng-model="vm.school3" />
+                    School(s):
+                    <input name="school" ng-required="true" ng-model="vm.school" /><input type="button" value="Add School" ng-click="addSchool()" />
                 </label>
             </div>
             <br />
@@ -120,7 +112,7 @@
                 </label>
             </div>
             <br />
-            <input type="submit" value="Submit" />
+            <input type="submit" ng-disabled="registrationForm.$invalid" value="Submit" />
         </form>
     </div>
 </body>

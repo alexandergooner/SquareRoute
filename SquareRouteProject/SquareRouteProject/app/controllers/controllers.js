@@ -2,10 +2,12 @@
     angular.module('SquareRoute')
         .controller('WelcomeLoginController', WelcomeLoginController)
         .controller('ParentController', ParentController)
-        .controller('DispatcherController', DispatcherController)
-        .controller('RegistrationController', RegistrationController)
         .controller('DriverController', DriverController)
+        .controller('DispatcherController', DispatcherController)
         .controller('AdminController', AdminController)
+        .controller('LoginController', LoginController)
+        .controller('RegistrationController', RegistrationController)
+
 
 
     function WelcomeLoginController() {
@@ -18,41 +20,44 @@
     function ParentController() {
 
         var vm = this;
-        vm.message = ""
+        vm.message = "Parent View"
     }
+
 
     function DriverController() {
 
 
         var vm = this;
-        vm.message = "Driver  "
+        vm.message = "Driver View"
     }
+
 
     function DispatcherController() {
 
         var vm = this;
-        vm.message = "Dispatcher"
+        vm.message = "Dispatcher View"
     }
 
 
     function AdminController() {
 
         var vm = this;
-        vm.message = "Admin "
+        vm.message = "Admin View"
     }
 
-    //function LoginController() {
 
-    //    var vm = this;
-    //    vm.message = "Welcome Login "
-    //}
+    function LoginController(loginService, $location) {
+
+        var vm = this;
+        vm.message = "Login View"
+    }
 
 
     function RegistrationController() {
 
-
         var vm = this;
-        vm.message = "Registration "
+        vm.message = "Registration View"
+
     }
 
 
