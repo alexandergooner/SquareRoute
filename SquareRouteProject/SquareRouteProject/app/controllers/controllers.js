@@ -7,6 +7,7 @@
         .controller('AdminController', AdminController)
         .controller('LoginController', LoginController)
         .controller('RegistrationController', RegistrationController)
+        .controller('GoogleMapsController',GoogleMapsController)
 
 
 
@@ -60,5 +61,14 @@
 
     }
 
+    function GoogleMapsController($scope, uiGmapGoogleMapApi) {
+        var vm = this;
+        vm.message = "GoogleMaps View"
+        $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
+        uiGmapGoogleMapApi.then(function (maps) {
+
+        })
+    }
 
 })();

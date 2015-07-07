@@ -22,11 +22,14 @@ namespace SquareRouteProject.Presentation
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/style.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js", 
-                "~/Scripts/angular-route.js", 
+                "~/Scripts/angular-route.js",
+                "~/Scripts/lodash.min.js",
+                "~/Scripts/angular-google-maps.min.js",
                 "~/app/app.js", 
                 "~/app/controllers/controllers.js", 
                 "~/app/services/services.js"));
