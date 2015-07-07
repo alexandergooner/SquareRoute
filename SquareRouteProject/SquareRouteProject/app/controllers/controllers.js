@@ -46,7 +46,7 @@
     }
 
 
-    function LoginController(loginService, $location) {
+    function LoginController() {
 
         var vm = this;
         vm.message = "Login View"
