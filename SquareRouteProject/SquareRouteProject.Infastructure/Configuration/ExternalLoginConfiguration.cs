@@ -9,26 +9,26 @@ namespace SquareRouteProject.Infastructure.Configuration
         {
             ToTable("ExternalLogin");
 
-            HasKey<ExternalLogin>(x => new { x.LoginProvider, x.ProviderKey, x.UserId });
+            HasKey(x => new { x.LoginProvider, x.ProviderKey, x.UserId });
 
-            Property<ExternalLogin>(x => x.LoginProvider)
+            Property(x => x.LoginProvider)
                 .HasColumnName("LoginProvider")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(128)
                 .IsRequired();
 
-            Property<ExternalLogin>(x => x.ProviderKey)
+            Property(x => x.ProviderKey)
                 .HasColumnName("ProviderKey")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(128)
                 .IsRequired();
 
-            Property<ExternalLogin>(x => x.UserId)
+            Property(x => x.UserId)
                 .HasColumnName("UserId")
                 .HasColumnType("uniqueidentifier")
                 .IsRequired();
 
-            HasRequired<ExternalLogin>(x => x.User)
+            HasRequired(x => x.User)
                 .WithMany(x => x.Logins)
                 .HasForeignKey(x => x.UserId);
         }

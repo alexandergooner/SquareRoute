@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SquareRouteProject.Domain.Entities
 {
-    class ExternalLogin
+    public class ExternalLogin
     {
         private User _user;
 

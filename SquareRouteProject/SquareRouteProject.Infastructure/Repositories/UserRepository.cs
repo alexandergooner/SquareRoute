@@ -27,5 +27,20 @@ namespace SquareRouteProject.Infastructure.Repositories
         {
             return Set.FirstOrDefaultAsync(x => x.UserName == username, cancellationToken);
         }
+
+        public User FindByEmail(string usernameEmail)
+        {
+            return Set.FirstOrDefault(x => x.UserName == usernameEmail);
+        }
+
+        public Task<User> FindByEmailAsync(string usernameEmail)
+        {
+            return Set.FirstOrDefaultAsync(x => x.UserName == usernameEmail);
+        }
+
+        public Task<User> FindByEmailAsync(System.Threading.CancellationToken cancellationToken, string usernameEmail)
+        {
+            return Set.FirstOrDefaultAsync(x => x.UserName == usernameEmail, cancellationToken);
+        }
     }
 }

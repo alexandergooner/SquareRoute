@@ -10,31 +10,31 @@ namespace SquareRouteProject.Infastructure.Configuration
         {
             ToTable("Claim");
 
-            HasKey<Claim>(x => x.ClaimId)
+            HasKey(x => x.ClaimId)
                 .Property(x => x.ClaimId)
                 .HasColumnName("ClaimId")
                 .HasColumnType("int")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();
 
-            Property<Claim>(x => x.UserId)
+            Property(x => x.UserId)
                 .HasColumnName("UserId")
                 .HasColumnType("uniqueidentifier")
                 .IsRequired();
 
-            Property<Claim>(x => x.ClaimType)
+            Property(x => x.ClaimType)
                 .HasColumnName("ClaimType")
                 .HasColumnType("nvarchar")
                 .IsMaxLength()
                 .IsOptional();
 
-            Property<Claim>(x => x.ClaimValue)
+            Property(x => x.ClaimValue)
                 .HasColumnName("ClaimValue")
                 .HasColumnType("nvarchar")
                 .IsMaxLength()
                 .IsOptional();
 
-            HasRequired<Claim>(x => x.User)
+            HasRequired(x => x.User)
                 .WithMany(x => x.Claims)
                 .HasForeignKey(x => x.UserId);
         }

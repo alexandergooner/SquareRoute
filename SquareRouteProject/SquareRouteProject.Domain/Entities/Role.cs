@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SquareRouteProject.Domain.Entities
 {
-    class Role
+    public class Role
     {
         #region Fields
         private ICollection<User> _users;

@@ -9,19 +9,19 @@ namespace SquareRouteProject.Infastructure.Configuration
         {
             ToTable("Role");
 
-            HasKey<Role>(x => x.RoleId)
+            HasKey(x => x.RoleId)
                 .Property(x => x.RoleId)
                 .HasColumnName("RoleId")
                 .HasColumnType("uniqueidentifier")
                 .IsRequired();
 
-            Property<Role>(x => x.Name)
+            Property(x => x.Name)
                 .HasColumnName("Name")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(256)
                 .IsRequired();
 
-            HasMany<Role>(x => x.Users)
+            HasMany(x => x.Users)
                 .WithMany(x => x.Roles)
                 .Map(x =>
                 {

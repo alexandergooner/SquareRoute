@@ -9,31 +9,31 @@ namespace SquareRouteProject.Infastructure.Configuration
         {
             ToTable("User");
 
-            HasKey<User>(x => x.UserId)
+            HasKey(x => x.UserId)
                 .Property(x => x.UserId)
                 .HasColumnName("UserId")
                 .HasColumnType("uniqueidentifier")
                 .IsRequired();
 
-            Property<User>(x => x.PasswordHash)
+            Property(x => x.PasswordHash)
                 .HasColumnName("PasswordHash")
                 .HasColumnType("nvarchar")
                 .IsMaxLength()
                 .IsOptional();
 
-            Property<User>(x => x.SecurityStamp)
+            Property(x => x.SecurityStamp)
                 .HasColumnName("SecurityStamp")
                 .HasColumnType("nvarchar")
                 .IsMaxLength()
                 .IsOptional();
 
-            Property<User>(x => x.UserName)
+            Property(x => x.UserName)
                 .HasColumnName("UserName")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(256)
                 .IsRequired();
 
-            HasMany<User>(x => x.Roles)
+            HasMany(x => x.Roles)
                 .WithMany(x => x.Users)
                 .Map(x =>
                 {
@@ -42,11 +42,11 @@ namespace SquareRouteProject.Infastructure.Configuration
                     x.MapRightKey("RoleId");
                 });
 
-            HasMany<User>(x => x.Claims)
+            HasMany(x => x.Claims)
                 .WithRequired(x => x.User)
                 .HasForeignKey(x => x.UserId);
 
-            HasMany<User>(x => x.Logins)
+            HasMany(x => x.Logins)
                 .WithRequired(x => x.User)
                 .HasForeignKey(x => x.UserId);
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SquareRouteProject.Domain.Entities
 {
-    class Claim
+    public class Claim
     {
         private User _user;
 

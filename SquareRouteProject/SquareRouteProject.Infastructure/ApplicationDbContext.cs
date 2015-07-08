@@ -4,9 +4,14 @@ using System.Data.Entity;
 
 namespace SquareRouteProject.Infastructure
 {
-    internal class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        internal ApplicationDbContext(string nameOrConnectionString)
+        public ApplicationDbContext()
+            : base("DefaultConnection")
+        { 
+
+        }
+        public ApplicationDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
         }
@@ -17,10 +22,10 @@ namespace SquareRouteProject.Infastructure
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add<UserConfiguration>(new UserConfiguration());
-            modelBuilder.Configurations.Add<RoleConfiguration>(new RoleConfiguration());
-            modelBuilder.Configurations.Add<ExternalLoginConfiguration>(new ExternalLoginConfiguration());
-            modelBuilder.Configurations.Add<ClaimConfiguration>(new ClaimConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new RoleConfiguration());
+            modelBuilder.Configurations.Add(new ExternalLoginConfiguration());
+            modelBuilder.Configurations.Add(new ClaimConfiguration());
         }
     }
 }

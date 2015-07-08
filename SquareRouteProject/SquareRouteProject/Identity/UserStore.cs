@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
-
+using SquareRouteProject.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
+using Entities = SquareRouteProject.Domain.Entities;
 
 namespace SquareRouteProject.Presentation.Identity
 {
@@ -334,7 +334,7 @@ namespace SquareRouteProject.Presentation.Identity
             return identityUser;
         }
 
-        private void populateIdentityUser(IdentityUser identityUser, Entities.User user)
+        public void populateIdentityUser(IdentityUser identityUser, Entities.User user)
         {
             identityUser.Id = user.UserId;
             identityUser.UserName = user.UserName;
