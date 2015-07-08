@@ -8,10 +8,10 @@ namespace SquareRouteProject.Infastructure
     public class UnitOfWork : IUnitOfWork
     {
         #region Fields
-        private readonly ApplicationDbContext _context;
+        public readonly ApplicationDbContext _context;
         private IExternalLoginRepository _externalLoginRepository;
         private IRoleRepository _roleRepository;
-        private IUserRepository _userRepository;
+        public IUserRepository _userRepository;
         #endregion
 
         #region Constructors

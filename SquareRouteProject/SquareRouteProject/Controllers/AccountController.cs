@@ -17,20 +17,24 @@ using SquareRouteProject.Presentation.Models;
 using SquareRouteProject.Presentation.Providers;
 using SquareRouteProject.Presentation.Results;
 using SquareRouteProject.Presentation.Identity;
-using System.Web.Mvc;
 //using System.Web.Mvc;
+using System.Web.Http;
 
 namespace SquareRouteProject.Presentation.Controllers
 {    
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : ApiController
     {
         private readonly UserManager<IdentityUser, Guid> _userManager;
 
-        public AccountController(UserManager<IdentityUser, Guid> userManager)
+        public AccountController(UserManager<IdentityUser, Guid> userManager,
+            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
             _userManager = userManager;
+            AccessTokenFormat = accessTokenFormat;
         }
+
+        public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
         //
         // GET: /Account/Login
@@ -76,10 +80,10 @@ namespace SquareRouteProject.Presentation.Controllers
 
         //
         // POST: /Account/Register
-        [HttpPost]
+        [IHttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<IHttpActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {

@@ -16,7 +16,7 @@ namespace SquareRouteProject.Infastructure
         {
         }
 
-        internal IDbSet<User> Users { get; set; }
+        public IDbSet<User> Users { get; set; }
         internal IDbSet<Role> Roles { get; set; }
         internal IDbSet<ExternalLogin> Logins { get; set; }
 
