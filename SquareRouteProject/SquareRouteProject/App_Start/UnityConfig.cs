@@ -4,7 +4,6 @@ using Microsoft.Practices.Unity;
 using SquareRouteProject.Domain;
 using SquareRouteProject.Presentation.Identity;
 using System.Web.Mvc;
-using Microsoft.Practices.Unity;
 using Unity.Mvc5;
 using SquareRouteProject.Infastructure;
 using System;
@@ -17,7 +16,7 @@ namespace SquareRouteProject.Presentation
         {
 			var container = new UnityContainer();
 
-            container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager(), new InjectionConstructor("Mvc5IdentityExample"));
+            container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager(), new InjectionConstructor("SquareRouteProject"));
             container.RegisterType<IUserStore<IdentityUser, Guid>, UserStore>(new TransientLifetimeManager());
             container.RegisterType<RoleStore>(new TransientLifetimeManager());
             

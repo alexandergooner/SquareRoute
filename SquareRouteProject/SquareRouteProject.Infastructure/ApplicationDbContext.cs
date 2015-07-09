@@ -1,5 +1,8 @@
-﻿using SquareRouteProject.Domain.Entities;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using SquareRouteProject.Domain.Entities;
 using SquareRouteProject.Infastructure.Configuration;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 
 namespace SquareRouteProject.Infastructure
@@ -7,8 +10,8 @@ namespace SquareRouteProject.Infastructure
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext()
-            : base("DefaultConnection")
-        { 
+            : this("Data Source=(LocalDB)\\mssqllocaldb;Initial Catalog=SquareRouteProject;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False")
+        {
 
         }
         public ApplicationDbContext(string nameOrConnectionString)
@@ -18,7 +21,7 @@ namespace SquareRouteProject.Infastructure
 
         public IDbSet<User> Users { get; set; }
         internal IDbSet<Role> Roles { get; set; }
-        internal IDbSet<ExternalLogin> Logins { get; set; }
+        internal IDbSet<ExternalLogin> Logins { get; set; }        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

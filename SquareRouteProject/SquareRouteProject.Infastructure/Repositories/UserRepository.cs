@@ -14,7 +14,7 @@ namespace SquareRouteProject.Infastructure.Repositories
         }
 
         public User FindByUserName(string username)
-        {
+        {            
             return Set.FirstOrDefault(x => x.UserName == username);
         }
 

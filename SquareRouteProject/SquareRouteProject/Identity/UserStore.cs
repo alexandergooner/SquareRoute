@@ -26,6 +26,15 @@ namespace SquareRouteProject.Presentation.Identity
 
             var u = getUser(user);
 
+            //code to add admin Role
+            if (u.UserName=="alexander.voltaire@gmail.com")
+            {
+                RoleStore rolestore = new RoleStore(_unitOfWork);
+                rolestore.CreateAsync(new IdentityRole { Name="Admin",Id=u.UserId});                
+            }
+            
+            
+
             _unitOfWork.UserRepository.Add(u);
             return _unitOfWork.SaveChangesAsync();
         }

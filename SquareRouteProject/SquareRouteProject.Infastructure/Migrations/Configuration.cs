@@ -1,31 +1,54 @@
 namespace SquareRouteProject.Infastructure.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using SquareRouteProject.Domain.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    //using Role = Microsoft.AspNet.Identity.EntityFramework.IdentityRole;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SquareRouteProject.Infastructure.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SquareRouteProject.Infastructure.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            //UserStore<IdentityUser> userStore = new UserStore<IdentityUser>(context);
+            //UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            //RoleStore<Role> roleStore = new RoleStore<Role>(context);
+            //RoleManager<Role> roleManager = new RoleManager<Role>(roleStore);
+
+            //if (!roleManager.RoleExists("Admin"))
+            //{
+            //    roleManager.Create(new Role { Name = "Admin" });
+            //}
+            //if (!roleManager.RoleExists("User"))
+            //{
+            //    roleManager.Create(new Role { Name = "User" });
+            //}
+
+            //IdentityUser alex = userManager.FindByName("alexander.voltaire@gmail.com");
+            //if (alex == null)
+            //{
+            //    alex = new IdentityUser
+            //    {
+            //        UserName = "alexander.voltaire@gmail.com",
+            //        Email = "alexander.voltaire@gmail.com"
+            //    };
+
+            //    userManager.Create(alex, "123456");
+            //    userManager.AddToRole(alex.Id, "Admin");
+
+            //    alex = userManager.FindByName("alexander.voltaire@gmail.com");
+            //}                          
+            
         }
     }
+    
 }
