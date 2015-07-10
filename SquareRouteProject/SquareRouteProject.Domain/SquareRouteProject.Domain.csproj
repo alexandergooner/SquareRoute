@@ -40,9 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\AccessCode.cs" />
+    <Compile Include="Entities\BusStop.cs" />
     <Compile Include="Entities\Claim.cs" />
+    <Compile Include="Entities\District.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Route.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Models\IGenericRepository.cs" />

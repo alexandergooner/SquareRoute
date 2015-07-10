@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SquareRouteProject.Presentation.Models.Data;
+using System;
 using System.Collections.Generic;
 
 namespace SquareRouteProject.Domain.Entities
@@ -40,6 +41,8 @@ namespace SquareRouteProject.Domain.Entities
             get { return _roles ?? (_roles = new List<Role>()); }
             set { _roles = value; }
         }
+
+        public virtual ICollection<Route> Routes { get; set; }
         #endregion
     }
 }

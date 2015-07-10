@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SquareRouteProject.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,8 +13,9 @@ namespace SquareRouteProject.Presentation.Models.Data
         [Key]
         public int RouteId { get; set; }
         public int RouteNum { get; set; }
-
         public int AccessCodeId { get; set; }
+
+
         [ForeignKey("AccessCodeId")]
         public virtual AccessCode AccessCode { get; set; }
 
@@ -22,7 +24,7 @@ namespace SquareRouteProject.Presentation.Models.Data
         public virtual District District { get; set; }
 
         ICollection<BusStop> BusStops { get; set; }
-        public virtual ICollection<ApplicationUser> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
 
 
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using SquareRouteProject.Domain.Entities;
 using SquareRouteProject.Infastructure.Configuration;
+using SquareRouteProject.Presentation.Models.Data;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
@@ -34,8 +35,9 @@ namespace SquareRouteProject.Infastructure
             modelBuilder.Configurations.Add(new ExternalLoginConfiguration());
             modelBuilder.Configurations.Add(new ClaimConfiguration());
 
-            modelBuilder.Entity<Routes>()
-                .HasMany<User>()
+            modelBuilder.Entity<Route>()
+                .HasMany<User>(u => u.Users).WithMany(u => u.Routes);
+       
 
          
         }
