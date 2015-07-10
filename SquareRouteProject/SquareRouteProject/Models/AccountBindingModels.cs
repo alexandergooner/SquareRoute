@@ -1,6 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations.Schema;
+using SquareRouteProject.Presentation.Models.Data;
+using System.Collections.Generic;
 
 namespace SquareRouteProject.Presentation.Models
 {
@@ -50,6 +53,18 @@ namespace SquareRouteProject.Presentation.Models
         public string ConfirmPassword { get; set; }
 
         public int RoleType { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string ImageFile { get; set; }
+        public int MobileDevideId { get; set; }
+        public int RouteId { get; set; }
+
+        [ForeignKey("RouteId")]
+        public virtual Route Route { get; set; }
+
+        public virtual ICollection<AccessCode> AccessCodes { get; set; }
+        public virtual ICollection<Route> Routes { get; set; }
+
     }
 
     public class RegisterExternalBindingModel

@@ -3,6 +3,8 @@ using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using SquareRouteProject.Presentation.Models.Data;
 
 namespace SquareRouteProject.Presentation.Identity
 {
@@ -22,8 +24,21 @@ namespace SquareRouteProject.Presentation.Identity
         public Guid Id { get; set; }
         public string UserName { get; set; }
         public int RoleType { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string ImageFile { get; set; }
+        public int MobileDeviceId { get; set; }
+        public int RouteId { get; set; }
         public virtual string PasswordHash { get; set; }
-        public virtual string SecurityStamp { get; set; }        
+        public virtual string SecurityStamp { get; set; }
+
+        [ForeignKey("RouteId")]
+        public virtual Route Route { get; set; }
+
+        public virtual ICollection<AccessCode> AccessCodes { get; set; }
+        public virtual ICollection<Route> Routes { get; set; }
+
+     
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<IdentityUser, Guid> manager, string authenticationType)
         {
