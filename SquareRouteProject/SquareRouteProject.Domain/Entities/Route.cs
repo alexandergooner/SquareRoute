@@ -13,6 +13,8 @@ namespace SquareRouteProject.Presentation.Models.Data
         [Key]
         public int RouteId { get; set; }
         public int RouteNum { get; set; }
+        public string RouteStart { get; set; }
+        public string RouteEnd { get; set; }
         public int AccessCodeId { get; set; }
 
 

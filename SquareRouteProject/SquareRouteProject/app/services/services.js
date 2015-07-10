@@ -3,6 +3,7 @@
         .factory('loginService', loginService)
         .factory('registerService', registerService);
 
+    // LOGIN SERVICE
     function loginService($http, $q, $window) {
         var service = {};
 
@@ -29,6 +30,7 @@
         return service;
     }
 
+    // REGISTER SERVICE
     function registerService($http, $q, $window) {
         var service = {};
 

@@ -25,6 +25,7 @@ namespace SquareRouteProject.Infastructure.Repositories
             return _db.Set<T>().AsQueryable();
         }
 
+
         //Non-Generic Query
         public IQueryable Query(string entityTypeName)
         {
