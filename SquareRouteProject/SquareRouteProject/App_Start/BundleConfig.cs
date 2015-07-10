@@ -31,7 +31,14 @@ namespace SquareRouteProject.Presentation
                 "~/Scripts/lodash.min.js",
                 "~/Scripts/angular-google-maps.min.js",
                 "~/app/app.js", 
-                "~/app/controllers/controllers.js", 
+                "~/app/controllers/AdminController.js",
+                "~/app/controllers/DispatcherController.js",
+                "~/app/controllers/DriverController.js",
+                "~/app/controllers/GoogleMapsController.js",
+                "~/app/controllers/LoginController.js",
+                "~/app/controllers/ParentController.js",
+                "~/app/controllers/RegistrationController.js",
+                "~/app/controllers/WelcomeController.js", 
                 "~/app/services/services.js"));
         }
     }

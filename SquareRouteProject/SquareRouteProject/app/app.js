@@ -6,7 +6,7 @@
         $routeProvider
             .when('/', {
                 templateUrl: '/app/views/welcome.html',
-                controller: 'WelcomeLoginController',
+                controller: 'WelcomeController',
                 controllerAs: 'vm'
             })
             .when('/parent', {
