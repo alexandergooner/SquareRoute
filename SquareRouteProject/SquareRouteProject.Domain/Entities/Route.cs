@@ -23,7 +23,8 @@ namespace SquareRouteProject.Presentation.Models.Data
         [ForeignKey("DistrictId")]
         public virtual District District { get; set; }
 
-        ICollection<BusStop> BusStops { get; set; }
+        public virtual ICollection<BusStop> BusStops { get; set; }
+
         public virtual ICollection<User> Users { get; set; }
 
 
