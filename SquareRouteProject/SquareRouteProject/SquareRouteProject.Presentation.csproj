@@ -232,7 +232,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\controllers\controllers.js" />
+    <Content Include="app\controllers\AdminController.js" />
+    <Content Include="app\controllers\DispatcherController.js" />
+    <Content Include="app\controllers\DriverController.js" />
+    <Content Include="app\controllers\GoogleMapsController.js" />
+    <Content Include="app\controllers\LoginController.js" />
+    <Content Include="app\controllers\ParentController.js" />
+    <Content Include="app\controllers\RegistrationController.js" />
+    <Content Include="app\controllers\WelcomeController.js" />
     <Content Include="app\services\services.js" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\dispatcher.html" />
