@@ -34,12 +34,13 @@
 
         service.register = register;
 
-        function register(email, password, passwordConfirm) {
+        function register(email, password, passwordConfirm, roleType) {
             var deffered = $q.defer();
             var data = {
                 Email: email,
                 Password: password,
-                ConfirmPassword: passwordConfirm
+                ConfirmPassword: passwordConfirm,
+                RoleType: roleType
             };
 
             $http({

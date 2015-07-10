@@ -24,16 +24,7 @@ namespace SquareRouteProject.Presentation.Identity
             if (user == null)
                 throw new ArgumentNullException("user");
 
-            var u = getUser(user);
-
-            //code to add admin Role
-            if (u.UserName=="alexander.voltaire@gmail.com")
-            {
-                RoleStore rolestore = new RoleStore(_unitOfWork);
-                rolestore.CreateAsync(new IdentityRole { Name="Admin",Id=u.UserId});                
-            }
-            
-            
+            var u = getUser(user);                                   
 
             _unitOfWork.UserRepository.Add(u);
             return _unitOfWork.SaveChangesAsync();
@@ -313,7 +304,7 @@ namespace SquareRouteProject.Presentation.Identity
         #endregion
 
         #region Private Methods
-        private Entities.User getUser(IdentityUser identityUser)
+        public Entities.User getUser(IdentityUser identityUser)
         {
             if (identityUser == null)
                 return null;

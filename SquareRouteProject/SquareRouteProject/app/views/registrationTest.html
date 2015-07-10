@@ -58,6 +58,13 @@
                     <span ng-show="registrationForm.confirmPassword.$touched && registrationForm.email.$error.required" class="error">Required</span>
                 </label>
             </div>
+            <div>
+                <label>
+                    Role Type:<br />
+                    <input name="roleType" ng-model="vm.roleType" />
+                    <span ng-show="registrationForm.roleType.$touched && registrationForm.roleType.$error.required" class="error">Required</span>
+                </label>
+            </div>
             <br />
             <br />
             <!--<div>

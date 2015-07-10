@@ -59,7 +59,7 @@
         var vm = this;
         vm.message = "Registration View";
         vm.register = function () {
-            registerService.register(vm.email, vm.createPassword, vm.confirmPassword).then(registerSuccess,registerFail);
+            registerService.register(vm.email, vm.createPassword, vm.confirmPassword, vm.roleType).then(registerSuccess,registerFail);
         }
 
         function registerSuccess() {

@@ -29,9 +29,17 @@ namespace SquareRouteProject.Presentation.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private readonly UserManager<IdentityUser, Guid> _userManager;
+        private Dictionary<int, string> _roles;
+            
 
         public AccountController()
-        { 
+        {
+            _userManager = new UserManager<IdentityUser, Guid>(new UserStore(new UnitOfWork()));
+            _roles = new Dictionary<int, string>();
+            _roles.Add(1, "Admin");
+            _roles.Add(2, "Dispatcher");
+            _roles.Add(3, "Guardian");
+            _roles.Add(4, "Driver");
         }
 
         public AccountController(UserManager<IdentityUser, Guid> userManager,
@@ -707,9 +715,10 @@ namespace SquareRouteProject.Presentation.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new IdentityUser() { UserName = model.Email };
+            var user = new IdentityUser() { UserName = model.Email, RoleType=model.RoleType };
 
-            IdentityResult identityResult = await _userManager.CreateAsync(user, model.Password);            
+            IdentityResult identityResult = await _userManager.CreateAsync(user, model.Password);
+            roleAssigner(user);
 
             if (!identityResult.Succeeded)
             {
@@ -868,6 +877,20 @@ namespace SquareRouteProject.Presentation.Controllers
             }
         }
 
+        private async void roleAssigner(IdentityUser user) 
+        {                        
+            //code to add a Role to a user
+            string roleName;
+            bool result = _roles.TryGetValue(user.RoleType, out roleName);
+            if (result) 
+            {
+                RoleStore roleStore = new RoleStore(new UnitOfWork());
+                UserStore userStore = new UserStore(new UnitOfWork());
+                var u = userStore.getUser(user);
+                await roleStore.CreateAsync(new IdentityRole { Name = roleName, Id = u.UserId });            
+            }
+            
+        }
         #endregion
     }
 }
