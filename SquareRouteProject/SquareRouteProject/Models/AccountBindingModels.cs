@@ -56,7 +56,7 @@ namespace SquareRouteProject.Presentation.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ImageFile { get; set; }
-        public int MobileDevideId { get; set; }
+        public int MobileDeviceId { get; set; }
         public int RouteId { get; set; }
 
         [ForeignKey("RouteId")]

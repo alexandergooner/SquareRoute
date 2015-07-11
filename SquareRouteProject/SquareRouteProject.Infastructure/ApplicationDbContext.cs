@@ -9,9 +9,9 @@ using System.Data.Entity;
 namespace SquareRouteProject.Infastructure
 {
     public class ApplicationDbContext : DbContext
-    {
+    {        
         public ApplicationDbContext()
-            : this("Data Source=(LocalDB)\\mssqllocaldb;Initial Catalog=SquareRouteProject;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False")
+            : this(ConnectionInfo.connectionString)
         {
 
         }

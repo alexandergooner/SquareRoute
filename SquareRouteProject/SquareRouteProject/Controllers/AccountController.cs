@@ -721,7 +721,7 @@ namespace SquareRouteProject.Presentation.Controllers
                 FirstName = model.FirstName, 
                 LastName = model.LastName, 
                 ImageFile = model.ImageFile, 
-                MobileDeviceId = model.MobileDevideId, 
+                MobileDeviceId = model.MobileDeviceId, 
                 RouteId = model.RouteId, 
                 Route = model.Route, 
                 AccessCodes = model.AccessCodes, 

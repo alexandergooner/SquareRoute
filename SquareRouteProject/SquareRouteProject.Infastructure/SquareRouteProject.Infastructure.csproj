@@ -55,6 +55,7 @@
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Configuration\ClaimConfiguration.cs" />
+    <Compile Include="Configuration\ConnectionInfo.cs" />
     <Compile Include="Configuration\ExternalLoginConfiguration.cs" />
     <Compile Include="Configuration\RoleConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />

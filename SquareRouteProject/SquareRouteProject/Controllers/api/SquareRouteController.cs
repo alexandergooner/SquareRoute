@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using SquareRouteProject.Presentation.Models;
 using SquareRouteProject.Infastructure;
+using SquareRouteProject.Infastructure.Configuration;
 using SquareRouteProject.Domain.Repositories;
 using Microsoft.AspNet.Identity;
 using System.Data.SqlClient;
@@ -19,7 +20,7 @@ namespace SquareRouteProject.Presenation.Controllers.api
         private static UnitOfWork _unitOfWork;
         public IUserRepository _db;
 
-        public SquareRouteController() : this("Data Source=(LocalDB)\\mssqllocaldb;Initial Catalog=SquareRouteProject;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False") { }
+        public SquareRouteController() : this(ConnectionInfo.connectionString) {}
 
         public SquareRouteController(string connectionString) 
         {
