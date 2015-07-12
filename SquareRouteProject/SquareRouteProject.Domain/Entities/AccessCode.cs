@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace SquareRouteProject.Presentation.Models.Data
+namespace SquareRouteProject.Domain.Entities
 {
     public class AccessCode
     {
