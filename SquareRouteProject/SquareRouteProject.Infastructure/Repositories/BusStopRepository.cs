@@ -16,6 +16,11 @@ namespace SquareRouteProject.Infastructure.Repositories
         { 
         }
 
+        public IRepository<BusStop> Repo
+        {
+            get { return this; }
+        }
+
         //GET BusStop by BusStopId
         public BusStop GetStopById(int busStopId)
         {

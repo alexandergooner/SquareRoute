@@ -9,5 +9,6 @@ namespace SquareRouteProject.Domain.Repositories
         BusStop GetStopById(int busStopId);
         BusStop GetStopByLocation(string location);
         IList<BusStop> GetStopsByRouteId(int routeId);
+        IRepository<BusStop> Repo { get; }
     }
 }

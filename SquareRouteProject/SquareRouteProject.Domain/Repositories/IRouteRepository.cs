@@ -10,5 +10,6 @@ namespace SquareRouteProject.Domain.Repositories
         Route GetRouteById(int routeId);
         Route GetRouteByRouteNum(int routeNum);
         IList<Route> GetRoutesByDistrictId(int districtId);
+        IRepository<Route> Repo { get; }
     }
 }

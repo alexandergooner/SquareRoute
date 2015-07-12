@@ -8,5 +8,6 @@ namespace SquareRouteProject.Domain.Repositories
         AccessCode GetAccessCodeById(int accessCodeId);
         AccessCode GetAccessCodeByName(string accessCodeName);
         AccessCode GetAccessCodeByRouteId(int routeId);
+        IRepository<AccessCode> Repo { get; }
     }
 }
