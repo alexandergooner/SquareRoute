@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations.Schema;
-using SquareRouteProject.Presentation.Models.Data;
+﻿using Newtonsoft.Json;
+using SquareRouteProject.Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SquareRouteProject.Presentation.Models
 {

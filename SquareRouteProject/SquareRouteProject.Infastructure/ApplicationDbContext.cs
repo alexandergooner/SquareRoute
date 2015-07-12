@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using SquareRouteProject.Domain.Entities;
 using SquareRouteProject.Infastructure.Configuration;
-using SquareRouteProject.Presentation.Models.Data;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;

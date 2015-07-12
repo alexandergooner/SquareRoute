@@ -1,5 +1,4 @@
-﻿using SquareRouteProject.Presentation.Models.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace SquareRouteProject.Domain.Entities

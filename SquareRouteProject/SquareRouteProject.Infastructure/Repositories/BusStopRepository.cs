@@ -1,6 +1,6 @@
 ﻿using SquareRouteProject.Domain.Models;
 using SquareRouteProject.Domain.Repositories;
-using SquareRouteProject.Presentation.Models.Data;
+using SquareRouteProject.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

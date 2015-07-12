@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Security.Claims;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using SquareRouteProject.Presentation.Models.Data;
+using SquareRouteProject.Domain.Entities;
 
 namespace SquareRouteProject.Presentation.Identity
 {

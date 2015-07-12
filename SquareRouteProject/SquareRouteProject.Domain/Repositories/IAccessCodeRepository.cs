@@ -1,4 +1,4 @@
-﻿using SquareRouteProject.Presentation.Models.Data;
+﻿using SquareRouteProject.Domain.Entities;
 using System;
 namespace SquareRouteProject.Domain.Repositories
 {
