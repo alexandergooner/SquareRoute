@@ -10,11 +10,11 @@ using SquareRouteProject.Domain.Models;
 
 namespace SquareRouteProject.Infastructure.Repositories
 {
-    class GenericRepository : IGenericRepository
+    class GenericRepository : IGenericRepository 
     {
         private DbContext _db;
 
-        public GenericRepository(DbContext db)
+        public GenericRepository(ApplicationDbContext db)
         {
             _db = db;
         }

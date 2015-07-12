@@ -12,14 +12,24 @@ namespace SquareRouteProject.Infastructure.Repositories
         private ApplicationDbContext _context;
         private DbSet<TEntity> _set;
 
+        //Constructor
         internal Repository(ApplicationDbContext context)
         {
             _context = context;
         }
 
+        //Properties
         protected DbSet<TEntity> Set
         {
             get { return _set ?? (_set = _context.Set<TEntity>()); }
+        }
+
+        #region Methods
+
+        //Generic Query
+        public IQueryable<TEntity> Query()
+        { 
+            return Set.AsQueryable();
         }
 
         public List<TEntity> GetAll()
@@ -87,5 +97,6 @@ namespace SquareRouteProject.Infastructure.Repositories
         {
             Set.Remove(entity);
         }
+        #endregion
     }
 }

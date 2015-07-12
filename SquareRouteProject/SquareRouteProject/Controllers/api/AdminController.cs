@@ -8,6 +8,10 @@ namespace SquareRouteProject.Presentation.Controllers.api
 {
     public class AdminController : ApiController
     {
-        //
+        
+        public void main() 
+        { 
+            
+        }
     }
 }
