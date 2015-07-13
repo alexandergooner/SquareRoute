@@ -243,7 +243,8 @@
     <Content Include="app\controllers\ParentController.js" />
     <Content Include="app\controllers\RegistrationController.js" />
     <Content Include="app\controllers\WelcomeController.js" />
-    <Content Include="app\services\services.js" />
+    <Content Include="app\services\RegisterService.js" />
+    <Content Include="app\services\LoginService.js" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\dispatcher.html" />
     <Content Include="app\views\driver.html" />
