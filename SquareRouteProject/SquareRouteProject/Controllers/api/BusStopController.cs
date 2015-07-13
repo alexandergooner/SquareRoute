@@ -42,7 +42,7 @@ namespace SquareRouteProject.Presentation.Controllers.api
 
         // GET api/BusStop/GetBusStopsbyRouteId
         [Route("GetBusStopsbyRouteId")]
-        public IList<BusStop> GetBusStopsbyRouteId(int id)
+        public IList<BusStop> GetBusStopsByRouteId(int id)
         {
             return _unitOfWork.BusStopRepository.GetStopsByRouteId(id);
         }

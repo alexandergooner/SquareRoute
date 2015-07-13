@@ -42,11 +42,11 @@ namespace SquareRouteProject.Presentation.Controllers.api
             return _unitOfWork.AccessCodeRepository.GetAccessCodeById(id);
         }
 
-        // GET api/AccessCode/GetAccessCodeByName
-        [Route("GetAccessCodeByName")]
-        public AccessCode GetAccessCodeByName(string accessCodeName)
+        // GET api/AccessCode/GetAccessCodeByValue
+        [Route("GetAccessCodeByValue")]
+        public AccessCode GetAccessCodeByName(string accessCodeValue)
         {
-            return _unitOfWork.AccessCodeRepository.GetAccessCodeByName(accessCodeName);
+            return _unitOfWork.AccessCodeRepository.GetAccessCodeByValue(accessCodeValue);
         }
 
         // GET api/AccessCode/GetAccessCodeByRouteId

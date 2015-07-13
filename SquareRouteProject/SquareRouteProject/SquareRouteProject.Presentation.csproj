@@ -245,6 +245,7 @@
     <Content Include="app\controllers\WelcomeController.js" />
     <Content Include="app\services\RegisterService.js" />
     <Content Include="app\services\LoginService.js" />
+    <Content Include="app\views\adminTest.html" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\dispatcher.html" />
     <Content Include="app\views\driver.html" />

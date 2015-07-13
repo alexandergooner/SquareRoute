@@ -12,7 +12,7 @@ namespace SquareRouteProject.Domain.Entities
     {
         [Key]
         public int AccessCodeId { get; set; }
-        public string AccessCodeName { get; set; }
+        public string AccessCodeValue { get; set; }
         public int RouteId { get; set; }
 
 

@@ -25,7 +25,7 @@
                 controllerAs: 'vm'
             })
             .when('/admin', {
-                templateUrl: '/app/views/admin.html',
+                templateUrl: '/app/views/adminTest.html',
                 controller: 'AdminController',
                 controllerAs: 'vm'
             })

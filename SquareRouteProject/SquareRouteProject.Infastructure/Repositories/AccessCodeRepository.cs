@@ -28,9 +28,9 @@ namespace SquareRouteProject.Infastructure.Repositories
         }
 
         //GET AccessCode by AccessCodeName
-        public AccessCode GetAccessCodeByName(string accessCodeName)
+        public AccessCode GetAccessCodeByValue(string accessCodeValue)
         {
-            return Set.FirstOrDefault(x => x.AccessCodeName == accessCodeName);
+            return Set.FirstOrDefault(x => x.AccessCodeValue == accessCodeValue);
         }
 
         //GET AccessCode by RouteId
