@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using SquareRouteProject.Presentation.Models;
+using SquareRouteProject.Domain.Models;
 
 namespace SquareRouteProject.Presenation.Controllers.api
 {

@@ -7,6 +7,7 @@
         .controller('AdminController', AdminController)
         .controller('LoginController', LoginController)
         .controller('RegistrationController', RegistrationController)
+        .controller('')
 
 
 
@@ -46,19 +47,47 @@
     }
 
 
-    function LoginController(loginService, $location) {
+    function LoginController($scope, $location, $rootscope, AUTH_EVENTS, AuthService) {
 
-        var vm = this;
-        vm.message = "Login View"
+        $scope.credentials = {
+            username: '',
+            password: ''
+        };
+        $scope.login = function (credentials) {
+
+            AuthService.login(credentials).then(function (user) {
+                $rootscope.$brodcast(AUTH_EVENTS.loginsucess);
+                $scope.setCurrentUser(user);
+            }, function () {
+                $rootscope.$brodcast(AUTH_EVENTS.loginFailed)
+            });
+        };
+
+       
     }
 
 
-    function RegistrationController() {
+    function RegistrationController($scope, $location, $timeout, AuthService) {
 
-        var vm = this;
-        vm.message = "Registration View"
+        vm.savedSucessfully = false;
+        vm.message = "";
+
+        vm.registration = {
+            userName: "",
+            password: "",
+            confirmPassword: ""
+        };
+        vm.signUp= function (){}
+    
 
     }
 
 
 })();
+
+
+//function LoginController(loginService, $location, $rootscope) {
+
+//    var vm = this;
+//    vm.message = "Login View"
+//}

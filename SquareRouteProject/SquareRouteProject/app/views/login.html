@@ -16,18 +16,18 @@
     <br />
     <br />
     <div>
-        <form name="loginForm" novalidate ng-submit="vm.login()">
+        <form name="loginForm" novalidate ng-submit="vm.login(credentials)">
             <div>
                 <label>
                     Username:
-                    <input name="username" ng-required="true" ng-model="vm.username" />
+                    <input name="username" ng-required="true" ng-model="credentials.username" />
                     <span ng-show="loginForm.username.$touched && loginForm.username.$error.required" class="error">Required</span>
                 </label>
             </div>
             <div>
                 <label>
                     Password:
-                    <input name="password" ng-required="true" ng-model="password" />
+                    <input name="password" ng-required="true" ng-model="credential.password" />
                     <span ng-show="loginForm.password.$touched && loginForm.password.$error.required" class="error">Required</span><br />
                 </label>
                 <div class="col-lg-offset-1">
