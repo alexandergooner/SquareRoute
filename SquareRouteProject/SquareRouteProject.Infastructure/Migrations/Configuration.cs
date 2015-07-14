@@ -18,35 +18,39 @@ namespace SquareRouteProject.Infastructure.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            //UserStore<IdentityUser> userStore = new UserStore<IdentityUser>(context);
-            //UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(userStore);
+            AccessCode accessCode = new AccessCode 
+            { 
+                AccessCodeValue="ABC",
+                RouteId=1
+            };
+            District district = new District 
+            { 
+                Name = "HISD" 
+            };
+            Route route = new Route
+            {
+                RouteNum = 1401,
+                RouteStart = "ALMEDA GENOA RD. & CHISWICK RD.",
+                RouteEnd = "ALMEDA GENOA RD. & CHISWICK RD.",
+                AccessCodeId = 1,
+                DistrictId = 1,
+            };
+            BusStop busStop = new BusStop
+            {
+                Location = "ALMEDA GENOA RD. & CHISWICK RD.",
+                RouteId = 1
+            };
+            
 
-            //RoleStore<Role> roleStore = new RoleStore<Role>(context);
-            //RoleManager<Role> roleManager = new RoleManager<Role>(roleStore);
+            context.AccessCodes.AddOrUpdate(accessCode);
+            context.SaveChanges();
+            context.Districts.AddOrUpdate(district);
+            context.SaveChanges();            
+            context.Routes.AddOrUpdate(route);
+            context.SaveChanges();
+            context.BusStops.AddOrUpdate(busStop);
+            context.SaveChanges();
 
-            //if (!roleManager.RoleExists("Admin"))
-            //{
-            //    roleManager.Create(new Role { Name = "Admin" });
-            //}
-            //if (!roleManager.RoleExists("User"))
-            //{
-            //    roleManager.Create(new Role { Name = "User" });
-            //}
-
-            //IdentityUser alex = userManager.FindByName("alexander.voltaire@gmail.com");
-            //if (alex == null)
-            //{
-            //    alex = new IdentityUser
-            //    {
-            //        UserName = "alexander.voltaire@gmail.com",
-            //        Email = "alexander.voltaire@gmail.com"
-            //    };
-
-            //    userManager.Create(alex, "123456");
-            //    userManager.AddToRole(alex.Id, "Admin");
-
-            //    alex = userManager.FindByName("alexander.voltaire@gmail.com");
-            //}                          
             
         }
     }

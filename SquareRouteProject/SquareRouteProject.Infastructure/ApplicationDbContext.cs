@@ -24,8 +24,8 @@ namespace SquareRouteProject.Infastructure
         internal IDbSet<ExternalLogin> Logins { get; set; }
         public IDbSet<Route> Routes { get; set; }
         public IDbSet<AccessCode> AccessCodes { get; set; }
-        public IDbSet<BusStop> BusStop { get; set; }
-        public IDbSet<District> District { get; set; }
+        public IDbSet<BusStop> BusStops { get; set; }
+        public IDbSet<District> Districts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
