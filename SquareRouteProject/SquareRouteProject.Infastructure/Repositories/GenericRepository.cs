@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SquareRouteProject.Domain.Models;
 
 namespace SquareRouteProject.Infastructure.Repositories
 {
@@ -10,7 +14,7 @@ namespace SquareRouteProject.Infastructure.Repositories
     {
         private DbContext _db;
 
-        public GenericRepository(DbContext db)
+        public GenericRepository(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -20,6 +24,7 @@ namespace SquareRouteProject.Infastructure.Repositories
         {
             return _db.Set<T>().AsQueryable();
         }
+
 
         //Non-Generic Query
         public IQueryable Query(string entityTypeName)

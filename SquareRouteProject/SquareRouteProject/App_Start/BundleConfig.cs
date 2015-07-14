@@ -22,14 +22,27 @@ namespace SquareRouteProject.Presentation
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/style.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js", 
-                "~/Scripts/angular-route.js", 
+                "~/Scripts/angular-route.js",
+                "~/Scripts/lodash.min.js",
+                "~/Scripts/angular-google-maps.min.js",
                 "~/app/app.js", 
-                "~/app/controllers/controllers.js", 
-                "~/app/services/services.js"));
+                "~/app/controllers/AdminController.js",
+                "~/app/controllers/DispatcherController.js",
+                "~/app/controllers/DriverController.js",
+                "~/app/controllers/GoogleMapsController.js",
+                "~/app/controllers/LoginController.js",
+                "~/app/controllers/ParentController.js",
+                "~/app/controllers/RegistrationController.js",
+                "~/app/controllers/WelcomeController.js",
+                "~/app/services/LoginService.js",
+                "~/app/services/RegisterService.js",
+                "~/app/services/RouteService.js"
+                ));
         }
     }
 }

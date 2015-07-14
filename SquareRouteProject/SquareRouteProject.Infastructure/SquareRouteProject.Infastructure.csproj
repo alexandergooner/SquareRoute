@@ -36,6 +36,12 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -46,14 +52,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Repositories\AccessCodeRepository.cs" />
+    <Compile Include="UnitOfWorkDataModels.cs" />
+    <Compile Include="Configuration\ClaimConfiguration.cs" />
+    <Compile Include="Configuration\ConnectionInfo.cs" />
+    <Compile Include="Configuration\ExternalLoginConfiguration.cs" />
+    <Compile Include="Configuration\RoleConfiguration.cs" />
+    <Compile Include="Configuration\UserConfiguration.cs" />
+    <Compile Include="Migrations\201507081551573_initial.cs" />
+    <Compile Include="Migrations\201507081551573_initial.Designer.cs">
+      <DependentUpon>201507081551573_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507091446357_initial1.cs" />
+    <Compile Include="Migrations\201507091446357_initial1.Designer.cs">
+      <DependentUpon>201507091446357_initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507092226545_identityUpdate.cs" />
+    <Compile Include="Migrations\201507092226545_identityUpdate.Designer.cs">
+      <DependentUpon>201507092226545_identityUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507101618428_models.cs" />
+    <Compile Include="Migrations\201507101618428_models.Designer.cs">
+      <DependentUpon>201507101618428_models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507102126100_AddRouteStartEnd.cs" />
+    <Compile Include="Migrations\201507102126100_AddRouteStartEnd.Designer.cs">
+      <DependentUpon>201507102126100_AddRouteStartEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\GenericImageRepository.cs" />
+    <Compile Include="Repositories\BusStopRepository.cs" />
+    <Compile Include="Repositories\ExternalLoginRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\IGenericImageRepository.cs" />
-    <Compile Include="Repositories\IGenericRepository.cs" />
-    <Compile Include="Repositories\ImageService.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RepositoryExtensions.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\RouteRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -66,7 +103,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <EmbeddedResource Include="Migrations\201507081551573_initial.resx">
+      <DependentUpon>201507081551573_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507091446357_initial1.resx">
+      <DependentUpon>201507091446357_initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507092226545_identityUpdate.resx">
+      <DependentUpon>201507092226545_identityUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507101618428_models.resx">
+      <DependentUpon>201507101618428_models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507102126100_AddRouteStartEnd.resx">
+      <DependentUpon>201507102126100_AddRouteStartEnd.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using SquareRouteProject.Domain.Entities;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SquareRouteProject.Presentation.Models
 {
@@ -48,6 +51,20 @@ namespace SquareRouteProject.Presentation.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public int RoleType { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string ImageFile { get; set; }
+        public int MobileDeviceId { get; set; }
+        public int RouteId { get; set; }
+
+        [ForeignKey("RouteId")]
+        public virtual Route Route { get; set; }
+
+        public virtual ICollection<AccessCode> AccessCodes { get; set; }
+        public virtual ICollection<Route> Routes { get; set; }
+
     }
 
     public class RegisterExternalBindingModel

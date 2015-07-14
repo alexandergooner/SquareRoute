@@ -1,1 +1,61 @@
 ﻿{{vm.message}}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        .ng-invalid.ng-touched {
+            background-color: rgba(255, 15, 15, 0.25);
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <h3>Registration Form</h3>
+    <div>
+        <form name="adminTestForm" novalidate ng-submit="vm.register()">
+            <br />
+            <div>
+                <label>
+                    AccessCode Add:                    
+                    <input name="email" ng-model="vm.addAccess" />
+                    <button ng-click="vm.addAccessCode()">Add AccessCode</button>                    
+                </label>
+            </div>
+            <br />
+            <br />
+            <div>
+                <label>
+                    Create Password:<br />
+                    <input name="createPassword" ng-model="vm.createPassword" />
+                    <span ng-show="registrationForm.createPassword.$touched && registrationForm.createPassword.$error.required" class="error">Required</span>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Confirm Password:<br />
+                    <input name="confirmPassword" ng-model="vm.confirmPassword" />
+                    <span ng-show="registrationForm.confirmPassword.$touched && registrationForm.email.$error.required" class="error">Required</span>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Role Type:<br />
+                    <input name="roleType" ng-model="vm.roleType" />
+                    <span ng-show="registrationForm.roleType.$touched && registrationForm.roleType.$error.required" class="error">Required</span>
+                </label>
+            </div>
+            <br />
+            <br />
+            <br />
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</body>
+
+</html>
