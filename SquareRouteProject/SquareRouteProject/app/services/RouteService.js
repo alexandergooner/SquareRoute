@@ -1,156 +1,124 @@
-﻿(function () {
+﻿'use strict';
+(function () {
     angular.module('SquareRoute')
         .factory('routeService', routeService);
 
     // ROUTE SERVICE
     function routeService($http, $q, $window) {
-        var service = {};
+        var routeService = {};
 
-        service.getRouteById = getRouteById;
-        service.getRouteByRouteNum = getRouteByRouteNum;
-        service.getRoutesByDistrictId = getRoutesByDistrictId;
-        service.getAllRoutes = getAllRoutes;
-        service.addRoute = addRoute;
-        service.updateRoute = updateRoute;
-        service.deleteRouteById = deleteRouteById
+        routeService.getRouteById = getRouteById;
+        routeService.getRouteByRouteNum = getRouteByRouteNum;
+        routeService.getRoutesByDistrictId = getRoutesByDistrictId;
+        routeService.getAllRoutes = getAllRoutes;
+        routeService.addRoute = addRoute;
+        routeService.updateRoute = updateRoute;
+        routeService.deleteRouteById = deleteRouteById
 
         // GET by RouteId
         function getRouteById(id) {
-            var deferred = $q.defer();
-            var data = id;
-
+            var deferred = $q.defer();            
             http.get({
                 url: '/api/Route/GetRouteById',
-                data: data
+                data: id
                 //headers:
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
             return deferred.promise;
         }
 
         //GET by RouteNum
         function getRouteByRouteNum(routeNum) {
-            var deferred = $q.defer();
-            var data = routeNum;
-
+            var deferred = $q.defer();        
             $http.get({
                 url: '/api/Route/GetRouteByRouteNum',
-                data: data
+                data: routeNum
                 //headers
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
             return deferred.promise();
         }
 
         //GET by DistrictId
         function getRoutesByDistrictId(districtId) {
             var deferred = $q.defer();
-            var data = districtId;
-
             $http.get({
                 url: '/api/Route/GetRoutesByDistrictId',
-                data: data
+                data: districtId
                 //headers
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             })
-
             return deferred.promise();
         }
 
         //GET all Routes
         function getAllRoutes() {
             var deferred = $q.defer();
-
             $http.get({
                 url: '/api/Route/GetAllRoutes',
                 //headers:
-            }).success(function () {
-                deferred.resolve();
-            }).error(function () {
-                deferred.reject();
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
             });
-
             return deferred.promise();
         }
             
-
         //ADD Route
-        function addRoute(routeId, routeNum, routeStart, routeEnd, accessCodeId, districtId) {
-            var deferred = $q.defer();
-            var data = {
-                RouteId: routeId,
-                RouteNum: routeNum,
-                RouteStart: routeStart,
-                RouteEnd: routeEnd,
-                AccessCodeId: accessCodeId,
-                DistrictId: districtId
-            };
-
+        function addRoute(route) {
+            var deferred = $q.defer();            
             http.post({
                 url: '/api/Route/AddRoute',
-                data: data
+                data: route
                 //headers:
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
             return deferred.promise;
         }
         
         //UPDATE Route
-        function updateRoute(routeId, routeNum, routeStart, routeEnd, accessCodeId, districtId) {
+        function updateRoute(route) {
             var deferred = $q.defer();
-            var data = {
-                RouteId: routeId,
-                RouteNum: routeNum,
-                RouteStart: routeStart,
-                RouteEnd: routeEnd,
-                AccessCodeId: accessCodeId,
-                DistrictId: districtId
-            };
-
             http.post({
                 url: '/api/Route/UpdateRoute',
-                data: data
+                data: route
                 //headers:
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
             return deferred.promise;
         }
 
         //DELETE Route
         function deleteRouteById(id) {
             var deferred = $q.defer();
-            var data = id;
-
             $http.post({
                 url: '/api/Route/DeleteRouteById',
-                data: data
+                data: id
                 //headers:
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
             return deferred.promise;
         }
+
+        return routeService;
     }
 })();

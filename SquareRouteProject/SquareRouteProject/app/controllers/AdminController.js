@@ -2,7 +2,7 @@
     angular.module('SquareRoute')
         .controller('AdminController', AdminController);
 
-    function AdminController(busStopService,routeService,accessCodeService,userService) {
+    function AdminController(busStopService,routeService,accessCodeService) {
         var vm = this;
         vm.message = "Admin View";
 
