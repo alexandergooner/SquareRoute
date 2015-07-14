@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('SquareRoute')
-        .controller('AdminController', AdminController)
+        .controller('AdminController', AdminController);
 
     function AdminController(busStopService,routeService,accessCodeService,userService) {
         var vm = this;

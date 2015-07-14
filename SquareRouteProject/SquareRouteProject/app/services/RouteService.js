@@ -17,9 +17,7 @@
         // GET by RouteId
         function getRouteById(id) {
             var deferred = $q.defer();
-            var data = {
-                RouteId: id
-            };
+            var data = id;
 
             http.get({
                 url: '/api/Route/GetRouteById',
@@ -37,9 +35,7 @@
         //GET by RouteNum
         function getRouteByRouteNum(routeNum) {
             var deferred = $q.defer();
-            var data = {
-                RouteNum: routeNum
-            }
+            var data = routeNum;
 
             $http.get({
                 url: '/api/Route/GetRouteByRouteNum',
@@ -57,9 +53,7 @@
         //GET by DistrictId
         function getRoutesByDistrictId(districtId) {
             var deferred = $q.defer();
-            var data = {
-                DistrictId: districtId
-            }
+            var data = districtId;
 
             $http.get({
                 url: '/api/Route/GetRoutesByDistrictId',
@@ -120,6 +114,7 @@
         function updateRoute(routeId, routeNum, routeStart, routeEnd, accessCodeId, districtId) {
             var deferred = $q.defer();
             var data = {
+                RouteId: routeId,
                 RouteNum: routeNum,
                 RouteStart: routeStart,
                 RouteEnd: routeEnd,
@@ -143,9 +138,7 @@
         //DELETE Route
         function deleteRouteById(id) {
             var deferred = $q.defer();
-            var data = {
-                RouteId: id
-            }
+            var data = id;
 
             $http.post({
                 url: '/api/Route/DeleteRouteById',
