@@ -1,0 +1,22 @@
+﻿{{vm.message}}
+<table cass="table table-striped">
+    <tbody>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Send Email
+                        <input ng-model="vm.emailTo">
+                    </label><br />
+                    <label>
+                        <input ng-model="vm.emailSubject">
+                    </label><br />
+                    <label>
+                        <input ng-model="vm.emailBody">
+                    </label><br />
+                    <button ng-click="vm.sendEmail()">Send</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

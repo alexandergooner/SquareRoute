@@ -214,6 +214,7 @@
     <Compile Include="Controllers\api\AccessCodeController.cs" />
     <Compile Include="Controllers\api\AdminController.cs" />
     <Compile Include="Controllers\api\BusStopController.cs" />
+    <Compile Include="Controllers\api\EmailController.cs" />
     <Compile Include="Controllers\api\RouteController.cs" />
     <Compile Include="Controllers\api\SquareRouteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -238,6 +239,7 @@
     <Content Include="app\controllers\AdminController.js" />
     <Content Include="app\controllers\DispatcherController.js" />
     <Content Include="app\controllers\DriverController.js" />
+    <Content Include="app\controllers\EmailController.js" />
     <Content Include="app\controllers\GoogleMapsController.js" />
     <Content Include="app\controllers\LoginController.js" />
     <Content Include="app\controllers\ParentController.js" />
@@ -245,6 +247,7 @@
     <Content Include="app\controllers\WelcomeController.js" />
     <Content Include="app\services\AccessCodeService.js" />
     <Content Include="app\services\BusStopService.js" />
+    <Content Include="app\services\EmailService.js" />
     <Content Include="app\services\RegisterService.js" />
     <Content Include="app\services\LoginService.js" />
     <Content Include="app\services\RouteService.js" />
@@ -252,6 +255,7 @@
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\dispatcher.html" />
     <Content Include="app\views\driver.html" />
+    <Content Include="app\views\emailTest.html" />
     <Content Include="app\views\googlemaps.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\parent.html" />
