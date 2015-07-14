@@ -38,8 +38,11 @@ namespace SquareRouteProject.Presentation
                 "~/app/controllers/LoginController.js",
                 "~/app/controllers/ParentController.js",
                 "~/app/controllers/RegistrationController.js",
-                "~/app/controllers/WelcomeController.js", 
-                "~/app/services/services.js"));
+                "~/app/controllers/WelcomeController.js",
+                "~/app/services/LoginService.js",
+                "~/app/services/RegisterService.js",
+                "~/app/services/RouteService.js"
+                ));
         }
     }
 }
