@@ -15,10 +15,6 @@ namespace SquareRouteProject.Domain.Entities
         public string AccessCodeValue { get; set; }
         public int RouteId { get; set; }
 
-
-        [ForeignKey("RouteId")]
-        public virtual Route Route { get; set; }
-
         public virtual ICollection<Route> Routes { get; set; }
         public virtual ICollection<User> Users { get; set; }
 
