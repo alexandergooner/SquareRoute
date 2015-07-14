@@ -1,1 +1,274 @@
 ﻿{{vm.message}}
+{{vm.result}}
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        AccessCode: Add - AccessCodeValue
+                        <input ng-model="vm.accessCodeValue_Add">
+                    </label><br />
+                    <label>
+                        AccessCode: Add - AccessCodeRouteId
+                        <input ng-model="vm.accessCodeRouteId_Add">
+                    </label><br />
+                    <button ng-click="vm.addAccessCode()">Add</button>
+                </div>
+            </td>
+            
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        AccessCode: Get - AccessCodeById
+                        <input ng-model="vm.accessCodeId_Get">
+                    </label><br />
+                    <button ng-click="vm.getAccessCodeById()">AccessCodeById</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        AccessCode: Get - AccessCodeByCodeValue
+                        <input ng-model="vm.accessCodeValue_Get">                        
+                    </label><br />
+                    <button ng-click="vm.getAccessCodeByValue()">AccessCodeByCodeValue</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        AccessCode: Get - AccessCodeRouteId
+                        <input ng-model="vm.accessCodeRouteId_Get">
+                    </label><br />
+                    <button ng-click="vm.getAccessCodeByRouteId()">AccessCodeByRouteId</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        AccessCode: Get - GetAll
+                        <br /><button ng-click="vm.getAllAccessCodes()">GetAllAccessCodes</button>
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        AccessCode: Update - AccessCodeId
+                        <input ng-model="vm.accessCodeId_Update">
+                    </label><br />
+                    <label>
+                        AccessCode: Update - AccessCodeValue
+                        <input ng-model="vm.accessCodeValue_Update">
+                    </label><br />
+                    <button ng-click="vm.updateAccessCode()">UpdateAccessCode</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        AccessCode: Delete - AccessCodeID
+                        <input ng-model="vm.accessCodeId_Delete">
+                    </label><br />
+                    <button ng-click="vm.deleteAccessCodeById">DeleteAccessCodeById</button>
+                </div>
+            </td>
+        </tr>
+        <tr></tr>   
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Add - BusStopLocation
+                        <input ng-model="vm.busStopLocation_Add">
+                    </label><br />
+                    <label>
+                        BusStop: Add - BusStopRouteId
+                        <input ng-model="vm.busStopRouteId_Add">
+                    </label><br />
+                    <button ng-click="vm.addBusStop()">Add BusStop</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Get - BusStopId
+                        <input ng-model="vm.busStopId_Get">
+                    </label><br />
+                    <button ng-click="vm.getBusStopById()">BusStopById</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Get - BusStopRouteId
+                        <input ng-model="vm.busStopRouteId_Get">
+                    </label><br />
+                    <button ng-click="vm.getBusStopsByRouteId()">GetBusStopByRouteId</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Get - GetAllBusStops
+                        <br /><button ng-click="vm.getAllBusStops()">GetAllBusStops</button>
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Update - BusStopId
+                        <input ng-model="vm.busStopId_Update">
+                    </label><br />
+                    <label>
+                        BusStop: Update - BusStopLocation
+                        <input ng-model="vm.busStopLocation_Update">
+                    </label><br />
+                    <label>
+                        BusStop: Update - BusStopRouteId
+                        <input ng-model="vm.busStopRouteId_Update">
+                    </label><br />
+                    <button ng-click="vm.updateBusStop()">UpdateBusStop</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Delete - BusStopId
+                        <input ng-model="vm.busStopId_Delete">
+                    </label><br />
+                    <button ng-click="vm.deleteBusStopById()">DeleteBusStop</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Add - RouteNum
+                        <input ng-model="vm.routeNum_Add">
+                    </label><br />
+                    <label>
+                        Route: Add - RouteStart
+                        <input ng-model="vm.routeStart_Add">
+                    </label><br />
+                    <label>
+                        Route: Add - RouteEnd
+                        <input ng-model="vm.routeEnd_Add">
+                    </label><br />
+                    <label>
+                        Route: Add - RouteAccessCodeId
+                        <input ng-model="vm.routeAccessCodeId_Add">
+                    </label><br />
+                    <button ng-click="vm.addRoute()">AddRoute</button>                    
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Get - RoutebyId
+                        <input ng-model="vm.routeId_Get">
+                    </label><br />
+                    <button ng-click="vm.getRouteById()">GetRouteById</button>                        
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Get - RouteNum
+                        <input ng-model="vm.routeRouteNum_Get">
+                    </label><br />
+                    <button ng-click="vm.getRouteByRouteNum()">GetRouteByRouteNum</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Get - DistrictId
+                        <input ng-model="vm.routeDistrictId_Get">
+                    </label><br />
+                    <button ng-click="vm.getRoutesByDistrictId()">GetRouteByDistrictId</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Get - GetAllRoutes
+                        <br /><button ng-click="vm.getAllRoutes()">GetAllRoutes</button>
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Update - RouteId
+                        <input ng-model="vm.routeId_Update">
+                    </label><br />
+                    <label>
+                        Route: Update - RouteNum
+                        <input ng-model="vm.routeNum_Update">
+                    </label><br />
+                    <label>
+                        Route: Update - RouteStart
+                        <input ng-model="vm.routeStart_Update">
+                    </label><br />
+                    <label>
+                        Route: Update - RouteEnd
+                        <input ng-model="vm.routeEnd_Update">
+                    </label><br />
+                    <label>
+                        Route: Update - RouteAccessCodeId
+                        <input ng-model="vm.routeAccessCodeId_Update">
+                    </label><br />
+                    <button ng-click="vm.updateRoute()">UpdateRoute</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Delete - RouteId
+                        <input ng-model="vm.routeId_Delete">
+                    </label><br />
+                    <button ng-click="vm.deleteRouteById()">DeleteRoute</button> 
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!---->

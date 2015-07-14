@@ -56,7 +56,7 @@
         //AccessCode DELETE Methods
         vm.deleteAccessCodeById = function () {
 
-            vm.input = vm.accessCodeId_Delete;
+            vm.input = vm.accessCodeId_Delete
 
             accessCodeService.deleteAccessCodeById(vm.input).then(callSuccess, callFail);
         }
@@ -76,13 +76,13 @@
         //BusStop GET Methods
         vm.getBusStopById = function () {
 
-            vm.input = busStopId_Get;
+            vm.input = vm.busStopId_Get;
 
             busStopService.getBusStopById(vm.input).then(callSuccess, callFail);
         }
         vm.getBusStopsByRouteId = function () {
 
-            vm.input = busStopRouteId_Get;
+            vm.input = vm.busStopRouteId_Get;
 
             busStopService.getBusStopsByRouteId(vm.input).then(callSuccess, callFail);
         }
@@ -173,9 +173,13 @@
         //Promise return Functions
         function callSuccess(data) {
             vm.result = data;
+            console.log("Success");
+            console.log(data);
         }
-        function callFail(data) {
+        function callFail(data) {                        
             vm.result = data;
+            console.log("Failed");
+            console.log(data);
         }
             
     }
