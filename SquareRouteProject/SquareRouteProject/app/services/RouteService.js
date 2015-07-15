@@ -18,9 +18,9 @@
         // GET by RouteId
         function getRouteById(id) {
             var deferred = $q.defer();            
-            http.get({
-                url: '/api/Route/GetRouteById',
-                data: id
+            $http({                
+                url: '/api/Route/GetRouteById/' + id,
+                method: 'GET'
                 //headers:
             }).success(function (data) {
                 deferred.resolve(data);
@@ -33,52 +33,54 @@
         //GET by RouteNum
         function getRouteByRouteNum(routeNum) {
             var deferred = $q.defer();        
-            $http.get({
-                url: '/api/Route/GetRouteByRouteNum',
-                data: routeNum
+            $http({               
+                url: '/api/Route/GetRouteByRouteNum/' + routeNum,
+                method: 'GET'
                 //headers
             }).success(function (data) {
                 deferred.resolve(data);
             }).error(function (data) {
                 deferred.reject(data);
             });
-            return deferred.promise();
+            return deferred.promise;
         }
 
         //GET by DistrictId
         function getRoutesByDistrictId(districtId) {
             var deferred = $q.defer();
-            $http.get({
-                url: '/api/Route/GetRoutesByDistrictId',
-                data: districtId
+            $http({                
+                url: '/api/Route/GetRoutesByDistrictId/' + districtId,
+                method: 'GET'
                 //headers
             }).success(function (data) {
                 deferred.resolve(data);
             }).error(function (data) {
                 deferred.reject(data);
             })
-            return deferred.promise();
+            return deferred.promise;
         }
 
         //GET all Routes
         function getAllRoutes() {
             var deferred = $q.defer();
-            $http.get({
+            $http({                
                 url: '/api/Route/GetAllRoutes',
+                method: 'GET'
                 //headers:
             }).success(function (data) {
                 deferred.resolve(data);
             }).error(function (data) {
                 deferred.reject(data);
             });
-            return deferred.promise();
+            return deferred.promise;
         }
             
-        //ADD Route
+        //POST add Route
         function addRoute(route) {
             var deferred = $q.defer();            
-            http.post({
+            $http({               
                 url: '/api/Route/AddRoute',
+                method: 'POST',
                 data: route
                 //headers:
             }).success(function (data) {
@@ -89,11 +91,12 @@
             return deferred.promise;
         }
         
-        //UPDATE Route
+        //POST update Route
         function updateRoute(route) {
             var deferred = $q.defer();
-            http.post({
+            $http({                
                 url: '/api/Route/UpdateRoute',
+                method: 'POST',
                 data: route
                 //headers:
             }).success(function (data) {
@@ -107,8 +110,9 @@
         //DELETE Route
         function deleteRouteById(id) {
             var deferred = $q.defer();
-            $http.post({
+            $http({               
                 url: '/api/Route/DeleteRouteById',
+                method: 'DELETE',
                 data: id
                 //headers:
             }).success(function (data) {

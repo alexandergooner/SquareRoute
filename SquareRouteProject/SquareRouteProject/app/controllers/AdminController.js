@@ -39,7 +39,7 @@
             accessCodeService.getAccessCodeByRouteId(vm.input).then(callSuccess, callFail);
         }
         vm.getAllAccessCodes = function () {            
-            accessCodeService.getAllAccessCodes().then().then(callSuccess, callFail);
+            accessCodeService.getAllAccessCodes().then(callSuccess, callFail);
         }
 
         //AccessCode UPDATE Methods
@@ -47,7 +47,8 @@
 
             vm.input = {
                 AccessCodeId: vm.accessCodeId_Update,
-                AccessCodeValue: vm.accessCodeValue_Update
+                AccessCodeValue: vm.accessCodeValue_Update,
+                RouteId: vm.accessCodeRouteId_Update
             };
 
             accessCodeService.updateAccessCode(vm.input).then(callSuccess, callFail);
@@ -119,7 +120,8 @@
                 RouteNum: vm.routeNum_Add,
                 RouteStart: vm.routeStart_Add,
                 RouteEnd: vm.routeEnd_Add,
-                AccessCodeId: vm.routeAccessCodeId_Add
+                AccessCodeId: vm.routeAccessCodeId_Add,
+                DistrictId: vm.routeDistrictId_Add
             };
 
             routeService.addRoute(vm.input).then(callSuccess, callFail);
@@ -156,7 +158,8 @@
                 RouteNum: vm.routeNum_Update,
                 RouteStart: vm.routeStart_Update,
                 RouteEnd: vm.routeEnd_Update,
-                AccessCodeId: vm.routeAccessCodeId_Update
+                AccessCodeId: vm.routeAccessCodeId_Update,
+                DistrictId: vm.routeDistrictId_Update
             };
 
             routeService.updateRoute(vm.input).then(callSuccess, callFail);

@@ -21,39 +21,39 @@
         //GET all BusStops
         function getAllBusStops() {
             var deferred = $q.defer();
-            $http.get({
-                url: 'api/BusStop/GetAllBusStops'
+            $http({
+                url: '/api/BusStop/GetAllBusStops',
+                method: 'GET'
                 //headers: { 'Authorization': 'Bearer' + token }
             }).success(function (data) {
                 deferred.resolve(data);
             }).error(function (data) {
                 deferred.reject(data);
             });
-            return intialDeferred.promise;
+            return deferred.promise;
         }
 
         //GET BusStop by Id
         function getBusStopById(id) {
-            var deffered = $q.defer();
-            $http.get({
-                url: 'api/BusStop/GetBusStopById',
-                data: id
+            var deferred = $q.defer();
+            $http({
+                url: 'api/BusStop/GetBusStopById/'+ id,
+                method: 'GET'                
                 //headers: { 'Authorization': 'Bearer' + token }
             }).success(function (data) {
-                console.log(data);
-                deffered.resolve(data);
+                deferred.resolve(data);
             }).error(function (data) {
-                deffered.reject(data);
+                deferred.reject(data);
             });
-            return deffered.promise;
+            return deferred.promise;
         }
 
         //GET BusStop by RouteId
         function getBusStopsByRouteId(id) {
             var deferred = $q.defer();
-            $http.get({
-                url: 'api/BusStop/GetBusStopsbyRouteId',
-                data: id
+            $http({
+                url: '/api/BusStop/GetBusStopsbyRouteId/' + id,
+                method: 'GET'                
                 //headers:{'Authorization':'Bearer'+token}
             })
             .success(function (data) {                
@@ -68,7 +68,7 @@
         function addBusStop(busStop) {
             var deferred = $q.defer();
             $http({
-                url: 'api/BusStop/AddBusStop',
+                url: '/api/BusStop/AddBusStop',
                 method: 'POST',
                 data: busStop
                 //headers: { 'Authorization': 'Bearer' + token }
@@ -81,12 +81,12 @@
         }
 
         //Post Update BusStop
-        function updateBusStop(bustop) {
+        function updateBusStop(busStop) {
             var deferred = $q.defer();
             $http({
-                url: 'api/BusStop/UpdateBusStop',
+                url: '/api/BusStop/UpdateBusStop',
                 method: 'POST',
-                data: bustop
+                data: busStop
                 //headers: { 'Authorization': 'Bearer' + token }
             }).success(function (data) {
                 deferred.resolve(data);
@@ -100,9 +100,8 @@
         function deleteBusStopById(id) {
             var deferred = $q.defer();
             $http({
-                url: 'api/BusStop/DeleteBusStopById',
-                method: 'POST',
-                data: id
+                url: '/api/BusStop/DeleteBusStopById/' + id,
+                method: 'DELETE'
                 //headers: { 'Authorization': 'Bearer' + token }
             }).success(function (data) {
                 deferred.resolve(data);

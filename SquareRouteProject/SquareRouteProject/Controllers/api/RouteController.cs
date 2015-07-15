@@ -35,25 +35,25 @@ namespace SquareRouteProject.Presentation.Controllers.api
         #endregion
 
         #region Route GET
-        // GET api/Route/GetRouteById
-        [Route("GetRouteById")]
+        // GET api/Route/GetRouteById/id
+        [Route("GetRouteById/{id}")]
         public Route GetRouteById(int id)
         {
             return _unitOfWork.RouteRepository.GetRouteById(id);
         }
 
-        // GET api/Route/GetRouteByRouteNum
-        [Route("GetRouteByRouteNum")]
+        // GET api/Route/GetRouteByRouteNum/routeNum
+        [Route("GetRouteByRouteNum/{routeNum}")]
         public Route GetRouteByRouteNum(int routeNum)
         {
             return _unitOfWork.RouteRepository.GetRouteByRouteNum(routeNum);
         }
 
         // GET api/Route/GetRoutesByDistrictId
-        [Route("GetRoutesByDistrictId")]
-        public IList<Route> GetRoutesByDistrictId(int districtId)
+        [Route("GetRoutesByDistrictId/{id}")]
+        public IList<Route> GetRoutesByDistrictId(int id)
         {
-            return _unitOfWork.RouteRepository.GetRoutesByDistrictId(districtId);
+            return _unitOfWork.RouteRepository.GetRoutesByDistrictId(id);
         }
 
         // GET api/Route/GetAllRoutes
@@ -80,11 +80,11 @@ namespace SquareRouteProject.Presentation.Controllers.api
         #endregion
 
         #region DELETE
-        // POST api/Route/DeleteRouteById
-        [Route("DeleteRouteById")]
-        public IHttpActionResult DeleteRouteById(int routeId)
+        // POST api/Route/DeleteRouteById/id
+        [Route("DeleteRouteById/{id}")]
+        public IHttpActionResult DeleteRouteById(int id)
         {
-            _unitOfWork.RouteRepository.DeleteRouteById(routeId);
+            _unitOfWork.RouteRepository.DeleteRouteById(id);
             _unitOfWork.SaveChanges();
             return Ok();
         }

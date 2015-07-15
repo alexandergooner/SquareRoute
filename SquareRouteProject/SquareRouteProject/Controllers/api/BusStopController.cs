@@ -33,15 +33,15 @@ namespace SquareRouteProject.Presentation.Controllers.api
         #endregion
 
         #region BusStop GET
-        // GET api/BusStop/GetBusStopById
-        [Route("GetBusStopById")]
+        // GET api/BusStop/GetBusStopById/id
+        [Route("GetBusStopById/{id}")]
         public BusStop GetBusStopById(int id)
         {
             return _unitOfWork.BusStopRepository.GetStopById(id);
         }
 
-        // GET api/BusStop/GetBusStopsbyRouteId
-        [Route("GetBusStopsbyRouteId")]
+        // GET api/BusStop/GetBusStopsbyRouteId/id
+        [Route("GetBusStopsbyRouteId/{id}")]
         public IList<BusStop> GetBusStopsByRouteId(int id)
         {
             return _unitOfWork.BusStopRepository.GetStopsByRouteId(id);
@@ -58,11 +58,11 @@ namespace SquareRouteProject.Presentation.Controllers.api
         #region BusStop UPDATE
         // POST api/BusStop/UpdateBusStop
         [Route("UpdateBusStop")]
-        public IHttpActionResult UpdateBusStop(BusStop stop)
+        public IHttpActionResult UpdateBusStop(BusStop busStop)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.BusStopRepository.Repo.Update(stop);
+                _unitOfWork.BusStopRepository.Repo.Update(busStop);
                 _unitOfWork.SaveChanges();
                 return Ok();
             }
@@ -71,11 +71,11 @@ namespace SquareRouteProject.Presentation.Controllers.api
         #endregion
 
         #region BusStop DELETE
-        // POST api/BusStop/DeleteBusStopById
-        [Route("DeleteBusStopById")]
-        public IHttpActionResult DeleteBusStopById(int busStopId)
+        // POST api/BusStop/DeleteBusStopById/id
+        [Route("DeleteBusStopById/{id}")]
+        public IHttpActionResult DeleteBusStopById(int id)
         {
-            _unitOfWork.BusStopRepository.DeleteBusStopById(busStopId);
+            _unitOfWork.BusStopRepository.DeleteBusStopById(id);
             _unitOfWork.SaveChanges();
             return Ok();
         }

@@ -74,6 +74,10 @@
                                 AccessCode: Update - AccessCodeValue
                                 <input ng-model="vm.accessCodeValue_Update">
                             </label><br />
+                            <label>
+                                AccessCode: Update - AccessCodeRouteId
+                            <input ng-model="vm.accessCodeRouteId_Update" />
+                            </label><br />
                             <button ng-click="vm.updateAccessCode()">UpdateAccessCode</button>
                         </div>
                     </td>
@@ -85,7 +89,7 @@
                                 AccessCode: Delete - AccessCodeID
                                 <input ng-model="vm.accessCodeId_Delete">
                             </label><br />
-                            <button ng-click="vm.deleteAccessCodeById">DeleteAccessCodeById</button>
+                            <button ng-click="vm.deleteAccessCodeById()">DeleteAccessCodeById</button>
                         </div>
                     </td>
                 </tr>
@@ -186,6 +190,10 @@
                                 Route: Add - RouteAccessCodeId
                                 <input ng-model="vm.routeAccessCodeId_Add">
                             </label><br />
+                            <label>
+                                Route: Add - RouteDistrictId
+                                <input ng-model="vm.routeDistrictId_Add"
+                            </label>
                             <button ng-click="vm.addRoute()">AddRoute</button>
                         </div>
                     </td>
@@ -256,6 +264,10 @@
                                 Route: Update - RouteAccessCodeId
                                 <input ng-model="vm.routeAccessCodeId_Update">
                             </label><br />
+                            <label>
+                                Route: Update - RouteDistrictId
+                                <input ng-model="vm.routeDistrictId_Update" />
+                            </label>
                             <button ng-click="vm.updateRoute()">UpdateRoute</button>
                         </div>
                     </td>
