@@ -12,17 +12,19 @@ namespace SquareRouteProject.Infastructure.Repositories
         private ApplicationDbContext _context;
         private DbSet<TEntity> _set;
 
-        //Constructor
+        #region Constructor
         internal Repository(ApplicationDbContext context)
         {
             _context = context;
         }
+        #endregion
 
-        //Properties
+        #region Properties
         protected DbSet<TEntity> Set
         {
             get { return _set ?? (_set = _context.Set<TEntity>()); }
         }
+        #endregion
 
         #region Methods
 

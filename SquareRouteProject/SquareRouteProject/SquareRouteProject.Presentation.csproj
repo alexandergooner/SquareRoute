@@ -213,6 +213,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\AccessCodeController.cs" />
     <Compile Include="Controllers\api\AdminController.cs" />
+    <Compile Include="Controllers\api\BusRoutesController.cs" />
     <Compile Include="Controllers\api\BusStopController.cs" />
     <Compile Include="Controllers\api\RouteController.cs" />
     <Compile Include="Controllers\api\SquareRouteController.cs" />
@@ -243,6 +244,7 @@
     <Content Include="app\controllers\ParentController.js" />
     <Content Include="app\controllers\RegistrationController.js" />
     <Content Include="app\controllers\WelcomeController.js" />
+    <Content Include="app\services\GoogleMapsService.js" />
     <Content Include="app\services\RegisterService.js" />
     <Content Include="app\services\LoginService.js" />
     <Content Include="app\services\RouteService.js" />

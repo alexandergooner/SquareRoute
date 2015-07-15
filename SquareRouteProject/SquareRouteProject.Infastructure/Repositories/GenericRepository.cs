@@ -20,10 +20,12 @@ namespace SquareRouteProject.Infastructure.Repositories
         }
 
         //Generic 'Query'
+        #region Generic 'Query'
         public IQueryable<T> Query<T>() where T : class
         {
             return _db.Set<T>().AsQueryable();
         }
+        #endregion
 
 
         //Non-Generic Query
