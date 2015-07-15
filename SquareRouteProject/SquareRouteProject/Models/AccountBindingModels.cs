@@ -55,12 +55,11 @@ namespace SquareRouteProject.Presentation.Models
         public int RoleType { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string ImageFile { get; set; }
-        public int MobileDeviceId { get; set; }
-        public int RouteId { get; set; }
-
-        [ForeignKey("RouteId")]
-        public virtual Route Route { get; set; }
+        public string ImageUrl { get; set; }
+        public string MobileDeviceId { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
 
         public virtual ICollection<AccessCode> AccessCodes { get; set; }
         public virtual ICollection<Route> Routes { get; set; }

@@ -26,16 +26,15 @@ namespace SquareRouteProject.Infastructure
         public IDbSet<AccessCode> AccessCodes { get; set; }
         public IDbSet<BusStop> BusStops { get; set; }
         public IDbSet<District> Districts { get; set; }
+        public IDbSet<RouteUser> RouteUsers { get; set; }
+        public IDbSet<AccessCodeUser> AccessCodeUsers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new RoleConfiguration());
             modelBuilder.Configurations.Add(new ExternalLoginConfiguration());
-            modelBuilder.Configurations.Add(new ClaimConfiguration());
-
-            modelBuilder.Entity<Route>()
-                .HasMany<User>(u => u.Users).WithMany(u => u.Routes);
+            modelBuilder.Configurations.Add(new ClaimConfiguration());           
        
 
          

@@ -188,13 +188,6 @@ namespace SquareRouteProject.Presentation.Controllers.api
             return _unitOfWork.AccessCodeRepository.GetAccessCodeByValue(accessCodeName);
         }
 
-        // GET api/Admin/GetAccessCodeByRouteId
-        [Route("GetAccessCodeByRouteId")]
-        public AccessCode GetAccessCodeByRouteId(int routeId)
-        {
-            return _unitOfWork.AccessCodeRepository.GetAccessCodeByRouteId(routeId);
-        }
-
         // GET api/Admin/GetAllAccessCodes
         [Route("GetAllAccessCodes")]
         public IList<AccessCode> GetAllAccessCodes()

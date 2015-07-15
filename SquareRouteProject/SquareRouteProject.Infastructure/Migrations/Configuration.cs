@@ -20,8 +20,7 @@ namespace SquareRouteProject.Infastructure.Migrations
         {
             AccessCode accessCode = new AccessCode 
             { 
-                AccessCodeValue="ABC",
-                RouteId=1
+                AccessCodeValue="ABC"                
             };
             District district = new District 
             { 

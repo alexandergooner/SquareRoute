@@ -13,7 +13,7 @@ namespace SquareRouteProject.Infastructure.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201507142048546_freshStart"; }
+            get { return "201507151948544_freshStart"; }
         }
         
         string IMigrationMetadata.Source

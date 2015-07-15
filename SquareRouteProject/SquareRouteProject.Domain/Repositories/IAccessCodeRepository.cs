@@ -6,8 +6,7 @@ namespace SquareRouteProject.Domain.Repositories
     {
         void DeleteAccessCodeById(int accessCodeId);
         AccessCode GetAccessCodeById(int accessCodeId);
-        AccessCode GetAccessCodeByValue(string accessCodeValue);
-        AccessCode GetAccessCodeByRouteId(int routeId);
+        AccessCode GetAccessCodeByValue(string accessCodeValue);        
         IRepository<AccessCode> Repo { get; }
     }
 }

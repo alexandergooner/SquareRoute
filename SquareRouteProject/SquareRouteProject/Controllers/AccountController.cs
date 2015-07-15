@@ -20,6 +20,8 @@ using SquareRouteProject.Presentation.Identity;
 using System.Web.Http;
 using SquareRouteProject.Domain;
 using SquareRouteProject.Infastructure;
+using SquareRouteProject.Domain.Entities;
+using Claim = System.Security.Claims.Claim;
 
 namespace SquareRouteProject.Presentation.Controllers
 {
@@ -30,11 +32,13 @@ namespace SquareRouteProject.Presentation.Controllers
         private const string LocalLoginProvider = "Local";
         private readonly UserManager<IdentityUser, Guid> _userManager;
         private Dictionary<int, string> _roles;
+        private IUnitOfWork _unitOfWork;
             
 
         public AccountController()
         {
             _userManager = new UserManager<IdentityUser, Guid>(new UserStore(new UnitOfWork()));
+            _unitOfWork = new UnitOfWork();
             _roles = new Dictionary<int, string>();
             _roles.Add(1, "Admin");
             _roles.Add(2, "Dispatcher");
@@ -430,13 +434,13 @@ namespace SquareRouteProject.Presentation.Controllers
         //}
         #endregion
 
+        #region Universal Authentication Routes
         private Guid getGuid(string value)
         {
             var result = default(Guid);
             Guid.TryParse(value, out result);
             return result;
-        }
-        //#endregion
+        }        
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -720,10 +724,8 @@ namespace SquareRouteProject.Presentation.Controllers
                 RoleType = model.RoleType, 
                 FirstName = model.FirstName, 
                 LastName = model.LastName, 
-                ImageFile = model.ImageFile, 
-                MobileDeviceId = model.MobileDeviceId, 
-                RouteId = model.RouteId, 
-                Route = model.Route, 
+                ImageUrl = model.ImageUrl, 
+                MobileDeviceId = model.MobileDeviceId,                 
                 AccessCodes = model.AccessCodes, 
                 Routes = model.Routes,   };
 
@@ -781,6 +783,70 @@ namespace SquareRouteProject.Presentation.Controllers
 
             base.Dispose(disposing);
         }
+        #endregion
+
+        #region Custom User Methods
+        #region User CREATE
+        //POST api/Account/AddUser
+        public IHttpActionResult AddUser(User user)
+        {
+            if (ModelState.IsValid) 
+            {
+                _unitOfWork.UserRepository.Repo.Add(user);
+                _unitOfWork.SaveChanges();
+                return Ok();
+            }
+            return BadRequest();
+        }
+        #endregion
+
+        #region User GET
+        //GET api/Account/GetUserByEmail/email
+        [Route("GetUserByEmail/{email}")]
+        public User GetUserByEmail(string email)
+        {
+            return _unitOfWork.UserRepository.FindByEmail(email);
+        }
+        //GET api/Account/GetUsersByRoleType/roleType
+        [Route("GetUsersByRoleType/{roleType}")]
+        public IList<User> GetUsersByRoleType(int roleType) 
+        {
+            return _unitOfWork.UserRepository.GetUserByRoleType(roleType);
+        }
+        #endregion
+
+        #region User UPDATE
+        //POST api/Account/UpdateUser
+        [Route("UpdateUser")]
+        public IHttpActionResult UpdateUser(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.UserRepository.Repo.Update(user);
+                _unitOfWork.SaveChanges();
+                return Ok();
+            }
+            return BadRequest();
+        }
+        #endregion
+
+        #region User DELETE
+        //DELETE api/Account/DeleteUser
+        [Route("DeleteUser")]
+        public IHttpActionResult DeleteUser(User user) 
+        {
+            if (ModelState.IsValid) 
+            {
+                _unitOfWork.UserRepository.Repo.Remove(user);
+                _unitOfWork.SaveChanges();
+                return Ok();
+            }
+            return BadRequest();
+        }
+        #endregion
+
+        #endregion
+
 
         #region Helpers
 

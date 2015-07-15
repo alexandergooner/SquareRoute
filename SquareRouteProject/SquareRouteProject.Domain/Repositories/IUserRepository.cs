@@ -1,21 +1,18 @@
 ﻿using SquareRouteProject.Domain.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-
 namespace SquareRouteProject.Domain.Repositories
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IUserRepository
     {
+        User FindByEmail(string usernameEmail);
+        Task<User> FindByEmailAsync(string usernameEmail);
+        Task<User> FindByEmailAsync(System.Threading.CancellationToken cancellationToken, string usernameEmail);
         User FindByUserName(string username);
         Task<User> FindByUserNameAsync(string username);
-        Task<User> FindByUserNameAsync(CancellationToken cancellationToken, string username);
-
-        User FindByEmail(string email);
-        Task<User> FindByEmailAsync(string email);
-        Task<User> FindByEmailAsync(CancellationToken cancellationToken, string email);
+        Task<User> FindByUserNameAsync(System.Threading.CancellationToken cancellationToken, string username);
+        IList<User> GetUserByRoleType(int roleType);
+        IRepository<User> Repo { get; }
     }
 }

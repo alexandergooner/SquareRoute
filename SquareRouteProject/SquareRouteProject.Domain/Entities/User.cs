@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SquareRouteProject.Domain.Entities
 {
@@ -15,7 +16,18 @@ namespace SquareRouteProject.Domain.Entities
         public Guid UserId { get; set; }
         public string UserName { get; set; }
         public virtual string PasswordHash { get; set; }
-        public virtual string SecurityStamp { get; set; }
+        public virtual string SecurityStamp { get; set; }        
+                
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        public int RoleType { get; set; }
+        public string Address { get; set; }
+        public string City {get; set;}
+        public string PostalCode { get; set; }
+        public string ImageUrl { get; set; }
+        public string MobileDeviceId { get; set; }
         #endregion
 
         #region Navigation Properties
@@ -41,8 +53,8 @@ namespace SquareRouteProject.Domain.Entities
             set { _roles = value; }
         }
 
-        public virtual ICollection<Route> Routes { get; set; }
-        public virtual ICollection<AccessCode> AccessCodes { get; set; }
+        public virtual ICollection<RouteUser> Routes { get; set; }
+        public virtual ICollection<AccessCodeUser> AccessCodes { get; set; }
         #endregion
     }
 }

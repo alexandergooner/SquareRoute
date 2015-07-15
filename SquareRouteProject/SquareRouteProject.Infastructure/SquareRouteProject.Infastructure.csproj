@@ -53,9 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="Migrations\201507142048546_freshStart.cs" />
-    <Compile Include="Migrations\201507142048546_freshStart.Designer.cs">
-      <DependentUpon>201507142048546_freshStart.cs</DependentUpon>
+    <Compile Include="Migrations\201507151948544_freshStart.cs" />
+    <Compile Include="Migrations\201507151948544_freshStart.Designer.cs">
+      <DependentUpon>201507151948544_freshStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Repositories\AccessCodeRepository.cs" />
     <Compile Include="UnitOfWorkDataModels.cs" />
@@ -90,8 +90,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507142048546_freshStart.resx">
-      <DependentUpon>201507142048546_freshStart.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507151948544_freshStart.resx">
+      <DependentUpon>201507151948544_freshStart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

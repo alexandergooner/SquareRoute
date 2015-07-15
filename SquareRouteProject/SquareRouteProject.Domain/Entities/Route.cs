@@ -19,6 +19,6 @@ namespace SquareRouteProject.Domain.Entities
         public int DistrictId { get; set; }
 
         public virtual ICollection<BusStop> BusStops { get; set; }
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<RouteUser> Users { get; set; }
     }
 }

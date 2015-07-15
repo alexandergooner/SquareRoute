@@ -1,18 +1,26 @@
 ﻿using SquareRouteProject.Domain.Entities;
 using SquareRouteProject.Domain.Repositories;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SquareRouteProject.Infastructure.Repositories
 {
-    internal class UserRepository : Repository<User>, IUserRepository
+    internal class UserRepository : Repository<User>, IUserRepository, SquareRouteProject.Infastructure.Repositories.IUserRepository
     {
         internal UserRepository(ApplicationDbContext context)
             : base(context)
         {
         }
 
+        //Property Provides access to base Repository<TEntity> members
+        public IRepository<User> Repo
+        {
+            get { return this; }
+        }
+
+        #region Universal UserMethods
         public User FindByUserName(string username)
         {            
             return Set.FirstOrDefault(x => x.UserName == username);
@@ -42,5 +50,14 @@ namespace SquareRouteProject.Infastructure.Repositories
         {
             return Set.FirstOrDefaultAsync(x => x.UserName == usernameEmail, cancellationToken);
         }
+        #endregion
+
+        #region Custom User Methods
+        //Find user by RoleType 1-2-3-4
+        public IList<User> GetUserByRoleType(int roleType) 
+        {
+            return Set.Where(u => u.RoleType == roleType).ToList();
+        }      
+        #endregion
     }
 }

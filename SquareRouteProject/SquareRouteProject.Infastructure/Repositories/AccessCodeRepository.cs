@@ -33,12 +33,6 @@ namespace SquareRouteProject.Infastructure.Repositories
             return Set.FirstOrDefault(x => x.AccessCodeValue == accessCodeValue);
         }
 
-        //GET AccessCode by RouteId
-        public AccessCode GetAccessCodeByRouteId(int routeId)
-        {
-            return Set.FirstOrDefault(x => x.RouteId == routeId);
-        }
-
         //DELETE AccessCode by AccessCodeId
         public void DeleteAccessCodeById(int accessCodeId) 
         {

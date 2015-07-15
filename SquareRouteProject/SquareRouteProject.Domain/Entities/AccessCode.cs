@@ -13,10 +13,8 @@ namespace SquareRouteProject.Domain.Entities
         [Key]
         public int AccessCodeId { get; set; }
         public string AccessCodeValue { get; set; }
-        public int RouteId { get; set; }
 
-        public virtual ICollection<Route> Routes { get; set; }
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<AccessCodeUser> Users { get; set; }
 
 
     }

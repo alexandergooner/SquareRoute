@@ -9,8 +9,7 @@
         accessCodeService.getAllAccessCodes = getAllAccessCodes;
         accessCodeService.addAccessCode = addAccessCode;
         accessCodeService.getAccessCodeById = getAccessCodeById;
-        accessCodeService.getAccessCodeByValue = getAccessCodeByValue;
-        accessCodeService.getAccessCodeByRouteId = getAccessCodeByRouteId;
+        accessCodeService.getAccessCodeByValue = getAccessCodeByValue;        
         accessCodeService.updateAccessCode = updateAccessCode;
         accessCodeService.deleteAccessCodeById = deleteAccessCodeById;
 
@@ -30,21 +29,6 @@
             }).error(function (data) {
                 deferred.reject(data);
             });
-            return deferred.promise;
-        }
-
-        //GET AccessCode by RouteId
-        function getAccessCodeByRouteId(id) {
-            var deferred = $q.defer();
-            $http({                
-                url: '/api/AccessCode/GetAccessCodeByRouteId/' + id,
-                method: 'GET'
-                //header:{}
-            }).success(function (data) {
-                deferred.resolve(data);
-            }).error(function (data) {
-                deferred.reject(data);
-            })
             return deferred.promise;
         }
 

@@ -32,12 +32,6 @@
 
             accessCodeService.getAccessCodeByValue(vm.input).then(callSuccess, callFail);
         }
-        vm.getAccessCodeByRouteId = function () {
-
-            vm.input = vm.accessCodeRouteId_Get;
-
-            accessCodeService.getAccessCodeByRouteId(vm.input).then(callSuccess, callFail);
-        }
         vm.getAllAccessCodes = function () {            
             accessCodeService.getAllAccessCodes().then(callSuccess, callFail);
         }
