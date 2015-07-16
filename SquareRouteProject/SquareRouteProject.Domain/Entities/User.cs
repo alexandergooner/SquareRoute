@@ -42,6 +42,7 @@ namespace SquareRouteProject.Domain.Entities
         }
 
         public virtual ICollection<Route> Routes { get; set; }
+        public virtual ICollection<AccessCode> AccessCodes { get; set; }
         #endregion
     }
 }

@@ -35,22 +35,22 @@ namespace SquareRouteProject.Presentation.Controllers.api
         #endregion
 
         #region AccessCode GET
-        // GET api/AccessCode/GetAccessCodeById
-        [Route("GetAccessCodeById")]
+        // GET api/AccessCode/GetAccessCodeById/id
+        [Route("GetAccessCodeById/{id}")]
         public AccessCode GetAccessCodeById(int id)
         {
             return _unitOfWork.AccessCodeRepository.GetAccessCodeById(id);
         }
 
-        // GET api/AccessCode/GetAccessCodeByValue
-        [Route("GetAccessCodeByValue")]
+        // GET api/AccessCode/GetAccessCodeByValue/accessCodeValue
+        [Route("GetAccessCodeByValue/{accessCodeValue}")]
         public AccessCode GetAccessCodeByName(string accessCodeValue)
         {
             return _unitOfWork.AccessCodeRepository.GetAccessCodeByValue(accessCodeValue);
         }
 
-        // GET api/AccessCode/GetAccessCodeByRouteId
-        [Route("GetAccessCodeByRouteId")]
+        // GET api/AccessCode/GetAccessCodeByRouteId/routeId
+        [Route("GetAccessCodeByRouteId/{routeId}")]
         public AccessCode GetAccessCodeByRouteId(int routeId)
         {
             return _unitOfWork.AccessCodeRepository.GetAccessCodeByRouteId(routeId);
@@ -83,11 +83,11 @@ namespace SquareRouteProject.Presentation.Controllers.api
         #endregion
 
         #region AccessCode Delete
-        // POST api/AccessCode/DeleteAccessCodeById
-        [Route("DeleteAccessCodeById")]
-        public IHttpActionResult DeleteAccessCodeById(int accessCodeId)
+        // POST api/AccessCode/DeleteAccessCodeById/id
+        [Route("DeleteAccessCodeById/{id}")]
+        public IHttpActionResult DeleteAccessCodeById(int id)
         {
-            _unitOfWork.AccessCodeRepository.DeleteAccessCodeById(accessCodeId);
+            _unitOfWork.AccessCodeRepository.DeleteAccessCodeById(id);
             _unitOfWork.SaveChanges();
             return Ok();
         }

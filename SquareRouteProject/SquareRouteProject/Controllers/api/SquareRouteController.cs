@@ -12,7 +12,6 @@ using SquareRouteProject.Infastructure.Configuration;
 using SquareRouteProject.Domain.Repositories;
 using Microsoft.AspNet.Identity;
 using System.Data.SqlClient;
-using SquareRouteProject.Domain.Entities;
 
 namespace SquareRouteProject.Presenation.Controllers.api
 {

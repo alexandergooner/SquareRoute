@@ -1,116 +1,115 @@
 ﻿'use strict';
-
 (function () {
-    angular.module('SquareRoute').factory('busStopService', busStopService)
+    angular.module('SquareRoute')
+        .factory('busStopService', busStopService)
 
 
-    function busstopService($http, $q, $window) {
+    function busStopService($http, $q, $window) {
 
         var bustops = [];
 
         var token = $window.sessionStorage.getItem('token');
+        
+        var busStopService = {};
+        busStopService.getAllBusStops = getAllBusStops;
+        busStopService.getBusStopById = getBusStopById;
+        busStopService.getBusStopsByRouteId = getBusStopsByRouteId;
+        busStopService.addBusStop = addBusStop;
+        busStopService.updateBusStop = updateBusStop;
+        busStopService.deleteBusStopById = deleteBusStopById;
 
-        var intialDeferred = $q.defer();
-
-
-        var busService = {};
-        busService.getAllBusStops = getAllBusStops;
-        busService.getBusStopById = getBusStopById;
-        busService.getBusStopByRouteId = getBusStopByRouteId;
-        busService.addBusStop = addBusStop;
-
+        //GET all BusStops
         function getAllBusStops() {
-            $http.get({
-                url: 'api/BusStop/GetAllBusStops',
-
-                //headers: { 'Authorization': 'Bearer' + token }
-            }).sucess(function (data) {
-
-                intialDefered.reslove(data)
-            }).error(function () {
-                intialDefered.reject();
-            });
-            return intialDeferred.promise;
-        }
-        function getBusStopById(id) {
-            var deffered = $q.defer();
-            $http.get({
-                url: 'api/BusStop/GetBusStopById',
-
-                data: id,
-                //headers: { 'Authorization': 'Bearer' + token }
-            }).sucess(function (data) {
-                console.log(data);
-                for (var i in data) {
-                    bustops.push(data[i])
-
-                }
-                deffered.reslove(bustops)
-
-            }).erro(function () {
-                deffered.reject
-            })
-
-            return deffered.promise;
-
-        }
-
-        function getBusStopsByRouteId(id) {
-            var deferred = $q.defer();
-            $http.get({
-                url: 'api/BusStop/GetBusStopsbyRouteId',
-
-                data: id,
-                //headers:{'Authorization':'Bearer'+token}
-            })
-            .sucess(function (data) {
-                if (data) {
-                    for (var i in data) {
-                        bustops.push(data[i])
-                    }
-                    deferred.reslove(bustops);
-
-                }
-            }).error(function () {
-                deferred.reject();
-            })
-            return deferred.promise;
-
-        }
-
-        function AddBusStop(bustop) {
-
             var deferred = $q.defer();
             $http({
-                url: 'api/BusStop/AddBusStop',
-                method: 'POST',
-                data: bustop,
-                headers: { 'Authorization': 'Bearer' + token }
-            }).sucess(function (data) {
+                url: '/api/BusStop/GetAllBusStops',
+                method: 'GET'
+                //headers: { 'Authorization': 'Bearer' + token }
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            });
+            return deferred.promise;
+        }
 
-                if (data) {
-                    bustops.push(bustop)
-                }
-                deferred.reslove();
-            }).error(function () {
-                deferred.reject();
+        //GET BusStop by Id
+        function getBusStopById(id) {
+            var deferred = $q.defer();
+            $http({
+                url: 'api/BusStop/GetBusStopById/'+ id,
+                method: 'GET'                
+                //headers: { 'Authorization': 'Bearer' + token }
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            });
+            return deferred.promise;
+        }
+
+        //GET BusStop by RouteId
+        function getBusStopsByRouteId(id) {
+            var deferred = $q.defer();
+            $http({
+                url: '/api/BusStop/GetBusStopsbyRouteId/' + id,
+                method: 'GET'                
+                //headers:{'Authorization':'Bearer'+token}
+            })
+            .success(function (data) {                
+                deferred.resolve(data);                
+            }).error(function (data) {
+                deferred.reject(data);
             })
             return deferred.promise;
         }
 
+        //Post Add BusStop
+        function addBusStop(busStop) {
+            var deferred = $q.defer();
+            $http({
+                url: '/api/BusStop/AddBusStop',
+                method: 'POST',
+                data: busStop
+                //headers: { 'Authorization': 'Bearer' + token }
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            })
+            return deferred.promise;
+        }
 
+        //Post Update BusStop
+        function updateBusStop(busStop) {
+            var deferred = $q.defer();
+            $http({
+                url: '/api/BusStop/UpdateBusStop',
+                method: 'POST',
+                data: busStop
+                //headers: { 'Authorization': 'Bearer' + token }
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            })
+            return deferred.promise;
+        }
 
-        return busService;
-
+        //Post Delete BusStop by Id
+        function deleteBusStopById(id) {
+            var deferred = $q.defer();
+            $http({
+                url: '/api/BusStop/DeleteBusStopById/' + id,
+                method: 'DELETE'
+                //headers: { 'Authorization': 'Bearer' + token }
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            })
+            return deferred.promise;
+        }
+        return busStopService;
     }
-
-
-
-
-
-
-
-
-
-
 })();

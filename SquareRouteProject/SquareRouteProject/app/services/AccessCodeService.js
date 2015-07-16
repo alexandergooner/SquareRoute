@@ -1,158 +1,129 @@
-﻿(function () {
-    angular.module('SquareRoute').factory('accessCodeService', accessCodeService);
-
+﻿'use strict';
+(function () {
+    angular.module('SquareRoute')
+        .factory('accessCodeService', accessCodeService);
 
     function accessCodeService($http, $q, $window) {
+        var accessCodeService = {};
 
-        accessCodeService = {};
         accessCodeService.getAllAccessCodes = getAllAccessCodes;
         accessCodeService.addAccessCode = addAccessCode;
         accessCodeService.getAccessCodeById = getAccessCodeById;
-        accessCodeService.getAccessCodeByName = getAccessCodeByName;
+        accessCodeService.getAccessCodeByValue = getAccessCodeByValue;
         accessCodeService.getAccessCodeByRouteId = getAccessCodeByRouteId;
         accessCodeService.updateAccessCode = updateAccessCode;
-        accessCodeService.deleteAccessCode = deleteAccessCode;
+        accessCodeService.deleteAccessCodeById = deleteAccessCodeById;
 
-
-        var intialDeferred = $q.defer;
-
-        var accesCodes = [];
+        var accessCodes = [];
 
         var token = $window.sessionStorage.getItem('token');
+        
+        //GET all AccessCodes
         function getAllAccessCodes() {
-            $http.get({
-                url: 'api/AccessCode/GetAllAccessCodes',
+            var deferred = $q.defer();
+            $http({                
+                url: '/api/AccessCode/GetAllAccessCodes',
+                method: 'GET'
                 //headers:{'Authenication':'Bearer'+token}
-            }).sucess(function (data) {
-                intialDeferred.resolve(data);
-            }).error(function () {
-                intialDeferred.reject();
-            })
-            return intialDeferred.promise();
-
-
+            }).success(function (data) {                
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            });
+            return deferred.promise;
         }
 
-
+        //GET AccessCode by RouteId
         function getAccessCodeByRouteId(id) {
-            var defer = $q.defer;
-
-            $http.get({
-                url: 'api/AccessCode/GetAccessCodeByRouteId',
-                data: id,
-                //header:{}
-            }).sucess(function (data) {
-                if (data) {
-                    for (var i in data) {
-                        accesCodes.push(data[i])
-                    }
-                    defer.resolve(accesCodes);
-                }
-
-
-            }).error(function () {
-                defer.reject();
-            })
-            return defer.promise;
-
-
-
-        }
-
-        function getAccessCodeById(id) {
-
-            var defer = $q.defer;
-
-            $http.get({
-                url: ' api/AccessCode/GetAccessCodeById',
-                data: id,
-                //header:{''}
-            }).sucess(function (data) {
-                console.log(data)
-                for (var i in data) {
-                    accesCodes.push(data[i])
-                }
-                defer.resolve(accesCodes)
-            }).error(function () {
-                defer.reject()
-
-            })
-        }
-
-        function getAccessCodeByName(accessCodeName) {
-            var defer = $q.defer;
-
-            $http.get({
-                url: 'api/AccessCode/GetAccessCodeByName',
-                data: accessCodeName,
-                //header:{}
-            }).sucess(function (data) {
-
-                for (var i in data) {
-                    accesCodes.push(data[i])
-                }
-                defer.resolve(accesCodes);
-            }).error(function () { defer.reject(); })
-            return defer.promise;
-        }
-
-
-        function addAccessCode(accessCode) {
-            var defer = $q.defer;
-
-            $http.post({
-                url: 'api/AccessCode/AddAccessCode',
-                header: {},
-                data: accesCode
-            }).sucess(function () {
-                accesCodes.push(accessCode)
-                defer.resolve()
-
-            }).error(function () {
-                defer.reject();
-            })
-
-
-            return defer.promise;
-
-        }
-
-        function updateAccessCode(accessCode) {
-
-            var defer = $q.defer;
-
-            $http.post({
-                url: 'api/AccessCode/UpdateAccessCode',
-                data: accessCode,
+            var deferred = $q.defer();
+            $http({                
+                url: '/api/AccessCode/GetAccessCodeByRouteId/' + id,
+                method: 'GET'
                 //header:{}
             }).success(function (data) {
-                if (data) {
-                    accesCodes.push(data[i])
-                }
-                defer.resolve(accesCodes);
-            }).error(function () {
-                defer.reject();
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
             })
-
-            return defer.promise;
+            return deferred.promise;
         }
 
-
-        function deleteAccessCodeById(id) {
-
-            var defer = $q.defer;
-
+        //GET AccessCode by Id
+        function getAccessCodeById(id) {
+            var deferred = $q.defer();
             $http({
-                url: ' api/AccessCode/DeleteAccessCodeById',
-                method: 'POST',
-                data: id,
+                url: '/api/AccessCode/GetAccessCodeById/' + id,
+                method: 'GET'
+                //header:{''}
+            }).success(function (data) {
+                console.log(data)                
+                deferred.resolve(data)
+            }).error(function (data) {
+                deferred.reject(data)
+            })
+            return deferred.promise;
+        }
+
+        //Get AccessCode by CodeValue
+        function getAccessCodeByValue(accessCodeValue) {
+            var deferred = $q.defer();
+            $http({                
+                url: '/api/AccessCode/GetAccessCodeByValue/' + accessCodeValue,
+                method: 'GET'
                 //header:{}
-            }).sucess(function () {
-                defer.resolve();
-            }).error(function () { defer.reject(); })
+            }).success(function (data) {                
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            })
+            return deferred.promise;
+        }
 
+        //POST add AccessCode
+        function addAccessCode(accessCode) {
+            var deferred = $q.defer();
+            $http({                
+                url: '/api/AccessCode/AddAccessCode',
+                method: 'POST',
+                data: accessCode
+                //header: {},
+            }).success(function (data) {               
+                deferred.resolve(data)
+            }).error(function (data) {
+                deferred.reject(data);
+            })
+            return deferred.promise;
+        }
 
+        //Post update AccessCode
+        function updateAccessCode(accessCode) {
+            var deferred = $q.defer();
+            $http({                
+                url: '/api/AccessCode/UpdateAccessCode',
+                method: 'POST',
+                data: accessCode
+                //header:{}
+            }).success(function (data) {              
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            })
+            return deferred.promise;
+        }
 
+        //Post delete AccessCode by Id
+        function deleteAccessCodeById(id) {
+            var deferred = $q.defer();
+            $http({
+                url: '/api/AccessCode/DeleteAccessCodeById/' + id,
+                method: 'DELETE',
+                //header:{}
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            })
+            return deferred.promise;
         }
 
         return accessCodeService;
