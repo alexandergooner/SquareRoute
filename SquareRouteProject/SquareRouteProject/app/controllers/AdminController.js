@@ -2,7 +2,7 @@
     angular.module('SquareRoute')
         .controller('AdminController', AdminController);
 
-    function AdminController(busStopService,routeService,accessCodeService) {
+    function AdminController(busStopService,routeService,accessCodeService,userService) {
         var vm = this;
         vm.message = "Admin View";
 
@@ -165,6 +165,62 @@
             vm.input = vm.routeId_Delete;
 
             routeService.deleteRouteById(vm.input).then(callSuccess, callFail);
+        }
+
+        //__________User___________
+        //User Register[ADD] Method
+        vm.registerUser = function () {
+
+            vm.input = {
+                Email: vm.email,
+                Password: vm.createPassword,
+                ConfirmPassword: vm.confirmPassword,
+                FirstName: vm.firstName,
+                LastName: vm.lastName,
+                ImageUrl: vm.imageUrl,
+                MobileDeviceId: vm.mobileDeviceId,
+                Address: vm.addressLine1 + ' ' + vm.addressLine2,
+                City: vm.city,
+                State: vm.state,
+                PostalCode: vm.postalCode
+                //RoleType: 1                
+            };
+
+            userService.registerUser(vm.input).then(callSuccess, callFail);
+        }
+
+        //User GET Methods
+        vm.getUsersByRoleType = function () {
+
+            vm.input = vm.userRoleType_Get;
+
+            userService.getUsersByRoleType(vm.input).then(callSuccess, callFail);
+        }
+        vm.getUserByEmail = function () {
+            
+            vm.input = vm.userByEmail_Get;
+
+            userService.getUserByEmail(vm.input).then(callSuccess,callFail);
+        }
+        vm.getAllUsers = function () {
+            
+            userService.getAllUsers().then(callSuccess, callFail);
+        }
+
+        //User UPDATE Method
+        vm.updateUser = function () {
+
+            vm.input = vm.user;
+
+            userService.updateUser(vm.input).then(callSuccess, callFail);
+        }
+
+        //User DELETE Mehod
+        vm.deleteUser = function () {
+
+            vm.input = vm.user;
+
+            userService.deleteUser(vm.input).then(callSuccess,callFail)
         }
 
         //Promise return Functions

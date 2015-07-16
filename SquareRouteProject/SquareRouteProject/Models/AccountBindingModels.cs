@@ -59,6 +59,7 @@ namespace SquareRouteProject.Presentation.Models
         public string MobileDeviceId { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
+        public string State { get; set; }
         public string PostalCode { get; set; }
 
         public virtual ICollection<AccessCode> AccessCodes { get; set; }

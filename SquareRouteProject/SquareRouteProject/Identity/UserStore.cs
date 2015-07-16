@@ -321,6 +321,15 @@ namespace SquareRouteProject.Presentation.Identity
             user.UserName = identityUser.UserName;
             user.PasswordHash = identityUser.PasswordHash;
             user.SecurityStamp = identityUser.SecurityStamp;
+            user.FirstName = identityUser.FirstName;
+            user.LastName = identityUser.LastName;
+            user.RoleType = identityUser.RoleType;
+            user.MobileDeviceId = identityUser.MobileDeviceId;
+            user.PostalCode = identityUser.PostalCode;
+            user.Address = identityUser.Address;
+            user.State = identityUser.State;
+            user.City = identityUser.City;
+            user.ImageUrl = identityUser.ImageUrl;
         }
 
         private IdentityUser getIdentityUser(Entities.User user)

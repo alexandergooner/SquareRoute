@@ -42,7 +42,6 @@ namespace SquareRouteProject.Presentation
                 "~/app/controllers/EmailController.js",
                 "~/app/services/EmailService.js",
                 "~/app/services/LoginService.js",
-                "~/app/services/RegisterService.js",
                 "~/app/services/RouteService.js",
                 "~/app/services/BusStopService.js",
                 "~/app/services/UserService.js",

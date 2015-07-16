@@ -18,12 +18,12 @@
                 MobileDeviceId: vm.mobileDeviceId,
                 Address: vm.addressLine1 + ' ' + vm.addressLine2,
                 City: vm.city,
-                PostalCode: vm.postalCode,
-                RoleType: 1                
+                State: vm.state,
+                PostalCode: vm.postalCode
+                //RoleType: 1                
             };
 
-            //userService.addUser(userToRegister).then(registerSuccess, registerFail);
-            registerService.register(userToRegister).then(registerSuccess, registerFail);
+            userService.addUser(userToRegister).then(registerSuccess, registerFail);            
         }
 
         function registerSuccess() {

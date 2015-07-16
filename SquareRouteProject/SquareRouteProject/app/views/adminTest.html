@@ -272,6 +272,38 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <label>
+                                User: Get - UserByEmail
+                                <input ng-model="vm.userByEmail_Get">
+                            </label><br />
+                            <button ng-click="vm.getUserByEmail()">GetUserByEmail</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <label>
+                                User: Get - UsersByRoleType
+                                <input ng-model="vm.userRoleType_Get">
+                            </label><br />
+                            <button ng-click="vm.getUsersByRoleType()">GetUsersByRoleType</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <label>
+                                User: Get - AllUsers
+                                <br /><button ng-click="vm.getAllUsers()">GetAllUsers</button>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </body>

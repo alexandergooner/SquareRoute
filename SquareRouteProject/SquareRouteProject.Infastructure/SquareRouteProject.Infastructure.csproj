@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201507160104375_freshStart.Designer.cs">
       <DependentUpon>201507160104375_freshStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507161458461_addingState.cs" />
+    <Compile Include="Migrations\201507161458461_addingState.Designer.cs">
+      <DependentUpon>201507161458461_addingState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\AccessCodeRepository.cs" />
     <Compile Include="UnitOfWorkDataModels.cs" />
     <Compile Include="Configuration\ClaimConfiguration.cs" />
@@ -92,6 +96,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201507160104375_freshStart.resx">
       <DependentUpon>201507160104375_freshStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507161458461_addingState.resx">
+      <DependentUpon>201507161458461_addingState.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

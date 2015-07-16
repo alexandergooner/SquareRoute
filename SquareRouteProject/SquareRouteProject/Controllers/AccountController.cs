@@ -22,6 +22,8 @@ using SquareRouteProject.Domain;
 using SquareRouteProject.Infastructure;
 using SquareRouteProject.Domain.Entities;
 using Claim = System.Security.Claims.Claim;
+using Newtonsoft.Json;
+using System.Web.Helpers;
 
 namespace SquareRouteProject.Presentation.Controllers
 {
@@ -727,6 +729,7 @@ namespace SquareRouteProject.Presentation.Controllers
                 LastName = model.LastName, 
                 Address = model.Address,
                 City = model.City,
+                State = model.State,
                 PostalCode = model.PostalCode,
                 ImageUrl = model.ImageUrl, 
                 MobileDeviceId = model.MobileDeviceId,                 
@@ -808,6 +811,9 @@ namespace SquareRouteProject.Presentation.Controllers
         [Route("GetUserByEmail/{email}")]
         public User GetUserByEmail(string email)
         {
+            while (email.Contains("@@")) {
+                email = email.Replace("@@", ".");
+            }
             return _unitOfWork.UserRepository.FindByEmail(email);
         }
         //GET api/Account/GetUsersByRoleType/roleType
@@ -815,6 +821,12 @@ namespace SquareRouteProject.Presentation.Controllers
         public IList<User> GetUsersByRoleType(int roleType) 
         {
             return _unitOfWork.UserRepository.GetUserByRoleType(roleType);
+        }
+        //GET api/Account/GetAllUsers
+        [Route("GetAllUsers")]
+        public IList<User> GetAllUsers()
+        {
+            return _unitOfWork.UserRepository.Repo.GetAll();
         }
         #endregion
 

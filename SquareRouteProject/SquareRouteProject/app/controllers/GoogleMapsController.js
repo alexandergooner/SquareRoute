@@ -16,7 +16,7 @@
         //directionsDisplay = new google.maps.DirectionsRenderer();
 
         uiGmapGoogleMapApi.then(function (maps) {
-            //direectionsDisplay.setMap(maps);
+            //directionsDisplay.setMap(maps);
         })
     }
 })();
