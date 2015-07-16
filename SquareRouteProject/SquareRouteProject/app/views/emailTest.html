@@ -5,14 +5,19 @@
             <td>
                 <div>
                     <label>
-                        Send Email
+                        Email to Send to:
+                    <br />
                         <input ng-model="vm.emailTo">
                     </label><br />
                     <label>
+                        Subject:
+                        <br />
                         <input ng-model="vm.emailSubject">
                     </label><br />
                     <label>
-                        <input ng-model="vm.emailBody">
+                        Body:
+                        <br />
+                        <input ng-model="vm.emailBody" style="height: 100px">
                     </label><br />
                     <button ng-click="vm.sendEmail()">Send</button>
                 </div>

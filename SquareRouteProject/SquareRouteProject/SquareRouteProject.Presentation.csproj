@@ -247,6 +247,7 @@
     <Content Include="app\controllers\WelcomeController.js" />
     <Content Include="app\services\AccessCodeService.js" />
     <Content Include="app\services\BusStopService.js" />
+    <Content Include="app\services\DirectionService.js" />
     <Content Include="app\services\EmailService.js" />
     <Content Include="app\services\RegisterService.js" />
     <Content Include="app\services\LoginService.js" />

@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using SquareRouteProject.Domain.Entities;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace SquareRouteProject.Presentation.Controllers.api
 {
@@ -25,11 +26,14 @@ namespace SquareRouteProject.Presentation.Controllers.api
                 email.Body = Body;
                 mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
+                //smtp.Host = "smtp.gmail.com";
+                //smtp.Port = 587;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("SquareRouteAlert@gmail.com", "strongwoman69");
-                smtp.EnableSsl = true;
+                smtp.Credentials = new NetworkCredential(
+                    ConfigurationManager.AppSettings["mailAccount"],
+                    ConfigurationManager.AppSettings["mailPassword"]
+                );
+                //smtp.EnableSsl = true;
                 smtp.Send(mail);
             }
             return Ok();
