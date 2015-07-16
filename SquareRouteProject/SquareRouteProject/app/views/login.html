@@ -1,50 +1,90 @@
 ﻿<!DOCTYPE html>
 <html>
+<!-- Log 7.15.2015-->
+<!-- Move the log so that it is in nav bar, clean up the back ground image so it doesnt have that line, link to angular -->
 <head>
     <title>Login</title>
     <style>
         .ng-invalid.ng-touched {
             background-color: rgba(255, 15, 15, 0.25);
         }
+
         .error {
             color: red;
         }
     </style>
-
+    <link href="Content/Login.css" rel="stylesheet" />
 </head>
 <body>
-    <br />
-    <br />
-    <div>
-        <form name="loginForm" novalidate ng-submit="vm.login()">
-            <div>
-                <label>
-                    Username:
-                    <input name="username" ng-required="true" ng-model="vm.username" />
-                    <span ng-show="loginForm.username.$touched && loginForm.username.$error.required" class="error">Required</span>
-                </label>
-            </div>
-            <div>
-                <label>
-                    Password:
-                    <input name="password" ng-required="true" ng-model="password" />
-                    <span ng-show="loginForm.password.$touched && loginForm.password.$error.required" class="error">Required</span><br />
-                </label>
-                <div class="col-lg-offset-1">
-                    <a href="X">Forgot Password?</a>
+    <div class="container-fluid">
+        <header id="header">
+            <h1 id="logo"><a href="welcome.html">SqRoute</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#/admin">Admin</a></li>
+                    <li>
+                        <a href="#">Layouts</a>
+
+                        <ul>
+                            <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                            <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                            <li><a href="no-sidebar.html">No Sidebar</a></li>
+                            <li>
+                                <a href="#">Submenu</a>
+                                <ul>
+                                    <li><a href="#">Option 1</a></li>
+                                    <li><a href="#">Option 2</a></li>
+                                    <li><a href="#">Option 3</a></li>
+                                    <li><a href="#">Option 4</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="#" class="button special">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <br />
+        <br />
+        <br />
+
+        <div class=" login-form-1">
+            <form name="loginForm" class="login-form" novalidate ng-submit="vm.login()">
+                <div class="main-login-form">
+                    <div class=" login-group">
+                        <div class="form-group">
+                            <label>
+                                Username:
+                                <input name="username" ng-required="true" ng-model="vm.username" />
+                                <span ng-show="loginForm.username.$touched && loginForm.username.$error.required" class="error">Required</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Password:
+                                <input name="password" ng-required="true" ng-model="password" />
+                                <span ng-show="loginForm.password.$touched && loginForm.password.$error.required" class="error">Required</span><br />
+                            </label>
+                            <div class="col-lg-offset-1">
+                                <a href="X">Forgot Password?</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <input type="submit" value="Login" ng-disabled="loginForm.$invalid" />
-            </div>
-        </form>
-    </div>
-    <br />
-    <br />
-    <div style="font-size: 18px;">
-        <p>Haven't registered? &nbsp <a href="X">Register</a></p>
+                <div>
+                    <input type="submit" class="login-button" value="Login" ng-disabled="loginForm.$invalid" />
+                </div>
+            </form>
+        </div>
 
-    </div>
 
+        <br />
+        <br />
+        <div style="font-size: 18px;">
+            <p>Haven't registered? &nbsp <a href="X">Register</a></p>
+        </div>
+    </div>
 </body>
 </html>
