@@ -7,13 +7,13 @@ namespace SquareRouteProject.Infastructure.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddRouteStartEnd : IMigrationMetadata
+    public sealed partial class freshStart : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddRouteStartEnd));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(freshStart));
         
         string IMigrationMetadata.Id
         {
-            get { return "201507102126100_AddRouteStartEnd"; }
+            get { return "201507142048546_freshStart"; }
         }
         
         string IMigrationMetadata.Source

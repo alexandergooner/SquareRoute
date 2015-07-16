@@ -16,20 +16,9 @@ namespace SquareRouteProject.Domain.Entities
         public string RouteStart { get; set; }
         public string RouteEnd { get; set; }
         public int AccessCodeId { get; set; }
-
-
-        [ForeignKey("AccessCodeId")]
-        public virtual AccessCode AccessCode { get; set; }
-
         public int DistrictId { get; set; }
-        [ForeignKey("DistrictId")]
-        public virtual District District { get; set; }
 
         public virtual ICollection<BusStop> BusStops { get; set; }
-
         public virtual ICollection<User> Users { get; set; }
-
-
-
     }
 }

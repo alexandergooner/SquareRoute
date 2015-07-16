@@ -11,8 +11,5 @@ namespace SquareRouteProject.Domain.Entities
         public int BusStopId { get; set; }
         public string Location { get; set; }
         public int RouteId { get; set; }
-
-        [ForeignKey("RouteId")]
-        public virtual Route Route { get; set; }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="Entities\Claim.cs" />
     <Compile Include="Entities\District.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
+    <Compile Include="Entities\Email.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Route.cs" />
     <Compile Include="Entities\User.cs" />

@@ -1,163 +1,128 @@
-﻿(function () {
+﻿'use strict';
+(function () {
     angular.module('SquareRoute')
         .factory('routeService', routeService);
 
     // ROUTE SERVICE
     function routeService($http, $q, $window) {
-        var service = {};
+        var routeService = {};
 
-        service.getRouteById = getRouteById;
-        service.getRouteByRouteNum = getRouteByRouteNum;
-        service.getRoutesByDistrictId = getRoutesByDistrictId;
-        service.getAllRoutes = getAllRoutes;
-        service.addRoute = addRoute;
-        service.updateRoute = updateRoute;
-        service.deleteRouteById = deleteRouteById
+        routeService.getRouteById = getRouteById;
+        routeService.getRouteByRouteNum = getRouteByRouteNum;
+        routeService.getRoutesByDistrictId = getRoutesByDistrictId;
+        routeService.getAllRoutes = getAllRoutes;
+        routeService.addRoute = addRoute;
+        routeService.updateRoute = updateRoute;
+        routeService.deleteRouteById = deleteRouteById
 
         // GET by RouteId
         function getRouteById(id) {
-            var deferred = $q.defer();
-            var data = {
-                RouteId: id
-            };
-
-            http.get({
-                url: '/api/Route/GetRouteById',
-                data: data
+            var deferred = $q.defer();            
+            $http({                
+                url: '/api/Route/GetRouteById/' + id,
+                method: 'GET'
                 //headers:
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
             return deferred.promise;
         }
 
         //GET by RouteNum
         function getRouteByRouteNum(routeNum) {
-            var deferred = $q.defer();
-            var data = {
-                RouteNum: routeNum
-            }
-
-            $http.get({
-                url: '/api/Route/GetRouteByRouteNum',
-                data: data
+            var deferred = $q.defer();        
+            $http({               
+                url: '/api/Route/GetRouteByRouteNum/' + routeNum,
+                method: 'GET'
                 //headers
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
-            return deferred.promise();
+            return deferred.promise;
         }
 
         //GET by DistrictId
         function getRoutesByDistrictId(districtId) {
             var deferred = $q.defer();
-            var data = {
-                DistrictId: districtId
-            }
-
-            $http.get({
-                url: '/api/Route/GetRoutesByDistrictId',
-                data: data
+            $http({                
+                url: '/api/Route/GetRoutesByDistrictId/' + districtId,
+                method: 'GET'
                 //headers
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             })
-
-            return deferred.promise();
+            return deferred.promise;
         }
 
         //GET all Routes
         function getAllRoutes() {
             var deferred = $q.defer();
-
-            $http.get({
+            $http({                
                 url: '/api/Route/GetAllRoutes',
-                //headers:
-            }).success(function () {
-                deferred.resolve();
-            }).error(function () {
-                deferred.reject();
-            });
-
-            return deferred.promise();
-        }
-            
-
-        //ADD Route
-        function addRoute(routeId, routeNum, routeStart, routeEnd, accessCodeId, districtId) {
-            var deferred = $q.defer();
-            var data = {
-                RouteId: routeId,
-                RouteNum: routeNum,
-                RouteStart: routeStart,
-                RouteEnd: routeEnd,
-                AccessCodeId: accessCodeId,
-                DistrictId: districtId
-            };
-
-            http.post({
-                url: '/api/Route/AddRoute',
-                data: data
+                method: 'GET'
                 //headers:
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
+            return deferred.promise;
+        }
+            
+        //POST add Route
+        function addRoute(route) {
+            var deferred = $q.defer();            
+            $http({               
+                url: '/api/Route/AddRoute',
+                method: 'POST',
+                data: route
+                //headers:
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            });
             return deferred.promise;
         }
         
-        //UPDATE Route
-        function updateRoute(routeId, routeNum, routeStart, routeEnd, accessCodeId, districtId) {
+        //POST update Route
+        function updateRoute(route) {
             var deferred = $q.defer();
-            var data = {
-                RouteNum: routeNum,
-                RouteStart: routeStart,
-                RouteEnd: routeEnd,
-                AccessCodeId: accessCodeId,
-                DistrictId: districtId
-            };
-
-            http.post({
+            $http({                
                 url: '/api/Route/UpdateRoute',
-                data: data
+                method: 'POST',
+                data: route
                 //headers:
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
             return deferred.promise;
         }
 
         //DELETE Route
         function deleteRouteById(id) {
             var deferred = $q.defer();
-            var data = {
-                RouteId: id
-            }
-
-            $http.post({
+            $http({               
                 url: '/api/Route/DeleteRouteById',
-                data: data
+                method: 'DELETE',
+                data: id
                 //headers:
             }).success(function (data) {
-                deferred.resolve();
+                deferred.resolve(data);
             }).error(function (data) {
-                deferred.reject();
+                deferred.reject(data);
             });
-
             return deferred.promise;
         }
+
+        return routeService;
     }
 })();
