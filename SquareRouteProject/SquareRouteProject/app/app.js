@@ -35,7 +35,7 @@
                 controllerAs: 'vm'
             })
             .when('/registration', {
-                templateUrl: '/app/views/registrationTest.html',
+                templateUrl: '/app/views/registration.html',
                 controller: 'RegistrationController',
                 controllerAs: 'vm'
             })

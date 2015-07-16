@@ -719,15 +719,18 @@ namespace SquareRouteProject.Presentation.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new IdentityUser() { 
+            var user = new IdentityUser() 
+            { 
                 UserName = model.Email, 
                 RoleType = model.RoleType, 
                 FirstName = model.FirstName, 
                 LastName = model.LastName, 
+                Address = model.Address,
+                City = model.City,
+                PostalCode = model.PostalCode,
                 ImageUrl = model.ImageUrl, 
                 MobileDeviceId = model.MobileDeviceId,                 
-                AccessCodes = model.AccessCodes, 
-                Routes = model.Routes,   };
+            };
 
             IdentityResult identityResult = await _userManager.CreateAsync(user, model.Password);
             roleAssigner(user);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SquareRouteProject.Infastructure.Repositories
 {
-    internal class UserRepository : Repository<User>, IUserRepository, SquareRouteProject.Infastructure.Repositories.IUserRepository
+    internal class UserRepository : Repository<User>, IUserRepository
     {
         internal UserRepository(ApplicationDbContext context)
             : base(context)

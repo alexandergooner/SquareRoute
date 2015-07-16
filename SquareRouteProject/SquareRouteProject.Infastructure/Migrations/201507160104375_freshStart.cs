@@ -23,12 +23,56 @@ namespace SquareRouteProject.Infastructure.Migrations
                         AccessCodeUserId = c.Int(nullable: false, identity: true),
                         UserId = c.Guid(nullable: false),
                         AccessCodeId = c.Int(nullable: false),
+                        Route_RouteId = c.Int(),
                     })
                 .PrimaryKey(t => t.AccessCodeUserId)
                 .ForeignKey("dbo.AccessCodes", t => t.AccessCodeId, cascadeDelete: true)
+                .ForeignKey("dbo.Routes", t => t.Route_RouteId)
                 .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
-                .Index(t => t.AccessCodeId);
+                .Index(t => t.AccessCodeId)
+                .Index(t => t.Route_RouteId);
+            
+            CreateTable(
+                "dbo.Routes",
+                c => new
+                    {
+                        RouteId = c.Int(nullable: false, identity: true),
+                        RouteNum = c.Int(nullable: false),
+                        RouteStart = c.String(),
+                        RouteEnd = c.String(),
+                        AccessCodeId = c.Int(nullable: false),
+                        DistrictId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.RouteId)
+                .ForeignKey("dbo.Districts", t => t.DistrictId, cascadeDelete: true)
+                .Index(t => t.DistrictId);
+            
+            CreateTable(
+                "dbo.BusStops",
+                c => new
+                    {
+                        BusStopId = c.Int(nullable: false, identity: true),
+                        Location = c.String(),
+                        RouteId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.BusStopId)
+                .ForeignKey("dbo.Routes", t => t.RouteId, cascadeDelete: true)
+                .Index(t => t.RouteId);
+            
+            CreateTable(
+                "dbo.RouteUsers",
+                c => new
+                    {
+                        RouteUserId = c.Int(nullable: false, identity: true),
+                        UserId = c.Guid(nullable: false),
+                        RouteId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.RouteUserId)
+                .ForeignKey("dbo.Routes", t => t.RouteId, cascadeDelete: true)
+                .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RouteId);
             
             CreateTable(
                 "dbo.User",
@@ -38,8 +82,8 @@ namespace SquareRouteProject.Infastructure.Migrations
                         UserName = c.String(nullable: false, maxLength: 256),
                         PasswordHash = c.String(maxLength: 4000),
                         SecurityStamp = c.String(maxLength: 4000),
-                        FirstName = c.String(nullable: false),
-                        LastName = c.String(nullable: false),
+                        FirstName = c.String(),
+                        LastName = c.String(),
                         RoleType = c.Int(nullable: false),
                         Address = c.String(),
                         City = c.String(),
@@ -84,47 +128,6 @@ namespace SquareRouteProject.Infastructure.Migrations
                 .PrimaryKey(t => t.RoleId);
             
             CreateTable(
-                "dbo.RouteUsers",
-                c => new
-                    {
-                        RouteUserId = c.Int(nullable: false, identity: true),
-                        UserId = c.Guid(nullable: false),
-                        RouteId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.RouteUserId)
-                .ForeignKey("dbo.Routes", t => t.RouteId, cascadeDelete: true)
-                .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.RouteId);
-            
-            CreateTable(
-                "dbo.Routes",
-                c => new
-                    {
-                        RouteId = c.Int(nullable: false, identity: true),
-                        RouteNum = c.Int(nullable: false),
-                        RouteStart = c.String(),
-                        RouteEnd = c.String(),
-                        AccessCodeId = c.Int(nullable: false),
-                        DistrictId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.RouteId)
-                .ForeignKey("dbo.Districts", t => t.DistrictId, cascadeDelete: true)
-                .Index(t => t.DistrictId);
-            
-            CreateTable(
-                "dbo.BusStops",
-                c => new
-                    {
-                        BusStopId = c.Int(nullable: false, identity: true),
-                        Location = c.String(),
-                        RouteId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.BusStopId)
-                .ForeignKey("dbo.Routes", t => t.RouteId, cascadeDelete: true)
-                .Index(t => t.RouteId);
-            
-            CreateTable(
                 "dbo.Districts",
                 c => new
                     {
@@ -152,33 +155,35 @@ namespace SquareRouteProject.Infastructure.Migrations
         {
             DropForeignKey("dbo.Routes", "DistrictId", "dbo.Districts");
             DropForeignKey("dbo.AccessCodeUsers", "UserId", "dbo.User");
+            DropForeignKey("dbo.AccessCodeUsers", "Route_RouteId", "dbo.Routes");
             DropForeignKey("dbo.RouteUsers", "UserId", "dbo.User");
-            DropForeignKey("dbo.RouteUsers", "RouteId", "dbo.Routes");
-            DropForeignKey("dbo.BusStops", "RouteId", "dbo.Routes");
             DropForeignKey("dbo.UserRole", "UserId", "dbo.User");
             DropForeignKey("dbo.UserRole", "RoleId", "dbo.Role");
             DropForeignKey("dbo.ExternalLogin", "UserId", "dbo.User");
             DropForeignKey("dbo.Claim", "UserId", "dbo.User");
+            DropForeignKey("dbo.RouteUsers", "RouteId", "dbo.Routes");
+            DropForeignKey("dbo.BusStops", "RouteId", "dbo.Routes");
             DropForeignKey("dbo.AccessCodeUsers", "AccessCodeId", "dbo.AccessCodes");
             DropIndex("dbo.UserRole", new[] { "UserId" });
             DropIndex("dbo.UserRole", new[] { "RoleId" });
-            DropIndex("dbo.BusStops", new[] { "RouteId" });
-            DropIndex("dbo.Routes", new[] { "DistrictId" });
-            DropIndex("dbo.RouteUsers", new[] { "RouteId" });
-            DropIndex("dbo.RouteUsers", new[] { "UserId" });
             DropIndex("dbo.ExternalLogin", new[] { "UserId" });
             DropIndex("dbo.Claim", new[] { "UserId" });
+            DropIndex("dbo.RouteUsers", new[] { "RouteId" });
+            DropIndex("dbo.RouteUsers", new[] { "UserId" });
+            DropIndex("dbo.BusStops", new[] { "RouteId" });
+            DropIndex("dbo.Routes", new[] { "DistrictId" });
+            DropIndex("dbo.AccessCodeUsers", new[] { "Route_RouteId" });
             DropIndex("dbo.AccessCodeUsers", new[] { "AccessCodeId" });
             DropIndex("dbo.AccessCodeUsers", new[] { "UserId" });
             DropTable("dbo.UserRole");
             DropTable("dbo.Districts");
-            DropTable("dbo.BusStops");
-            DropTable("dbo.Routes");
-            DropTable("dbo.RouteUsers");
             DropTable("dbo.Role");
             DropTable("dbo.ExternalLogin");
             DropTable("dbo.Claim");
             DropTable("dbo.User");
+            DropTable("dbo.RouteUsers");
+            DropTable("dbo.BusStops");
+            DropTable("dbo.Routes");
             DropTable("dbo.AccessCodeUsers");
             DropTable("dbo.AccessCodes");
         }

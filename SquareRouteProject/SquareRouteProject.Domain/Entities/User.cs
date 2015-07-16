@@ -17,10 +17,8 @@ namespace SquareRouteProject.Domain.Entities
         public string UserName { get; set; }
         public virtual string PasswordHash { get; set; }
         public virtual string SecurityStamp { get; set; }        
-                
-        [Required]
+                        
         public string FirstName { get; set; }
-        [Required]
         public string LastName { get; set; }
         public int RoleType { get; set; }
         public string Address { get; set; }

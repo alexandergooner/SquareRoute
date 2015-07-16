@@ -26,7 +26,7 @@ namespace SquareRouteProject.Presentation.Identity
 
             var u = getUser(user);                                   
 
-            _unitOfWork.UserRepository.Add(u);
+            _unitOfWork.UserRepository.Repo.Add(u);
             return _unitOfWork.SaveChangesAsync();
         }
 
@@ -37,13 +37,13 @@ namespace SquareRouteProject.Presentation.Identity
 
             var u = getUser(user);
 
-            _unitOfWork.UserRepository.Remove(u);
+            _unitOfWork.UserRepository.Repo.Remove(u);
             return _unitOfWork.SaveChangesAsync();
         }
 
         public Task<IdentityUser> FindByIdAsync(Guid userId)
         {
-            var user = _unitOfWork.UserRepository.FindById(userId);
+            var user = _unitOfWork.UserRepository.Repo.FindById(userId);
             return Task.FromResult<IdentityUser>(getIdentityUser(user));
         }
 
@@ -58,13 +58,13 @@ namespace SquareRouteProject.Presentation.Identity
             if (user == null)
                 throw new ArgumentException("user");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
             populateUser(u, user);
 
-            _unitOfWork.UserRepository.Update(u);
+            _unitOfWork.UserRepository.Repo.Update(u);
             return _unitOfWork.SaveChangesAsync();
         }
         #endregion
@@ -84,7 +84,7 @@ namespace SquareRouteProject.Presentation.Identity
             if (claim == null)
                 throw new ArgumentNullException("claim");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
@@ -96,7 +96,7 @@ namespace SquareRouteProject.Presentation.Identity
             };
             u.Claims.Add(c);
 
-            _unitOfWork.UserRepository.Update(u);
+            _unitOfWork.UserRepository.Repo.Update(u);
             return _unitOfWork.SaveChangesAsync();
         }
 
@@ -105,7 +105,7 @@ namespace SquareRouteProject.Presentation.Identity
             if (user == null)
                 throw new ArgumentNullException("user");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
@@ -119,14 +119,14 @@ namespace SquareRouteProject.Presentation.Identity
             if (claim == null)
                 throw new ArgumentNullException("claim");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
             var c = u.Claims.FirstOrDefault(x => x.ClaimType == claim.Type && x.ClaimValue == claim.Value);
             u.Claims.Remove(c);
 
-            _unitOfWork.UserRepository.Update(u);
+            _unitOfWork.UserRepository.Repo.Update(u);
             return _unitOfWork.SaveChangesAsync();
         }
         #endregion
@@ -139,7 +139,7 @@ namespace SquareRouteProject.Presentation.Identity
             if (login == null)
                 throw new ArgumentNullException("login");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
@@ -151,7 +151,7 @@ namespace SquareRouteProject.Presentation.Identity
             };
             u.Logins.Add(l);
 
-            _unitOfWork.UserRepository.Update(u);
+            _unitOfWork.UserRepository.Repo.Update(u);
             return _unitOfWork.SaveChangesAsync();
         }
 
@@ -174,7 +174,7 @@ namespace SquareRouteProject.Presentation.Identity
             if (user == null)
                 throw new ArgumentNullException("user");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
@@ -188,14 +188,14 @@ namespace SquareRouteProject.Presentation.Identity
             if (login == null)
                 throw new ArgumentNullException("login");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
             var l = u.Logins.FirstOrDefault(x => x.LoginProvider == login.LoginProvider && x.ProviderKey == login.ProviderKey);
             u.Logins.Remove(l);
 
-            _unitOfWork.UserRepository.Update(u);
+            _unitOfWork.UserRepository.Repo.Update(u);
             return _unitOfWork.SaveChangesAsync();
         }
         #endregion
@@ -208,7 +208,7 @@ namespace SquareRouteProject.Presentation.Identity
             if (string.IsNullOrWhiteSpace(roleName))
                 throw new ArgumentException("Argument cannot be null, empty, or whitespace: roleName.");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
             var r = _unitOfWork.RoleRepository.FindByName(roleName);
@@ -216,7 +216,7 @@ namespace SquareRouteProject.Presentation.Identity
                 throw new ArgumentException("roleName does not correspond to a Role entity.", "roleName");
 
             u.Roles.Add(r);
-            _unitOfWork.UserRepository.Update(u);
+            _unitOfWork.UserRepository.Repo.Update(u);
 
             return _unitOfWork.SaveChangesAsync();
         }
@@ -226,7 +226,7 @@ namespace SquareRouteProject.Presentation.Identity
             if (user == null)
                 throw new ArgumentNullException("user");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
@@ -240,7 +240,7 @@ namespace SquareRouteProject.Presentation.Identity
             if (string.IsNullOrWhiteSpace(roleName))
                 throw new ArgumentException("Argument cannot be null, empty, or whitespace: role.");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
@@ -254,14 +254,14 @@ namespace SquareRouteProject.Presentation.Identity
             if (string.IsNullOrWhiteSpace(roleName))
                 throw new ArgumentException("Argument cannot be null, empty, or whitespace: role.");
 
-            var u = _unitOfWork.UserRepository.FindById(user.Id);
+            var u = _unitOfWork.UserRepository.Repo.FindById(user.Id);
             if (u == null)
                 throw new ArgumentException("IdentityUser does not correspond to a User entity.", "user");
 
             var r = u.Roles.FirstOrDefault(x => x.Name == roleName);
             u.Roles.Remove(r);
 
-            _unitOfWork.UserRepository.Update(u);
+            _unitOfWork.UserRepository.Repo.Update(u);
             return _unitOfWork.SaveChangesAsync();
         }
         #endregion

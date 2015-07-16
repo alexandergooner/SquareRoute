@@ -21,5 +21,7 @@ namespace SquareRouteProject.Domain.Entities
         [InverseProperty("Users")]
         public int AccessCodeId { get; set; }
         public virtual AccessCode AccessCode { get; set; }
+
+        public virtual Route Route { get; set; }
     }
 }

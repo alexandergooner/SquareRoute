@@ -2,19 +2,35 @@
     angular.module('SquareRoute')
         .controller('RegistrationController', RegistrationController)
 
-    function RegistrationController($location, registerService) {
+    function RegistrationController($location, registerService,userService) {
         var vm = this;
         vm.message = "Registration View";
 
         vm.register = function () {
-            registerService.register(vm.email, vm.createPassword, vm.confirmPassword, vm.roleType).then(registerSuccess, registerFail);
+
+            var userToRegister = {
+                Email: vm.email,
+                Password: vm.createPassword,
+                ConfirmPassword: vm.confirmPassword,
+                FirstName: vm.firstName,
+                LastName: vm.lastName,
+                ImageUrl: vm.imageUrl,
+                MobileDeviceId: vm.mobileDeviceId,
+                Address: vm.addressLine1 + ' ' + vm.addressLine2,
+                City: vm.city,
+                PostalCode: vm.postalCode,
+                RoleType: 1                
+            };
+
+            //userService.addUser(userToRegister).then(registerSuccess, registerFail);
+            registerService.register(userToRegister).then(registerSuccess, registerFail);
         }
 
         function registerSuccess() {
-            $location.path('/menu');
+            $location.path('/');
         }
-        function registerFail() {
-
+        function registerFail(data) {
+            console.log(data);
         }
     }
 })();

@@ -45,6 +45,7 @@ namespace SquareRouteProject.Presentation
                 "~/app/services/RegisterService.js",
                 "~/app/services/RouteService.js",
                 "~/app/services/BusStopService.js",
+                "~/app/services/UserService.js",
                 "~/app/services/AccessCodeService.js"
                 ));
         }

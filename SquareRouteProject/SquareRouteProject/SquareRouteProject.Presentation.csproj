@@ -251,6 +251,7 @@
     <Content Include="app\services\RegisterService.js" />
     <Content Include="app\services\LoginService.js" />
     <Content Include="app\services\RouteService.js" />
+    <Content Include="app\services\UserService.js" />
     <Content Include="app\views\adminTest.html" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\dispatcher.html" />
