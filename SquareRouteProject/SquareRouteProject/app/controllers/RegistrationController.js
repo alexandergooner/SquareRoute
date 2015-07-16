@@ -2,7 +2,7 @@
     angular.module('SquareRoute')
         .controller('RegistrationController', RegistrationController)
 
-    function RegistrationController($location, registerService,userService) {
+    function RegistrationController($location, userService) {
         var vm = this;
         vm.message = "Registration View";
 

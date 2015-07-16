@@ -43,10 +43,6 @@
                 templateUrl: 'app/views/googlemaps.html',
                 controller: 'GoogleMapsController',
                 controllerAs: 'vm'
-            }).when('/email', {
-                templateUrl: 'app/views/emailTest.html',
-                controller: 'EmailController',
-                controllerAs: 'vm'
             })
             .when('/email', {
                 templateUrl: 'app/views/emailTest.html',
