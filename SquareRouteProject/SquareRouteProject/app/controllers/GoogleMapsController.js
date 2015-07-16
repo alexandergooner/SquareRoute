@@ -3,80 +3,75 @@
         .controller('GoogleMapsController', GoogleMapsController)
 
     // GOOGLE MAPS CONTROLLER
-    function GoogleMapsController($scope, $http, uiGmapGoogleMapApi, $log) {
+    function GoogleMapsController($scope, $http, uiGmapGoogleMapApi, uiGmapIsReady, $log) {
         var vm = this;
         vm.message = "GoogleMaps View";
 
-        uiGmapGoogleMapApi.then(function () {
-            
-            console.log("GmapGoogleMapApi ready");
+        uiGmapGoogleMapApi.then(function (maps) {
+            console.log("GmapGoogleMapApi ready")
+            $scope.googlemap = {};
             $scope.map = {
                 center: {
                     latitude: 29.758943,
                     longitude: -95.361720
                 },
-                zoom: 10,        
+                zoom: 10,
             }
+        });
 
+        uiGmapIsReady.promise().then(function (instances) {
+            console.log("uiGmapIsReady");
+            var maps = instances[0].map;
+            $scope.calcRoute(maps);
+        });
+
+        $scope.calcRoute = function (maps) {
             var directionsDisplay = new google.maps.DirectionsRenderer();
             var directionsService = new google.maps.DirectionsService();
             var map;
             var stepDisplay;
             var markerArray = [];
 
-            vm.initialize = function () {
-                directionsService = new google.maps.DirectionsService();
+            var start = "6351 Pinemont, Houston, TX";
+            var end = "5100 Maple St, Bellaire, TX";
+            var waypts = [
+                { location: "4049 Woodshire St, Houston, TX", stopover: true },
+                { location: "10401 WOODWIND DR, Houston, TX", stopover: true },
+                { location: "4134 MCDERMED DR, Houston, TX" },
+                { location: "10113 BASSOON DR, Houston, TX" },
+                { location: "10114 WOODWIND DR, Houston, TX" },
+                { location: "4081 SILVERWOOD DR, Houston, TX" }
+            ];
 
-                vm.rendererOptions = {
-                    map: map
-                }
-                directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+            var request = {
+                origin: start,
+                destination: end,
+                waypoints: waypts,
+                optimizeWaypoints: true,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            console.log(request);
+            console.log(JSON.stringify(request));
 
-                stepDisplay = new google.maps.InfoWindow();
-            }
-
-            vm.calcRoute = function () {
-                var start = "6351 Pinemont, Houston, TX";
-                var end = "5100 Maple St, Bellaire, TX";
-                var waypts = [
-                    { location: "4049 Woodshire St, Houston, TX", stopover: true },
-                    { location: "10401 WOODWIND DR, Houston, TX", stopover: true },
-                    { location: "4134 MCDERMED DR, Houston, TX" },
-                    { location: "10113 BASSOON DR, Houston, TX" },
-                    { location: "10114 WOODWIND DR, Houston, TX" },
-                    { location: "4081 SILVERWOOD DR, Houston, TX" }
-                ];
-
-                var request = {
-                    origin: start,
-                    destination: end,
-                    waypoints: waypts,
-                    optimizeWaypoints: true,
-                    travelMode: google.maps.TravelMode.DRIVING
-                };
-                console.log(request);
-                console.log(JSON.stringify(request));
-
-                directionsService.route(request, function (response, status) {
-                    console.log(response, status);
-                    if (status == google.maps.DirectionsStatus.OK) {
-                        var warnings = document.getElementById('warnings_panel');
-                        warnings.innerHTML = "" + response.routes[0].warnings + " ";                      
-                        directionsDisplay.setDirections(response);
-                        showSteps(response);
-                        var route = response.routes[0];
-                        var summaryPanel = document.getElementById('directions_panel');
-                        summaryPanel.innerHTML = "";
-                        for (var i = 0; i < route.legs.length; i++) {
-                            var routeSegment = i + 1;
-                            summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
-                            summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-                            summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-                            summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-                        }
+            directionsService.route(request, function (response, status) {
+                console.log(response, status);
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                    showSteps(response);
+                    
+                    var route = response.routes[0];
+                    var summaryPanel = document.getElementById('directions_panel');
+                    summaryPanel.innerHTML = "";
+                    for (var i = 0; i < route.legs.length; i++) {
+                        var routeSegment = i + 1;
+                        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
+                        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+                        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+                        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
                     }
-                });
-            }
+                    
+                }
+            });
             var showSteps = function (directionResult) {
                 var myRoute = directionResult.routes[0].legs[0];
 
@@ -92,10 +87,92 @@
                         });
                     }
                 }
+                
             }
-        })
-
         }
+
+
+        //uiGmapGoogleMapApi.then(function (maps) {
+            
+            
+
+            //var directionsDisplay = new google.maps.DirectionsRenderer();
+            //var directionsService = new google.maps.DirectionsService();
+            //var map;
+            //var stepDisplay;
+            //var markerArray = [];
+
+            //vm.initialize = function () {
+            //    directionsService = new google.maps.DirectionsService();
+
+            //    vm.rendererOptions = {
+            //        map: map
+            //    }
+            //    directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+
+            //    stepDisplay = new google.maps.InfoWindow();
+            //}
+
+        //vm.calcRoute = function () {
+        //    var start = "6351 Pinemont, Houston, TX";
+        //    var end = "5100 Maple St, Bellaire, TX";
+        //    var waypts = [
+        //        { location: "4049 Woodshire St, Houston, TX", stopover: true },
+        //        { location: "10401 WOODWIND DR, Houston, TX", stopover: true },
+        //        { location: "4134 MCDERMED DR, Houston, TX" },
+        //        { location: "10113 BASSOON DR, Houston, TX" },
+        //        { location: "10114 WOODWIND DR, Houston, TX" },
+        //        { location: "4081 SILVERWOOD DR, Houston, TX" }
+        //    ];
+
+            //var request = {
+            //    origin: start,
+            //    destination: end,
+            //    waypoints: waypts,
+            //    optimizeWaypoints: true,
+            //    travelMode: google.maps.TravelMode.DRIVING
+            //};
+            //console.log(request);
+            //console.log(JSON.stringify(request));
+
+            //directionsService.route(request, function (response, status) {
+            //    console.log(response, status);
+            //    if (status == google.maps.DirectionsStatus.OK) {                   
+            //        directionsDisplay.setDirections(response);
+            //        showSteps(response);
+            //        return;
+            //        var route = response.routes[0];
+            //        var summaryPanel = document.getElementById('directions_panel');
+            //        summaryPanel.innerHTML = "";
+            //        for (var i = 0; i < route.legs.length; i++) {
+            //            var routeSegment = i + 1;
+            //            summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
+            //            summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+            //            summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+            //            summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+            //        }
+            //    }
+            //        });
+            //    }
+            //    var showSteps = function (directionResult) {
+            //        var myRoute = directionResult.routes[0].legs[0];
+
+            //        for (var i = 0; i < myRoute.steps.length; i++) {
+            //            var marker = new google.maps.Marker({
+            //                position: myRoute.steps[i].start_point,
+            //                map: map
+            //            });
+            //            function attachInstructionText(marker, text) {
+            //                google.maps.event.addListener(marker, 'click', function () {
+            //                    stepDisplay.setContent(text);
+            //                    stepDisplay.open(map, marker);
+            //                });
+            //            }
+            //        }
+            //    }
+            //})
+        }
+        
 
 })();
 

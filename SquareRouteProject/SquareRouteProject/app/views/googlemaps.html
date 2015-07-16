@@ -1,36 +1,46 @@
-﻿{{vm.message}}
-<div id="map-canvas" style="float:right;width:70%;height:100%;" ng-init="vm.initialize()"></div>
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    
+</head>
+<body>
 
 
-<div>
-    <ui-gmap-google-map id="map-canvas" 
-                        center='map.center' 
-                        zoom='map.zoom' 
-                        options="map.options" 
-                        control="map.control">
-        <ui-gmap-marker 
-                        ng-repeat="m in markers"
-                        coords="m.coords"
-                        idkey="m.id"
-                        options="m.options"
-                        events="m.events"
-                        icon="m.icon">
 
-        </ui-gmap-marker>
-   
-    </ui-gmap-google-map>
-</div>
-<br />
 
-<button ng-click="vm.calcRoute()" type="submit" class="btn btn-default">Submit</button>
+    {{vm.message}}
 
-<div id="map-canvas"></div>
+
+    <div class="angular-google-map-container">
+        <ui-gmap-google-map id="map-canvas"
+                            center='map.center'
+                            zoom='map.zoom'
+                            options="map.options"
+                            control="map.control"
+                            events="map.events">
+            <ui-gmap-marker ng-repeat="m in markers"
+                            coords="m.coords"
+                            idkey="m.id"
+                            options="m.options"
+                            events="m.events"
+                            icon="m.icon">
+
+            </ui-gmap-marker>
+
+        </ui-gmap-google-map>
+    </div>
+    <br />
+
+    <button ng-click="vm.calcRoute()" type="submit" class="btn btn-default">Submit</button>
+
+    <div id="map-canvas"></div>
     &nbsp;
-<div id="directions_panel" style="width:100%;height:10%;text-align:center"></div>
+    <div id="directions_panel" style="width:100%;height:10%;text-align:center"></div>
 
-<div id="warnings_panel"></div>
-
-
+</body>
+</html>
 
 
 
