@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    angular.module('SquareRoute', ['ngRoute', 'uiGmapgoogle-maps']).config(Config).config(ConfigGoogleMaps);
+    angular.module('SquareRoute', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap', 'ui.bootstrap.tpls', 'ngwidgets']).config(Config).config(ConfigGoogleMaps);
 
     function Config($routeProvider) {
         $routeProvider
@@ -25,7 +25,7 @@
                 controllerAs: 'vm'
             })
             .when('/admin', {
-                templateUrl: '/app/views/adminTest.html',
+                templateUrl: '/app/views/admin.html',
                 controller: 'AdminController',
                 controllerAs: 'vm'
             })
@@ -42,6 +42,10 @@
             .when('/googlemaps', {
                 templateUrl: 'app/views/googlemaps.html',
                 controller: 'GoogleMapsController',
+                controllerAs: 'vm'
+            }).when('/email', {
+                templateUrl: 'app/views/emailTest.html',
+                controller: 'EmailController',
                 controllerAs: 'vm'
             })
             .when('/email', {
@@ -61,3 +65,4 @@
     }
 
 })();
+//a
