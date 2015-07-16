@@ -67,6 +67,6 @@ namespace SquareRouteProject.Presentation.Controllers.api
             return routes;
         }
 
-        
     }
+
 }

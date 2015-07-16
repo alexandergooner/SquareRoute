@@ -244,7 +244,6 @@
     <Content Include="app\controllers\ParentController.js" />
     <Content Include="app\controllers\RegistrationController.js" />
     <Content Include="app\controllers\WelcomeController.js" />
-    <Content Include="app\services\GoogleMapsService.js" />
     <Content Include="app\services\RegisterService.js" />
     <Content Include="app\services\LoginService.js" />
     <Content Include="app\services\RouteService.js" />
