@@ -211,6 +211,8 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\AdminController.js" />
+    <Content Include="app\controllers\design\DropdownMenu.js" />
+    <Content Include="app\controllers\design\ModalController.js" />
     <Content Include="app\controllers\DispatcherController.js" />
     <Content Include="app\controllers\DriverController.js" />
     <Content Include="app\controllers\EmailController.js" />
