@@ -224,11 +224,15 @@
     <Content Include="app\controllers\RegistrationController.js" />
     <Content Include="app\controllers\WelcomeController.js" />
     <Content Include="app\services\AccessCodeService.js" />
+    <Content Include="app\services\AccessCodeUserService.js" />
     <Content Include="app\services\BusStopService.js" />
     <Content Include="app\services\DirectionService.js" />
     <Content Include="app\services\EmailService.js" />
     <Content Include="app\services\LoginService.js" />
+    <Content Include="app\services\RouteDriverService.js" />
+    <Content Include="app\services\RouteSchoolService.js" />
     <Content Include="app\services\RouteService.js" />
+    <Content Include="app\services\RouteUserService.js" />
     <Content Include="app\services\UserService.js" />
     <Content Include="app\views\adminTest.html" />
     <Content Include="app\views\admin.html" />

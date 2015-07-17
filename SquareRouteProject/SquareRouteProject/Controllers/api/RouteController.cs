@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using Microsoft.AspNet.Identity;
 
 namespace SquareRouteProject.Presentation.Controllers.api
 {
@@ -28,6 +29,9 @@ namespace SquareRouteProject.Presentation.Controllers.api
             {
                 _unitOfWork.RouteRepository.Repo.Add(route);
                 _unitOfWork.SaveChanges();
+
+                var userId = User.Identity.GetUserId();
+
                 return Ok();
             }
             return BadRequest();
