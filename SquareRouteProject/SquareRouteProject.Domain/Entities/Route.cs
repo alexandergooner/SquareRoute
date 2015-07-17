@@ -20,5 +20,6 @@ namespace SquareRouteProject.Domain.Entities
 
         public virtual ICollection<BusStop> BusStops { get; set; }
         public virtual ICollection<RouteUser> Users { get; set; }
+        public virtual ICollection<RouteSchool> Schools { get; set; }
     }
 }

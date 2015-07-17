@@ -49,7 +49,10 @@
     <Compile Include="Entities\Email.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Route.cs" />
+    <Compile Include="Entities\RouteDriver.cs" />
+    <Compile Include="Entities\RouteSchool.cs" />
     <Compile Include="Entities\RouteUser.cs" />
+    <Compile Include="Entities\School.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Models\IGenericRepository.cs" />

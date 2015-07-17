@@ -40,7 +40,6 @@ namespace SquareRouteProject.Infastructure.Migrations
                 RouteId = 1
             };
             
-
             context.AccessCodes.AddOrUpdate(accessCode);
             context.SaveChanges();
             context.Districts.AddOrUpdate(district);

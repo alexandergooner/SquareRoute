@@ -28,6 +28,9 @@ namespace SquareRouteProject.Infastructure
         public IDbSet<District> Districts { get; set; }
         public IDbSet<RouteUser> RouteUsers { get; set; }
         public IDbSet<AccessCodeUser> AccessCodeUsers { get; set; }
+        public IDbSet<RouteDriver> RouteDrivers { get; set; }
+        public IDbSet<School> Schools { get; set; }
+        public IDbSet<RouteSchool> RouteSchools { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
