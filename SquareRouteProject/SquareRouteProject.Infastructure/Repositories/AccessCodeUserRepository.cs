@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SquareRouteProject.Infastructure.Repositories
 {
-    internal class AccessCodeUserRepository : Repository<AccessCodeUser>
+    internal class AccessCodeUserRepository : Repository<AccessCodeUser>, IAccessCodeUserRepository
     {
         internal AccessCodeUserRepository(ApplicationDbContext context)
             :base(context)
@@ -21,10 +21,16 @@ namespace SquareRouteProject.Infastructure.Repositories
             get { return this; }
         }
 
-        //GET        
-        public IList<AccessCodeUser> GetAllAccessCodeEntriesForUser(Guid userId)
+        //GET All AccessCodeUser entries for a given userId
+        public IList<AccessCodeUser> GetAllAccessCodeUsersByUserId(Guid userId)
         {
             return Set.Where(u => u.UserId == userId).ToList();
         } 
+
+        //GET All AccessCodeUser entries for a given accessCodeId
+        public IList<AccessCodeUser> GetAllAccessCodeUsersByAccessCodeId(int accesssCodeId)
+        {
+            return Set.Where(a => a.AccessCodeId == accesssCodeId).ToList();
+        }
     }
 }

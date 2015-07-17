@@ -58,12 +58,16 @@
     <Compile Include="Models\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IAccessCodeRepository.cs" />
+    <Compile Include="Repositories\IAccessCodeUserRepository.cs" />
     <Compile Include="Repositories\IBusStopRepository.cs" />
     <Compile Include="Repositories\IExternalLoginRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IRoleRepository.cs" />
+    <Compile Include="Repositories\IRouteDriverRepository.cs" />
     <Compile Include="Repositories\IRouteRepository.cs" />
+    <Compile Include="Repositories\IRouteSchoolRepository.cs" />
+    <Compile Include="Repositories\IRouteUserRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

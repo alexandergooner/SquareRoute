@@ -63,6 +63,9 @@
     </Compile>
     <Compile Include="Repositories\AccessCodeRepository.cs" />
     <Compile Include="Repositories\AccessCodeUserRepository.cs" />
+    <Compile Include="Repositories\RouteDriverRepository.cs" />
+    <Compile Include="Repositories\RouteSchoolRepository.cs" />
+    <Compile Include="Repositories\RouteUserRepository.cs" />
     <Compile Include="UnitOfWorkDataModels.cs" />
     <Compile Include="Configuration\ClaimConfiguration.cs" />
     <Compile Include="Configuration\ConnectionInfo.cs" />
