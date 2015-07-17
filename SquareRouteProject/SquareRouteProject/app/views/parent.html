@@ -1,1 +1,50 @@
 ﻿{{vm.message}}
+
+<div class="container">
+    <div class="row">
+        <!-- GOOGLE MAP -->
+        <div>
+            <div style="border: 1px solid black" class="angular-google-map-container" ng-controller="GoogleMapsController">
+                <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div ng-controller="ModalController">
+    <button class="btn btn-primary" ng-click="open()">Input Access Code</button>
+    <div ng-show="selected">Your Route is <span style="color: red;"><b>{{ selected }}</b></span></div>
+</div>
+
+<div ng-controller="ModalController" class="col-md-2">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Input Access Code</h3>
+        </div>
+        <div>
+            <br />
+            <div class="col-md-offset-2">
+                <label>
+                    Access Code: &nbsp
+                </label>
+                <input ng-model="inputAccessCode" />
+            </div>
+
+        </div>
+        <!--<div class="modal-body">
+            <ul>
+                <li ng-repeat="item in items">
+                    <a ng-click="selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ selected.item }}</b>
+        </div>-->
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+</div>
