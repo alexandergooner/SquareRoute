@@ -22,7 +22,7 @@ namespace SquareRouteProject.Infastructure.Repositories
         }
 
         //GET RouteDriver by userId
-        public RouteDriver GetRouteDriverByUserId(int userId)
+        public RouteDriver GetRouteDriverByUserId(Guid userId)
         { 
             return Set.Where(x => x.UserId == userId).FirstOrDefault();
         }
