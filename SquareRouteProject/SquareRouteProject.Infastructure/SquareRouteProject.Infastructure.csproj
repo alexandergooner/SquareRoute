@@ -83,6 +83,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Scripts\angular.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SquareRouteProject.Domain\SquareRouteProject.Domain.csproj">
@@ -100,6 +101,17 @@
     <EmbeddedResource Include="Migrations\201507161458461_addingState.resx">
       <DependentUpon>201507161458461_addingState.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\angular-google-maps-street-view.js" />
+    <Content Include="Scripts\angular-google-maps-street-view.min.js" />
+    <Content Include="Scripts\angular-google-maps.js" />
+    <Content Include="Scripts\angular-google-maps.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\lodash.js" />
+    <Content Include="Scripts\lodash.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
