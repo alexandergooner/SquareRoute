@@ -21,7 +21,7 @@ Last change	: 2015/03/27
 /*=== 1. General Structure ===*/
 html,
 body {
-  background-image:url("/images/Google-maps-techmeupDOTnet2.jpg");
+  /*background-image:url("/images/Google-maps-techmeupDOTnet2.jpg");*/
   background-size:cover;
   background-repeat:no-repeat;
   padding: 10px;

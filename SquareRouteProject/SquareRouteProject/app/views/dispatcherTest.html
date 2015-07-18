@@ -1,0 +1,253 @@
+﻿<h3>{{vm.message}}</h3>
+{{vm.result}}
+
+<br />
+
+<!-- HEADER -->
+<div class="container">
+    <div class="row">
+        <!-- DROPDOWN MENU -->
+        <div ng-controller="DropdownMenu">
+            <div class="col-md-2">
+                <div class="btn btn-group" dropdown is-open="status.isopen">
+                    <select class="btn btn-default droptown-toggle">
+                        <option value="0" label="Please Select" class="dropdown-menu" role="menu"></option>
+                        <option ng-repeat="route in vm.routes" value="{{route.routeId}}"
+                                ng-selected="{{route.Selected == true}}">
+                            {{route.routeName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- GOOGLE MAP -->
+    <div class="col-md-offset-1 col-md-9">
+        <div style="border: 1px solid black" class="angular-google-map-container" ng-controller="GoogleMapsController">
+            <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+        </div>
+    </div>
+</div>
+
+
+<br />
+<br />
+<table class="table table-striped table-bordered table-hover">
+    <tbody>
+        <tr></tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Bus Stop: <br />
+                        Add BusStop Location
+                        <input ng-model="vm.busStopLocation_Add">                
+                    </label><br />
+                    <label>
+                        BusStop:  <br />
+                        Add BusStop RouteId
+                        <input ng-model="vm.busStopRouteId_Add">
+                    </label>
+                    <button ng-click="vm.addBusStop()">Add BusStop</button>
+                </div>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: <br />
+                        Get - BusStopId
+                        <input ng-model="vm.busStopId_Get">
+                    </label>
+                    <button ng-click="vm.getBusStopById()">BusStopById</button>
+                </div>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: <br />Get - BusStopRouteId
+                        <input ng-model="vm.busStopRouteId_Get">
+                    </label>
+                    <button ng-click="vm.getBusStopsByRouteId()">GetBusStopByRouteId</button>
+                </div>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Get - GetAllBusStops
+                        <br /><button ng-click="vm.getAllBusStops()">GetAllBusStops</button>
+                    </label>
+                </div>
+            </td>
+        </tr>
+
+
+
+
+
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Update - BusStopId
+                        <input ng-model="vm.busStopId_Update">
+                    </label>
+                    <label>
+                        BusStop: Update - BusStopLocation
+                        <input ng-model="vm.busStopLocation_Update">
+                    </label>
+                    <label>
+                        BusStop: Update - BusStopRouteId
+                        <input ng-model="vm.busStopRouteId_Update">
+                    </label>
+                    <button ng-click="vm.updateBusStop()">UpdateBusStop</button>
+                </div>
+            </td>
+        </tr>
+
+
+
+
+
+
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Delete - BusStopId
+                        <input ng-model="vm.busStopId_Delete">
+                    </label>
+                    <button ng-click="vm.deleteBusStopById()">DeleteBusStop</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Add - RouteNum
+                        <input ng-model="vm.routeNum_Add">
+                    </label>
+                    <label>
+                        Route: Add - RouteStart
+                        <input ng-model="vm.routeStart_Add">
+                    </label>
+                    <label>
+                        Route: Add - RouteEnd
+                        <input ng-model="vm.routeEnd_Add">
+                    </label>
+                    <label>
+                        Route: Add - RouteAccessCodeId
+                        <input ng-model="vm.routeAccessCodeId_Add">
+                    </label>
+                    <label>
+                        Route: Add - RouteDistrictId
+                        <input ng-model="vm.routeDistrictId_Add">
+                    </label>
+                    <button ng-click="vm.addRoute()">AddRoute</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: <br />
+                        Get - RoutebyId
+                        <input ng-model="vm.routeId_Get">
+                    </label>
+                    <button ng-click="vm.getRouteById()">GetRouteById</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: <br />
+                        Get - RouteNum
+                        <input ng-model="vm.routeRouteNum_Get">
+                    </label>
+                    <button ng-click="vm.getRouteByRouteNum()">GetRouteByRouteNum</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Get - DistrictId
+                        <input ng-model="vm.routeDistrictId_Get">
+                    </label>
+                    <button ng-click="vm.getRoutesByDistrictId()">GetRouteByDistrictId</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Get - GetAllRoutes
+                        <br /><button ng-click="vm.getAllRoutes()">GetAllRoutes</button>
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Update - RouteId
+                        <input ng-model="vm.routeId_Update">
+                    </label>
+                    <label>
+                        Route: Update - RouteNum
+                        <input ng-model="vm.routeNum_Update">
+                    </label>
+                    <label>
+                        Route: Update - RouteStart
+                        <input ng-model="vm.routeStart_Update">
+                    </label>
+                    <label>
+                        Route: Update - RouteEnd
+                        <input ng-model="vm.routeEnd_Update">
+                    </label>
+                    <label>
+                        Route: Update - RouteAccessCodeId
+                        <input ng-model="vm.routeAccessCodeId_Update">
+                    </label>
+                    <label>
+                        Route: Update - RouteDistrictId
+                        <input ng-model="vm.routeDistrictId_Update" />
+                    </label>
+                    <button ng-click="vm.updateRoute()">UpdateRoute</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Delete - RouteId
+                        <input ng-model="vm.routeId_Delete">
+                    </label>
+                    <button ng-click="vm.deleteRouteById()">DeleteRoute</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

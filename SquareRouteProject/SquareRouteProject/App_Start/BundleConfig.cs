@@ -51,6 +51,7 @@ namespace SquareRouteProject.Presentation
                 "~/app/controllers/RegistrationController.js",
                 "~/app/controllers/EmailController.js",
                 "~/app/controllers/WelcomeController.js",
+                "~/app/controllers/AboutUsController.js",
                 "~/app/controllers/design/DropdownMenu.js",
                 "~/app/controllers/design/ModalController.js",
                 "~/app/services/services.js",                

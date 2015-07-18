@@ -235,9 +235,11 @@
     <Content Include="app\services\RouteService.js" />
     <Content Include="app\services\RouteUserService.js" />
     <Content Include="app\services\UserService.js" />
+    <Content Include="app\views\aboutus.html" />
     <Content Include="app\views\adminTest.html" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\dispatcher.html" />
+    <Content Include="app\views\dispatcherTest.html" />
     <Content Include="app\views\driver.html" />
     <Content Include="app\views\emailTest.html" />
     <Content Include="app\views\googlemaps.html" />
