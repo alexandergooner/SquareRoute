@@ -1,15 +1,14 @@
 ﻿(function () {
-    angular.module("SquareRoute")
-        .factory('loginService', loginService);        
+    angular.module('SquareRoute')
+        .factory('loginService', loginService)
 
-    // LOGIN SERVICE
     function loginService($http, $q, $window) {
         var service = {};
 
         service.login = login;
 
         function login(username, password) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
 
             $http({
                 url: '/Token',
@@ -28,4 +27,5 @@
 
         return service;
     }
+
 })();

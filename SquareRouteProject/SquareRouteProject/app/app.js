@@ -20,7 +20,7 @@
                 controllerAs: 'vm'
             })
             .when('/dispatcher', {
-                templateUrl: '/app/views/dispatcher.html',
+                templateUrl: '/app/views/dispatcherTest.html',
                 controller: 'DispatcherController',
                 controllerAs: 'vm'
             })
@@ -47,6 +47,11 @@
             .when('/email', {
                 templateUrl: 'app/views/emailTest.html',
                 controller: 'EmailController',
+                controllerAs: 'vm'
+            })
+            .when('/aboutus', {
+                templateUrl: 'app/views/aboutus.html',
+                controller: 'AboutUsController',
                 controllerAs: 'vm'
             })
 
