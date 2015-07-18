@@ -27,6 +27,7 @@
             }).success(function (data) {                
                 deferred.resolve(data);
             }).error(function (data) {
+                console.log("Error in AccessCodeService(getAllAccessCodes");
                 deferred.reject(data);
             });
             return deferred.promise;
@@ -43,6 +44,7 @@
                 console.log(data)                
                 deferred.resolve(data)
             }).error(function (data) {
+                console.log("Error in AccessCodeService(getAccessCodeById");
                 deferred.reject(data)
             })
             return deferred.promise;
@@ -58,6 +60,7 @@
             }).success(function (data) {                
                 deferred.resolve(data);
             }).error(function (data) {
+                console.log("Error in AccessCodeService(getAccessCodeByValue");
                 deferred.reject(data);
             })
             return deferred.promise;
@@ -74,6 +77,7 @@
             }).success(function (data) {               
                 deferred.resolve(data)
             }).error(function (data) {
+                console.log("Error in AccessCodeService(addAccessCode)");
                 deferred.reject(data);
             })
             return deferred.promise;
@@ -90,6 +94,7 @@
             }).success(function (data) {              
                 deferred.resolve(data);
             }).error(function (data) {
+                console.log("Error in AccessCodeService(updateAccessCode)");
                 deferred.reject(data);
             })
             return deferred.promise;
@@ -105,6 +110,7 @@
             }).success(function (data) {
                 deferred.resolve(data);
             }).error(function (data) {
+                console.log("Error in AccessCodeService(deleteAccessCodeById)");
                 deferred.reject(data);
             })
             return deferred.promise;
