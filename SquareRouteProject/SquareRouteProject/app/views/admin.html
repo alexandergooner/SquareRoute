@@ -16,7 +16,7 @@
     <!-- Custom Fonts -->
     <link href="Content/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="Content/ngx.base.css" rel="stylesheet" />
-
+    <link href="Content/Tile.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,17 +36,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="welcome.html">SB Admin</a>
+                <a class="navbar-brand" href="welcome.html">SquareRoute</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li><a href="#/">Home</a></li>
                 <li>
-                    <a href="#">Layouts</a>
+                    <a href="#">About</a>
 
                     <ul></ul>
                 </li>
-                <li><a href="elements.html">Elements</a></li>
+                <li><a href="#">Elements</a></li>
 
                 <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
@@ -168,26 +168,7 @@
                     <li>
                         <a href=""><i class="fa fa-fw fa-desktop"></i>Messages</a>
                     </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -198,17 +179,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
+                            Admin DashBoard <small> Welcome</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
+
                     </div>
                 </div>
-                <!-- /.row -->
-                <!--<div class="row">
+                <!--<!-- /.row -->
+                <div class="row">
                     <div class="col-lg-12">
                         <div class="alert alert-info alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -217,7 +194,7 @@
                     </div>
                 </div>-->
                 <!-- /.row -->
-                <!--<div class="row">
+                <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -306,7 +283,7 @@
                             </a>
                         </div>
                     </div>
-                </div>-->
+                </div>
                 <!-- /.row -->
                 <div class="row">
                     <!-- <div class="col-lg-12">
@@ -455,49 +432,160 @@
                             </div>
                         </div>
                     </div>-->
-                    <div class="col-lg-9">
-                        <tabset>
-                            <tab heading="Static title">Static content</tab>
-                            <tab ng-repeat="tab in vm.tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
-                                {{tab.content}}
-                            </tab>
-                            <tab select="alertMe()">
-                                <tab-heading>
-                                    <i class="glyphicon glyphicon-bell"></i> Alert!
-                                </tab-heading>
-                                I've got an HTML heading, and a select callback. Pretty cool!
-                            </tab>
-                        </tabset>
+                    <div class="thumbnail tile">
+
+                        <div class="col-lg-9">
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-dashboard"></i> Create,Edit,Delete
+                                </li>
+                            </ol>
+
+                            <!-- Entire TabSet for Widget-->
+                            <div class="caption">
+                                <tabset>
+                                    <!-- Tab One-->
+                                    <tab heading="AccessCode">
+                                        <!-- Form Group for Access Code-->
+                                        <formgroup>
+                                            <form name="accessCodeAdd" novalidate ng-submit="vm.addAccessCode()">
+                                                <fieldset>
+                                                    <label> Add Access Code: </label>
+                                                    <label> Access Code Value </label> <input ng-model="vm.accessCodeValue_Add" />
+                                                    <label> Access Code Route Id </label> <input ng-model="vm.accessCodeRouteId_Add" />
+                                                    <button type="submit" value="AddAccessCodeId">Add</button>
+                                                </fieldset>
+                                            </form>
+                                            <form name="accessCodeDelete" novalidate ng-submit="vm.deleteAccessCodeById()">
+                                                <fieldset>
+                                                    <label> Delete Access Code :</label>
+                                                    <label> Access Code Id </label>       <input ng-model="vm.accessCodeId_Delete" />
+                                                </fieldset>
+                                                <button type="submit" value="DeleteId">Delete</button>
+                                            </form>
+                                            <form name="updateAccessCode" novalidate ng-submit="vm.updateAccessCode()">
+                                                <fieldset>
+                                                    <label>
+                                                        UpdateAccesCode:
+                                                    </label>
+                                                    <label> Access Code Id </label> <input ng-model="vm.accessCodeId_Update" />
+                                                    <label> Access Code Value </label>  <input ng-model="vm.acessCodeValue_Update" />
+                                                </fieldset>
+                                                <button type="submit" value="UpdateAccessCode">Update</button>
+                                            </form>
+                                        </formgroup>
+
+                                    </tab>
+                                    <tab heading="District" name="districtTab">
+                                        <formgroup>
+                                            <form>
+                                                <fieldset>
+                                                    <label>
+                                                        Add a District
+                                                    </label>
+                                                    <!--<input ng-model="vm." />-->
+
+
+                                                </fieldset>
+                                            </form>
+                                    </tab>
+                                    <tab heading="Route">
+                                        <tab-heading>
+                                            <i class="glyphicon glyphicon-bell"></i> Route
+                                        </tab-heading>
+                                        <formgroup>
+                                            <form name="addRoute" novalidate ng-submit="vm.addRoute()">
+                                                <fieldset>
+                                                    <label> Add Route: </label>
+                                                    <label> RouteNum </label> <input ng-model="vm.routeNum_Add" />
+                                                    <label> RouteStart </label> <input ng-model="vm.routeStart_Add" />
+                                                    <label>RouteEnd </label><input ng-model=" vm.routeEnd_Add" />
+                                                    <label> AccessCode Id </label><input ng-model="vm.routeAccessId_Add" />
+                                                    <button type="submit" value="AddAccessCodeId">Add</button>
+                                                </fieldset>
+                                            </form>
+                                            <form name="deleteRoute" novalidate ng-submit="vm.deleteRouteById()">
+                                                <fieldset>
+                                                    <label> Delete Route :</label>
+                                                    <label>  Route Id </label><input ng-model="vm.routeId_Delete" />
+                                                </fieldset>
+                                                <button type="submit" value="DeleteId">Delete</button>
+                                            </form>
+                                            <form name="updateRoute" novalidate ng-submit="vm.updateRoute()">
+                                                <fieldset>
+                                                    <label>
+                                                        UpdateRoute:
+                                                    </label>
+                                                    <label> Route Id </label> <input ng-model="vm.routeId_Update" />
+                                                    <label> RouteNum </label> <input ng-model="vm.routeNum_Update" />
+                                                    <label> RouteStart </label> <input ng-model="vm.routeStart_Update" />
+                                                    <label>RouteEnd </label><input ng-model=" vm.routeEnd_Update" />
+                                                    <label> AccessCode Id </label><input ng-model="vm.accessCodeId_Update" />
+                                                    <button type="submit" value="AddAccessCodeId">Add</button>
+
+                                                </fieldset>
+
+                                            </form>
+                                        </formgroup>
+                                    </tab>
+                                </tabset>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-3">
-                        <ngx-list-box ngx-settings="settings" ngx-on-select="selectItem(event)"></ngx-list-box>
-                        {{log}}
+                </div>
+                <div col-lg-12>
+                    <div class="thumbnail  tile ">
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Data
+                            </li>
+                        </ol>
+
+                        <div class="fixed-table-container">
+                            <table class="table table-striped table-bordered " data-toggle="table" data-url="data1.json" data-cache="false" data-height="299">
+                                <thead>
+                                    <tr>
+                                        <th data-field="id">Item ID</th>
+                                        <th data-field="name">Item Name</th>
+                                        <th data-field="price">Item Price</th>
+                                    </tr>
+                                    <tr>
+                                        <td>this is a test </td>
+                                        <td>this is a test </td>
+                                        <td>this is a test </td>
+                                        <td>this is a test </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <!-- /.row -->
 
 
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div style="height:100px">
-                            <carousel interval="vm.myInterval">
-                                <slide ng-repeat="slide in vm.slides" active="slide.active">
-                                    <img ng-src="{{slide.image}}" style="margin:auto;">
-                                    <div class="carousel-caption">
-                                        <h4>Slide {{$index}}</h4>
-                                        <p>{{slide.text}}</p>
-                                    </div>
-                                </slide>
-                            </carousel>
+                    <div class="thumbnail tile ">
+                        <div class="col-lg-12">
+                            <div style="height:100px">
+                                <carousel interval="vm.myInterval">
+                                    <slide ng-repeat="slide in vm.slides" active="slide.active">
+                                        <img ng-src="{{slide.image}}" style="margin:auto;">
+                                        <div class="carousel-caption">
+                                            <h4>Slide {{$index}}</h4>
+                                            <p>{{slide.text}}</p>
+                                        </div>
+                                    </slide>
+                                </carousel>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <!-- Make these buttons circular-->
-                        <div class="col-md-6">
-                            <button type="button" class="btn btn-info" ng-click="addSlide()">Approve</button>
-                        </div>
-                        <div class="col-md-6" style="margin-right:20px">
-                            <button type="button" class="btn btn-info" ng-click="addSlide()">Deny</button>
+                        <div class="row">
+                            <!-- Make these buttons circular-->
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-info" ng-click="addSlide()">Approve</button>
+                            </div>
+                            <div class="col-md-6" style="margin-right:20px">
+                                <button type="button" class="btn btn-info" ng-click="addSlide()">Deny</button>
+                            </div>
                         </div>
                     </div>
                     <!--<div class="col-md-6">

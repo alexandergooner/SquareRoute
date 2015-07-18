@@ -8,7 +8,7 @@
 
 body {
     margin-top: 100px;
-    background-color: #222;
+    background-color: #ffff;
 }
 
 @media(min-width:768px) {
@@ -224,4 +224,7 @@ ul.alert-dropdown {
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+a[ng-click]{
+     cursor: pointer;
 }

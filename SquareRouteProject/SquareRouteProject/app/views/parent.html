@@ -1,12 +1,107 @@
 ﻿{{vm.message}}
 
-<div class="container">
+
+
+
+
+<head>
+    <title> Guardian </title>
+    <link href="../../Content/parentnavbar.css" rel="stylesheet" />
+
+</head>
+
+<div class="container-fluid">
+
+    <header id="header">
+        <h1 id="logo"><a href="welcome.html">SqRoute</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="#/admin">Admin</a></li>
+                <li>
+                    <a href="#">Layouts</a>
+
+                    <ul>
+                        <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                        <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                        <li><a href="no-sidebar.html">No Sidebar</a></li>
+                        <li>
+                            <a href="#">Submenu</a>
+                            <ul>
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#">Option 2</a></li>
+                                <li><a href="#">Option 3</a></li>
+                                <li><a href="#">Option 4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="elements.html">Elements</a></li>
+                <li><a href="#" class="button special">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="row">
-        <!-- GOOGLE MAP -->
-        <div>
-            <div style="border: 1px solid black" class="angular-google-map-container" ng-controller="GoogleMapsController">
-                <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+        <div class="col-md-12">
+            <!--<div class="row">
+                <ui-gmap-google-map center='vm.map.center' zoom='vm.map.zoom'></ui-gmap-google-map>
+            </div>-->
+            <div class="container">
+                <div class="row">
+                    <!-- GOOGLE MAP -->
+                    <div>
+                        <div style="border: 1px solid black" class="angular-google-map-container" ng-controller="GoogleMapsController">
+                            <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <ngx-drop-down-list ngx-settings="settings" ngx-on-select="selectItem(event)"></ngx-drop-down-list>
+                    {{log}}
+                </div>
+            </div><div class="row">
+                <div class="col-lg-4">
+                    <ngx-drop-down-list ngx-settings="settings" ngx-on-select="selectItem(event)"></ngx-drop-down-list>
+                    {{log}}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-success">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-lg-12">
+                <label>
+                    Departure Time:
+                </label>
+                <label>
+                    Est Time:
+                </label>
+                <label>
+                    EnRoute:
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <ngx-list-box ngx-settings="settings" ngx-on-select="selectItem(event)"></ngx-list-box>
+            {{log}}
+        </div>
+        <div class="col-md-6">
+            <img src="/images/sample336ad.jpg" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
         </div>
     </div>
 </div>

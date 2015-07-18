@@ -256,15 +256,18 @@
     <Content Include="Content\ie9.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\metro-bootstrap.css" />
     <Content Include="Content\morris.css" />
     <Content Include="Content\ngx.apireference.css" />
     <Content Include="Content\ngx.base.css" />
     <Content Include="Content\ngx.bootstrap.css" />
+    <Content Include="Content\parentnavbar.css" />
     <Content Include="Content\prettify.css" />
     <Content Include="Content\sb-admin-rtl.css" />
     <Content Include="Content\sb-admin.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\stylengx.css" />
+    <Content Include="Content\Tile.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -327,6 +330,7 @@
     <Content Include="Scripts\ngxbuttons.js" />
     <Content Include="Scripts\ngxcore.js" />
     <Content Include="Scripts\ngxdata.js" />
+    <Content Include="Scripts\ngxdropdownlist.js" />
     <Content Include="Scripts\ngxlistbox.js" />
     <Content Include="Scripts\ngxscrollbar.js" />
     <Content Include="Scripts\prettify.js" />
