@@ -11,11 +11,10 @@ namespace SquareRouteProject.Domain.Entities
     public class RouteDriver
     {
         [Key]
-        public int RouteDriverId { get; set; }
-        public int RouteId { get; set; }
-        [ForeignKey("RouteId")]
+        public int RouteDriverId { get; set; }        
+        public int RouteId { get; set; }        
         public Guid UserId { get; set; }
-        [ForeignKey("UserId")]
+        
 
         public virtual Route Route { get; set; }
         public virtual User User { get; set; }
