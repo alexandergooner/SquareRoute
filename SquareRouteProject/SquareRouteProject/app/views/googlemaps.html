@@ -9,32 +9,6 @@
                                 control="map.control">
             </ui-gmap-google-map>
         </div>
-        <div class="col-sm-6">
-            <form class="form-horizontal" role="form">
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">start</label>
-                    <div class="col-sm-8">
-                        <select class="form-control" ng-model="routePoints.start"
-                                ng-options="route.name for route in map.routes.start"></select>
-                    </div>
-                </div>
-                <i>(Ctrl-Click for multiple selection))</i> <br>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Waypoints</label>
-                    <div class="col-sm-8">
-                        <select multiple class="form-control" ng-model="routePoints.ways"
-                                ng-options="route.name for route in map.routes.ways"></select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">end</label>
-                    <div class="col-sm-8">
-                        <select class="form-control" ng-model="routePoints.end"
-                                ng-options="route.name for route in map.routes.end"></select>
-                    </div>
-                </div>
-                <button ng-click="calcRoute(routePoints)" type="submit" class="btn btn-default">Submit</button>
-            </form>
-        </div>
+        <p>{{calcRoute()}}</p>
     </div>
 </div>
