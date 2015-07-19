@@ -1,632 +1,274 @@
-﻿{{vm.message}}
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>SB Admin - Bootstrap Admin Template</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="Content/bootstrap.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="Content/sb-admin.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    <link href="Content/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="Content/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="Content/ngx.base.css" rel="stylesheet" />
-    <link href="Content/Tile.css" rel="stylesheet" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body ng-controller="AdminController">
-    <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="welcome.html">SquareRoute</a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li><a href="#/">Home</a></li>
-                <li>
-                    <a href="#">About</a>
+﻿<h3>{{vm.message}}</h3>
+{{vm.result}}
 
-                    <ul></ul>
-                </li>
-                <li><a href="#">Elements</a></li>
+<br />
 
-                <!--<li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>-->
-                <!--<li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>-->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href=""><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-bar-chart-o"></i>Routes</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-table"></i>User</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-edit"></i>Display</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-desktop"></i>Messages</a>
-                    </li>
+<!-- HEADER -->
+<div class="container">
+    <div class="row">
 
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Admin DashBoard <small> Welcome</small>
-                        </h1>
-
-                    </div>
-                </div>
-                <!--<!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Like SB Admin?</strong> Try out <a href="http://startbootstrap.com/template-overviews/sb-admin-2" class="alert-link">SB Admin 2</a> for additional features!
-                        </div>
-                    </div>
-                </div>-->
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-comments fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
-                                        <div>New Comments!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-tasks fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
-                                        <div>New Tasks!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-shopping-cart fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
-                                        <div>New Orders!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Support Tickets!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-                <div class="row">
-                    <!-- <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div id="morris-area-chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!-- /.row -->
-                    <!--<div class="row">
-                        <div class="col-lg-4">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div id="morris-donut-chart"></div>
-                                    <div class="text-right">
-                                        <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                    <!--<div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">just now</span>
-                                        <i class="fa fa-fw fa-calendar"></i> Calendar updated
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">4 minutes ago</span>
-                                        <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">23 minutes ago</span>
-                                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">46 minutes ago</span>
-                                        <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">1 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has been added
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">2 hours ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">yesterday</span>
-                                        <i class="fa fa-fw fa-globe"></i> Saved the world
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">two days ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
-                                    </a>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>-->
-                    <!--/div>
-                    </div>-->
-                    <!--</div>-->
-                    <!--<div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Order #</th>
-                                                <th>Order Date</th>
-                                                <th>Order Time</th>
-                                                <th>Amount (USD)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3325</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:20 PM</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3324</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:03 PM</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3323</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:00 PM</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3322</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:49 PM</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3321</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:23 PM</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3320</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:15 PM</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3319</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:13 PM</td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <div class="thumbnail tile">
-
-                        <div class="col-lg-9">
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="fa fa-dashboard"></i> Create,Edit,Delete
-                                </li>
-                            </ol>
-
-                            <!-- Entire TabSet for Widget-->
-                            <div class="caption">
-                                <tabset>
-                                    <!-- Tab One-->
-                                    <tab heading="AccessCode">
-                                        <!-- Form Group for Access Code-->
-                                        <formgroup>
-                                            <form name="accessCodeAdd" novalidate ng-submit="vm.addAccessCode()">
-                                                <fieldset>
-                                                    <label> Add Access Code: </label>
-                                                    <label> Access Code Value </label> <input ng-model="vm.accessCodeValue_Add" />
-                                                    <label> Access Code Route Id </label> <input ng-model="vm.accessCodeRouteId_Add" />
-                                                    <button type="submit" value="AddAccessCodeId">Add</button>
-                                                </fieldset>
-                                            </form>
-                                            <form name="accessCodeDelete" novalidate ng-submit="vm.deleteAccessCodeById()">
-                                                <fieldset>
-                                                    <label> Delete Access Code :</label>
-                                                    <label> Access Code Id </label>       <input ng-model="vm.accessCodeId_Delete" />
-                                                </fieldset>
-                                                <button type="submit" value="DeleteId">Delete</button>
-                                            </form>
-                                            <form name="updateAccessCode" novalidate ng-submit="vm.updateAccessCode()">
-                                                <fieldset>
-                                                    <label>
-                                                        UpdateAccesCode:
-                                                    </label>
-                                                    <label> Access Code Id </label> <input ng-model="vm.accessCodeId_Update" />
-                                                    <label> Access Code Value </label>  <input ng-model="vm.acessCodeValue_Update" />
-                                                </fieldset>
-                                                <button type="submit" value="UpdateAccessCode">Update</button>
-                                            </form>
-                                        </formgroup>
-
-                                    </tab>
-                                    <tab heading="District" name="districtTab">
-                                        <formgroup>
-                                            <form>
-                                                <fieldset>
-                                                    <label>
-                                                        Add a District
-                                                    </label>
-                                                    <!--<input ng-model="vm." />-->
-
-
-                                                </fieldset>
-                                            </form>
-                                    </tab>
-                                    <tab heading="Route">
-                                        <tab-heading>
-                                            <i class="glyphicon glyphicon-bell"></i> Route
-                                        </tab-heading>
-                                        <formgroup>
-                                            <form name="addRoute" novalidate ng-submit="vm.addRoute()">
-                                                <fieldset>
-                                                    <label> Add Route: </label>
-                                                    <label> RouteNum </label> <input ng-model="vm.routeNum_Add" />
-                                                    <label> RouteStart </label> <input ng-model="vm.routeStart_Add" />
-                                                    <label>RouteEnd </label><input ng-model=" vm.routeEnd_Add" />
-                                                    <label> AccessCode Id </label><input ng-model="vm.routeAccessId_Add" />
-                                                    <button type="submit" value="AddAccessCodeId">Add</button>
-                                                </fieldset>
-                                            </form>
-                                            <form name="deleteRoute" novalidate ng-submit="vm.deleteRouteById()">
-                                                <fieldset>
-                                                    <label> Delete Route :</label>
-                                                    <label>  Route Id </label><input ng-model="vm.routeId_Delete" />
-                                                </fieldset>
-                                                <button type="submit" value="DeleteId">Delete</button>
-                                            </form>
-                                            <form name="updateRoute" novalidate ng-submit="vm.updateRoute()">
-                                                <fieldset>
-                                                    <label>
-                                                        UpdateRoute:
-                                                    </label>
-                                                    <label> Route Id </label> <input ng-model="vm.routeId_Update" />
-                                                    <label> RouteNum </label> <input ng-model="vm.routeNum_Update" />
-                                                    <label> RouteStart </label> <input ng-model="vm.routeStart_Update" />
-                                                    <label>RouteEnd </label><input ng-model=" vm.routeEnd_Update" />
-                                                    <label> AccessCode Id </label><input ng-model="vm.accessCodeId_Update" />
-                                                    <button type="submit" value="AddAccessCodeId">Add</button>
-
-                                                </fieldset>
-
-                                            </form>
-                                        </formgroup>
-                                    </tab>
-                                </tabset>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div col-lg-12>
-                    <div class="thumbnail  tile ">
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Data
-                            </li>
-                        </ol>
-
-                        <div class="fixed-table-container">
-                            <table class="table table-striped table-bordered " data-toggle="table" data-url="data1.json" data-cache="false" data-height="299">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Item ID</th>
-                                        <th data-field="name">Item Name</th>
-                                        <th data-field="price">Item Price</th>
-                                    </tr>
-                                    <tr>
-                                        <td>this is a test </td>
-                                        <td>this is a test </td>
-                                        <td>this is a test </td>
-                                        <td>this is a test </td>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-
-                <div class="row">
-                    <div class="thumbnail tile ">
-                        <div class="col-lg-12">
-                            <div style="height:100px">
-                                <carousel interval="vm.myInterval">
-                                    <slide ng-repeat="slide in vm.slides" active="slide.active">
-                                        <img ng-src="{{slide.image}}" style="margin:auto;">
-                                        <div class="carousel-caption">
-                                            <h4>Slide {{$index}}</h4>
-                                            <p>{{slide.text}}</p>
-                                        </div>
-                                    </slide>
-                                </carousel>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!-- Make these buttons circular-->
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-info" ng-click="addSlide()">Approve</button>
-                            </div>
-                            <div class="col-md-6" style="margin-right:20px">
-                                <button type="button" class="btn btn-info" ng-click="addSlide()">Deny</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--<div class="col-md-6">
-                        Interval, in milliseconds: <input type="number" class="form-control" ng-model="vm.myInterval">
-                        <br />Enter a negative number or 0 to stop the interval.
-                    </div>-->
-
+        <!-- DROPDOWN MENU -->
+        <div ng-controller="DropdownMenu">
+            <div class="col-md-2">
+                <div class="btn btn-group" dropdown is-open="status.isopen">
+                    <select class="btn btn-default droptown-toggle">
+                        <option value="0" label="Please Select" class="dropdown-menu" role="menu"></option>
+                        <option ng-repeat="route in vm.routes" value="{{route.routeId}}"
+                                ng-selected="{{route.Selected == true}}">
+                            {{route.routeName}}
+                        </option>
+                    </select>
                 </div>
             </div>
-            <!-- /.container-fluid -->
-            <div class="container-fluid">
-                <div class="row">
-                    <ui-gmap-google-map center='vm.map.center' zoom='vm.map.zoom'></ui-gmap-google-map>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <ngx-drop-down-list ngx-settings="settings" ngx-on-select="selectItem(event)"></ngx-drop-down-list>
-                        {{log}}
-                    </div>
-                </div><div class="row">
-                    <div class="col-lg-4">
-                        <ngx-drop-down-list ngx-settings="settings" ngx-on-select="selectItem(event)"></ngx-drop-down-list>
-                        {{log}}
-                    </div>
-
-                </div>
-            </div>
-
         </div>
-        <!-- /#page-wrapper -->
+
+        <!-- GOOGLE MAP -->
+        <div class="col-md-offset-1 col-md-9">
+            <div style="border: 1px solid black" class="angular-google-map-container" ng-controller="GoogleMapsController">
+                <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+            </div>
+        </div>
     </div>
-    <!-- /#wrapper -->
-    <!-- jQuery -->
-    <!--<script src="Scripts/jquery.js"></script>-->
-    <!-- Bootstrap Core JavaScript -->
-    <script src="Scripts/bootstrap.min.js"></script>
-    <!-- Morris Charts JavaScript -->
-    <script src="Scripts/raphael.min.js"></script>
-    <script src="Scripts/morris.min.js"></script>
-    <script src="Scripts/morris-data.js"></script>
+</div>
+
+<br />
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>RouteID</th>
+            <th>Route #</th>
+            <th>Route Start</th>
+            <th>Route End</th>
+            <th>Bus Stops</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<table class=" table table-striped">
+    <thead>
+        <tr>
+            <th>Bus Stop ID</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
 
-</body>
-</html>
+<br />
+<br />
+<table class="table table-striped">
+    <tbody>
+        <tr></tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Bus Stop: <br />
+                        Add BusStop Location
+                        <input ng-model="vm.busStopLocation_Add">
+                    </label><br />
+                    <label>
+                        BusStop:  <br />
+                        Add BusStop RouteId
+                        <input ng-model="vm.busStopRouteId_Add">
+                    </label><br />
+                    <button ng-click="vm.addBusStop()">Add BusStop</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: <br />
+                        Get - BusStopId
+                        <input ng-model="vm.busStopId_Get">
+                    </label><br />
+                    <button ng-click="vm.getBusStopById()">BusStopById</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: <br />Get - BusStopRouteId
+                        <input ng-model="vm.busStopRouteId_Get">
+                    </label><br />
+                    <button ng-click="vm.getBusStopsByRouteId()">GetBusStopByRouteId</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: <br />Get - GetAllBusStops
+                        <br /><button ng-click="vm.getAllBusStops()">GetAllBusStops</button>
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Update - BusStopId
+                        <input ng-model="vm.busStopId_Update">
+                    </label><br />
+                    <label>
+                        BusStop: Update - BusStopLocation
+                        <input ng-model="vm.busStopLocation_Update">
+                    </label><br />
+                    <label>
+                        BusStop: Update - BusStopRouteId
+                        <input ng-model="vm.busStopRouteId_Update">
+                    </label><br />
+                    <button ng-click="vm.updateBusStop()">UpdateBusStop</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        BusStop: Delete - BusStopId
+                        <input ng-model="vm.busStopId_Delete">
+                    </label><br />
+                    <button ng-click="vm.deleteBusStopById()">DeleteBusStop</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Add - RouteNum
+                        <input ng-model="vm.routeNum_Add">
+                    </label><br />
+                    <label>
+                        Route: Add - RouteStart
+                        <input ng-model="vm.routeStart_Add">
+                    </label><br />
+                    <label>
+                        Route: Add - RouteEnd
+                        <input ng-model="vm.routeEnd_Add">
+                    </label><br />
+                    <label>
+                        Route: Add - RouteAccessCodeId
+                        <input ng-model="vm.routeAccessCodeId_Add">
+                    </label><br />
+                    <label>
+                        Route: Add - RouteDistrictId
+                        <input ng-model="vm.routeDistrictId_Add">
+                    </label>
+                    <button ng-click="vm.addRoute()">AddRoute</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: <br />
+                        Get - RoutebyId
+                        <input ng-model="vm.routeId_Get">
+                    </label><br />
+                    <button ng-click="vm.getRouteById()">GetRouteById</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: <br />
+                        Get - RouteNum
+                        <input ng-model="vm.routeRouteNum_Get">
+                    </label><br />
+                    <button ng-click="vm.getRouteByRouteNum()">GetRouteByRouteNum</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Get - DistrictId
+                        <input ng-model="vm.routeDistrictId_Get">
+                    </label><br />
+                    <button ng-click="vm.getRoutesByDistrictId()">GetRouteByDistrictId</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Get - GetAllRoutes
+                        <br /><button ng-click="vm.getAllRoutes()">GetAllRoutes</button>
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Update - RouteId
+                        <input ng-model="vm.routeId_Update">
+                    </label><br />
+                    <label>
+                        Route: Update - RouteNum
+                        <input ng-model="vm.routeNum_Update">
+                    </label><br />
+                    <label>
+                        Route: Update - RouteStart
+                        <input ng-model="vm.routeStart_Update">
+                    </label><br />
+                    <label>
+                        Route: Update - RouteEnd
+                        <input ng-model="vm.routeEnd_Update">
+                    </label><br />
+                    <label>
+                        Route: Update - RouteAccessCodeId
+                        <input ng-model="vm.routeAccessCodeId_Update">
+                    </label><br />
+                    <label>
+                        Route: Update - RouteDistrictId
+                        <input ng-model="vm.routeDistrictId_Update" />
+                    </label>
+                    <button ng-click="vm.updateRoute()">UpdateRoute</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>
+                        Route: Delete - RouteId
+                        <input ng-model="vm.routeId_Delete">
+                    </label><br />
+                    <button ng-click="vm.deleteRouteById()">DeleteRoute</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

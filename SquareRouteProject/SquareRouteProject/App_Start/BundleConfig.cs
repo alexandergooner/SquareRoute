@@ -10,7 +10,8 @@ namespace SquareRouteProject.Presentation
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js", "~/Scripts/jquery.dropoton.min.js", "~/Scripts/jquery.scrolly.min.js","~/Scripts/jquery.scrollex.min.js","~/Scripts/jquery.validate.min.js","~/Scripts/jquery.validate.unobtrsusive.js"));
+                        "~/Scripts/jquery-{version}.js"));
+
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -23,8 +24,9 @@ namespace SquareRouteProject.Presentation
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/style.css", "~/Content/font-awesome.css"));
+                      "~/Content/Site.css",
+                      "~/Content/style.css"
+                      ));
 
         
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
@@ -35,12 +37,6 @@ namespace SquareRouteProject.Presentation
                 "~/app/app.js",
                 "~/Scripts/angular-ui/ui-bootstrap-tpls.js", 
                 "~/Scripts/angular-ui/ui-bootstrap.js", 
-                "~/Scripts/ngxcore.js", 
-                "~/Scripts/ngxdata.js", 
-                "~/Scripts/ngxbuttons.js", 
-                "~/Scripts/ngxscrollbar.js", 
-                "~/Scripts/ngxlistbox.js",
-                "~/Scripts/ngxdropdownlist.js",
                 "~/Scripts/bootstrap.js", 
                 "~/app/controllers/AdminController.js",
                 "~/app/controllers/DispatcherController.js",

@@ -2,10 +2,33 @@
     angular.module('SquareRoute')
         .controller('AdminController', AdminController)
 
-    function AdminController(busStopService, routeService, accessCodeService,userService, $window, uiGmapGoogleMapApi)
-    {
+    function AdminController(busStopService, routeService, accessCodeService, userService, $window, uiGmapGoogleMapApi) {
         var vm = this;
         vm.message = "Admin View";
+
+        vm.routes = [
+     {
+         routeId: 1,
+         routeName: "Route 1"
+     },
+     {
+         routeId: 2,
+         routeName: "Route 2"
+     },
+     {
+         routeId: 3,
+         routeName: "Route 3"
+     },
+     {
+         routeId: 4,
+         routeName: "Route 4"
+     },
+     {
+         routeId: 5,
+         routeName: "Route 5"
+     }
+        ]
+
 
         //METHODS
         //________AccessCode________        
@@ -33,7 +56,7 @@
 
             accessCodeService.getAccessCodeByValue(vm.input).then(callSuccess, callFail);
         }
-        vm.getAllAccessCodes = function () {            
+        vm.getAllAccessCodes = function () {
             accessCodeService.getAllAccessCodes().then().then(callSuccess, callFail);
         }
 
@@ -80,7 +103,7 @@
             vm.input = vm.busStopRouteId_Get;
             busStopService.getBusStopsByRouteId(vm.input).then(callSuccess, callFail);
         }
-        vm.getAllBusStops = function () {            
+        vm.getAllBusStops = function () {
             busStopService.getAllBusStops().then(callSuccess, callFail);
         }
 
@@ -196,13 +219,13 @@
             userService.getUsersByRoleType(vm.input).then(callSuccess, callFail);
         }
         vm.getUserByEmail = function () {
-            
+
             vm.input = vm.userByEmail_Get;
 
-            userService.getUserByEmail(vm.input).then(callSuccess,callFail);
+            userService.getUserByEmail(vm.input).then(callSuccess, callFail);
         }
         vm.getAllUsers = function () {
-            
+
             userService.getAllUsers().then(callSuccess, callFail);
         }
 
@@ -219,7 +242,7 @@
 
             vm.input = vm.user;
 
-            userService.deleteUser(vm.input).then(callSuccess,callFail)
+            userService.deleteUser(vm.input).then(callSuccess, callFail)
         }
 
         //Promise return Functions
@@ -233,8 +256,8 @@
             console.log("Failed");
             console.log(data);
         }
-         
-        
+
+
         vm.tabs = [
   { title: 'Dynamic Title 1', content: 'Dynamic content 1' },
   { title: 'Dynamic Title 2', content: 'Dynamic content 2', disabled: false }

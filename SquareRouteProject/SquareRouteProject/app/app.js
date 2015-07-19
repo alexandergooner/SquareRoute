@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    angular.module('SquareRoute', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap', 'ui.bootstrap.tpls', 'ngwidgets']).config(Config).config(ConfigGoogleMaps);
+    angular.module('SquareRoute', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap', 'ui.bootstrap.tpls', 'ngResource']).config(Config).config(ConfigGoogleMaps);
 
     function Config($routeProvider) {
         $routeProvider
