@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body ng-controller="DriverController">
+
+    @* Login Form *@
+    <div ng-if="!vm.accessToken">
+        {{vm.loginMessage}}
+        <form ng-submit="vm.login()">
+            <div>
+                <label>User Name:</label>
+                <input ng-model="vm.login.userName" type="text" />
+            </div>
+            <div>
+                <label>Password:</label>
+                <input ng-model="vm.login.password" type="password" />
+            </div>
+            <div>
+                <input type="submit" value="Login" />
+            </div>
+        </form>
+    </div>
+
+
+    @* Show Product List *@
+    <div ng-if="!vm.accessToken">
+        <div>
+            <button ng-click="vm.logout()">Logout></button>
+        </div>
+        <ul>
+            <li ng-repeat="route in vm.routes">
+                {{route.routeStart}} - {{route.routeEnd}}
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
