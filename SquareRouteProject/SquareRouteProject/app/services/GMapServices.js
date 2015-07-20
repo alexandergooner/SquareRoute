@@ -7,6 +7,9 @@
         var gMapService = {};
 
         gMapService.calcRoute = calcRoute;
+        gMapService.prepWaypts = prepWaypts;
+
+
 
 
         angular.extend($scope, {
@@ -47,6 +50,12 @@
                         })
                 }
             })
+        }
+
+        function prepWaypts(busStops) {
+            for (var stop in busStops) {
+                
+            }
         }
     }
 })();
