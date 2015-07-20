@@ -8,7 +8,6 @@
 
 
         //$scope.removeRow = function (busStopId) {
-        //    console.log("SHIT");
         //    var index = -1;
         //    var busStopArr = eval($scope.vm.result);
         //    for (var i = 0; i < busStopArr.length; i++) {
