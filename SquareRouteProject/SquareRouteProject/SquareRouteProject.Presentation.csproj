@@ -252,6 +252,7 @@
     <Content Include="app\views\registration.html" />
     <Content Include="app\views\TextFile1.txt" />
     <Content Include="app\views\welcome.html" />
+    <Content Include="Content\main.css" />
     <Content Include="Content\other\bootstrap-rtl.css" />
     <Content Include="Content\other\bootstrap-rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -278,11 +279,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\Advertising-Square.jpg" />
     <Content Include="images\arrow.svg" />
     <Content Include="images\banner.jpg" />
+    <Content Include="images\Business_affiliate_network_64.png" />
+    <Content Include="images\Cincinnati-Metro-Bus.jpg" />
     <Content Include="images\Google-maps-techmeupDOTnet.jpg" />
     <Content Include="images\Google-maps-techmeupDOTnet2.jpg" />
     <Content Include="images\ie\banner-overlay.png" />
+    <Content Include="images\Metro-Bus.jpg" />
+    <Content Include="images\o-NEW-YORK-CITY-SKYLINE-facebook.jpg" />
     <Content Include="images\overlay.png" />
     <Content Include="images\pic01.jpg" />
     <Content Include="images\pic02.jpg" />
@@ -292,6 +298,11 @@
     <Content Include="images\pic06.jpg" />
     <Content Include="images\pic07.jpg" />
     <Content Include="images\pic08.jpg" />
+    <Content Include="images\route-logo-w.png" />
+    <Content Include="images\route-logo-w2.png" />
+    <Content Include="images\RouteProto_!!home .png" />
+    <Content Include="images\school-bus.jpg" />
+    <Content Include="images\trainstation.jpg" />
     <Content Include="Scripts\angular-google-maps.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
@@ -308,6 +319,9 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery.dropotron.min.js" />
+    <Content Include="Scripts\jquery.scrollex.min.js" />
+    <Content Include="Scripts\jquery.scrolly.min.js" />
     <Content Include="Scripts\other\demos.js" />
     <Content Include="Scripts\other\documentation.js" />
     <Content Include="Scripts\other\format.js" />
@@ -346,6 +360,8 @@
     <Content Include="Scripts\other\run_prettify.js" />
     <Content Include="Scripts\other\skel.min.js" />
     <Content Include="Scripts\other\util.js" />
+    <Content Include="Scripts\skel.min.js" />
+    <Content Include="Scripts\util.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
