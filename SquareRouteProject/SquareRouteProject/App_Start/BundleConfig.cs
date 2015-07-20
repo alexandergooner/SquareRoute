@@ -39,6 +39,7 @@ namespace SquareRouteProject.Presentation
                 "~/Scripts/angular-ui/ui-bootstrap.js", 
                 "~/Scripts/bootstrap.js", 
                 "~/app/controllers/AdminController.js",
+                "~/app/controllers/design/RouteTableController.js",
                 "~/app/controllers/DispatcherController.js",
                 "~/app/controllers/DriverController.js",
                 "~/app/controllers/GoogleMapsController.js",

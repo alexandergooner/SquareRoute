@@ -2,7 +2,7 @@
     angular.module('SquareRoute')
         .controller('DispatcherController', DispatcherController)
 
-    function DispatcherController() {
+    function DispatcherController(busStopService) {
         var vm = this;
         vm.message = "Dispatcher View";
 

@@ -1,5 +1,5 @@
 ﻿<h3>{{vm.message}}</h3>
-{{vm.result}}
+
 
 <br />
 
@@ -7,21 +7,19 @@
 <div class="container">
     <div class="row">
         <!-- DROPDOWN MENU -->
-
         <div ng-controller="DropdownMenu">
             <div class="col-md-2">
                 <div class="btn btn-group" dropdown is-open="status.isopen">
                     <select class="btn btn-default droptown-toggle">
                         <option value="0" label="Please Select" class="dropdown-menu" role="menu"></option>
-                        <option ng-repeat="route in vm.routes" value="{{route.routeId}}"
+                        <option ng-repeat="route in vm.result" value="{{route.RouteId}}"
                                 ng-selected="{{route.Selected == true}}">
-                            {{route.routeName}}
+                            {{route.Location}}
                         </option>
                     </select>
                 </div>
             </div>
         </div>
-
         <!-- GOOGLE MAP -->
         <div class="col-md-offset-1 col-md-9">
             <div style="border: 1px solid black" class="angular-google-map-container" ng-controller="GoogleMapsController">
@@ -30,9 +28,40 @@
         </div>
     </div>
 </div>
+<br />
+<br />
+
+<div>
+    <label>Search</label>
+    <input class="input-group" ng-model="searchKeyword" />
+</div>
+<!-- BUS STOPS TABLE -->
+<table class="table table-striped table-bordered" ng-controller="ModalController">
+    <thead>
+        <tr>
+            <th>Bus Stop ID</th>
+            <th>Location</th>
+            <th>Route ID</th>
+            <th>Edit</th>
+            <th>Delete</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="route in vm.result | filter: searchKeyword">
+            <td>{{route.BusStopId}}</td>
+            <td>{{route.Location}}</td>
+            <td>{{route.RouteId}}</td>
+            <td><div><button class="btn btn-primary" ng-click="open()">Edit</button></div></td>
+            <td><div><button class="btn btn-danger" ng-click="vm.deleteBusStopById()">Delete</button></div></td>
+
+        </tr>
+    </tbody>
+</table>
+<button ng-click="vm.getAllBusStops()" class="btn btn-default">Bus Stops</button>
 
 <br />
 <br />
+
+<!-- VOLTAIRE'S TEST FORM -->
 <table class="table table-striped">
     <tbody>
         <tr></tr>

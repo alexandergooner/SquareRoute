@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    angular.module('SquareRoute', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap', 'ui.bootstrap.tpls', 'ngResource']).config(Config).config(ConfigGoogleMaps);
+    angular.module('SquareRoute', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap', 'ui.bootstrap.tpls']).config(Config).config(ConfigGoogleMaps);
 
     function Config($routeProvider) {
         $routeProvider
@@ -20,7 +20,7 @@
                 controllerAs: 'vm'
             })
             .when('/dispatcher', {
-                templateUrl: '/app/views/dispatcherTest.html',
+                templateUrl: '/app/views/dispatcher.html',
                 controller: 'DispatcherController',
                 controllerAs: 'vm'
             })

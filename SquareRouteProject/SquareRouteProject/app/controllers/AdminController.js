@@ -6,29 +6,6 @@
         var vm = this;
         vm.message = "Admin View";
 
-        vm.routes = [
-     {
-         routeId: 1,
-         routeName: "Route 1"
-     },
-     {
-         routeId: 2,
-         routeName: "Route 2"
-     },
-     {
-         routeId: 3,
-         routeName: "Route 3"
-     },
-     {
-         routeId: 4,
-         routeName: "Route 4"
-     },
-     {
-         routeId: 5,
-         routeName: "Route 5"
-     }
-        ]
-
 
         //METHODS
         //________AccessCode________        
@@ -150,20 +127,24 @@
 
             routeService.getRouteById(vm.input).then(callSuccess, callFail);
         }
+
         vm.getRouteByRouteNum = function () {
 
             vm.input = vm.routeRouteNum_Get;
 
             routeService.getRouteByRouteNum(vm.input).then(callSuccess, callFail);
         }
+
         vm.getRoutesByDistrictId = function () {
 
             vm.input = vm.routeDistrictId_Get;
 
             routeService.getRoutesByDistrictId(vm.input).then(callSuccess, callFail);
         }
+
         vm.getAllRoutes = function () {
             routeService.getAllRoutes().then(callSuccess, callFail);
+
         }
 
         //Route UPDATE Methods
@@ -258,44 +239,5 @@
         }
 
 
-        vm.tabs = [
-  { title: 'Dynamic Title 1', content: 'Dynamic content 1' },
-  { title: 'Dynamic Title 2', content: 'Dynamic content 2', disabled: false }
-        ];
-
-        vm.alertMe = function () {
-            setTimeout(function () {
-                $window.alert('You\'ve selected the alert tab!');
-            });
-        };
-        vm.myInterval = 5000;
-        vm.slides = [];
-        vm.addSlide = function () {
-            var newWidth = 100 + vm.slides.length + 1;
-            vm.slides.push({
-                image: 'http://placekitten.com/' + newWidth + '/150',
-                text: ['More', 'Extra', 'Lots of', 'Surplus'][vm.slides.length % 4] + ' ' +
-                  ['Cats', 'Kittys', 'Felines', 'Cutes'][vm.slides.length % 4]
-            });
-        };
-        for (var i = 0; i < 4; i++) {
-            vm.addSlide();
-        }
-
-
-
-
-
-        var lat = 29.556638;
-        var lng = -95.386371;
-        var zoom = 8;
-
-        vm.map = { center: { latitude: lat, longitude: lng }, zoom: zoom };
-
-        //directionsDisplay = new google.maps.DirectionsRenderer();
-
-        uiGmapGoogleMapApi.then(function (maps) {
-            //direectionsDisplay.setMap(maps);
-        })
     }
 })();
