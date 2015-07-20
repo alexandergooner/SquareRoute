@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201507192333367_freshStart.Designer.cs">
       <DependentUpon>201507192333367_freshStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507201547297_joshTest.cs" />
+    <Compile Include="Migrations\201507201547297_joshTest.Designer.cs">
+      <DependentUpon>201507201547297_joshTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\AccessCodeRepository.cs" />
     <Compile Include="Repositories\AccessCodeUserRepository.cs" />
     <Compile Include="Repositories\RouteDriverRepository.cs" />
@@ -108,6 +112,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201507192333367_freshStart.resx">
       <DependentUpon>201507192333367_freshStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507201547297_joshTest.resx">
+      <DependentUpon>201507201547297_joshTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
