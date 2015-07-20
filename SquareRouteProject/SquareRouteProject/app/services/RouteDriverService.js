@@ -10,6 +10,7 @@
         routeDriverService.addRouteDriver = addRouteDriver;
         routeDriverService.getRouteDriverByUserId = getRouteDriverByUserId;
         routeDriverService.getRouteDriverByRouteId = getRouteDriverByRouteId;
+        routeDriverService.getRouteDriverByRouteNum = getRouteDriverByRouteNum;
         routeDriverService.updateRouteDriver = updateRouteDriver;
         routeDriverService.deleteRouteDriver = deleteRouteDriver;
 
@@ -49,6 +50,21 @@
             var deferred = $q.defer();
             $http({
                 url: '/api/RouteDriver/GetRouteDriverByRouteId/' + routeId,
+                method: 'GET'
+                //headers
+            }).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject(data);
+            })
+            return deferred.promise;
+        }
+
+        //GET RouteDriver by RouteNum
+        function getRouteDriverByRouteNum(routeNum) {
+            var deferred = $q.defer();
+            $http({
+                url: '/api/RouteDriver/getRouteDriverByRouteNum/' + routeNum,
                 method: 'GET'
                 //headers
             }).success(function (data) {

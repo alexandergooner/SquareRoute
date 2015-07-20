@@ -3,24 +3,27 @@
         .controller('GoogleMapsController', GoogleMapsController)
 
     // GOOGLE MAPS CONTROLLER
-    function GoogleMapsController(busStopService, $scope, $http, uiGmapGoogleMapApi, uiGmapIsReady, $log, gMapService) {
+    function GoogleMapsController(busStopService, routeService, routeDriverService, $scope, $http, uiGmapGoogleMapApi, uiGmapIsReady, $log, gMapService) {
         var vm = this;
         vm.message = "GoogleMaps View";
         vm.result = [""];
-        
-        //GET BUS STOPS BY ROUTE ID
-        vm.getBusStopsByRouteId = function() {
-            busStopService.getBusStopsByRouteId(1).then(callSuccess, callFail);            
+        vm.routeNum = "1401";
+
+        //GET ROUTE BY ROUTE NUMBER
+        vm.getRouteByRouteNum = function () {
+            routeDriverService.getRouteDriverByRouteNum(vm.routeNum).then(callSuccess, callFail);
         }
 
-        function callSuccess(data) {
-            var start = '4400 West 18th Street Houston, Texas';
-            var end = '11625 Martindale Rd. Houston, TX';
-
+        function callSuccess(routeDriver) {
+            vm.routeStart = routeDriver.Route.RouteStart;
+            vm.routeEnd = routeDriver.Route.RouteEnd;
+            vm.busStops = routeDriver.Route.BusStops;
+            vm.lat = routeDriver.Latitude;
+            vm.lon = routeDriver.Longitude;
             //After getting all of the required data then make gMapService.calcRoute call
-            gMapService.calcRoute(start, data, end, vm.map);
+            gMapService.calcRoute(vm.routeStart, vm.busStops, vm.routeEnd, vm.map, vm.lat, vm.lon);
             console.log("Success!");
-            console.log(data);
+            console.log(routeDriver);
         }
         function callFail(data) {
             vm.result = data;
@@ -49,7 +52,8 @@
                 vm.map = instances[0].map;
 
                 //Function Call to get data from database
-                vm.getBusStopsByRouteId(); 
+                //vm.getBusStopsByRouteId();
+                vm.getRouteByRouteNum();
             });
         //END___Needed for GoogleMap to work___
     }

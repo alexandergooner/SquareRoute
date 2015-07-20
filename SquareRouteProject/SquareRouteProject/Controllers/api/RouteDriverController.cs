@@ -47,6 +47,13 @@ namespace SquareRouteProject.Presentation.Controllers.api
         {
             return _unitOfWork.RouteDriverRepository.GetRouteDriverByRouteId(routeId);
         }
+
+        //GET api/RouteDriver/GetRouteDriverByRouteNum/routeNum
+        [Route("GetRouteDriverByRouteNum/{routeNum}")]
+        public RouteDriver GetRouteDriverByRouteNum(int routeNum)
+        {
+            return _unitOfWork.RouteDriverRepository.GetRouteDriverByRouteNum(routeNum);
+        }
         #endregion
 
         #region RouteDriver UPDATE

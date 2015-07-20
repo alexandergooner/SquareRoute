@@ -7,6 +7,7 @@ namespace SquareRouteProject.Domain.Repositories
         RouteDriver GetRouteDriverByRouteId(int routeId);
         RouteDriver GetRouteDriverByUserId(Guid userId);
         RouteDriver GetRouteDriverByMobileDeviceId(string mobileDeviceId);
+        RouteDriver GetRouteDriverByRouteNum(int routeNum);
         IRepository<RouteDriver> Repo { get; }
     }
 }
