@@ -8,30 +8,20 @@
 
         gMapService.calcRoute = calcRoute;
 
-        function calcRoute(start, busStops, end) {
-            angular.extend($rootScope, {
-                map: {
-                    center: {
-                        latitude: 29.7632800,
-                        longitude: -95.3632700
-                    },
-                    zoom: 10,
-                    control: {}
-                }
-            });
+        function calcRoute(start, busStops, end, map) {
 
             uiGmapGoogleMapApi.then(function (maps) {
                 var directionsDisplay = new maps.DirectionsRenderer();
                 calculateRoute();
 
                 function calculateRoute() {
-                    var directionsService = new DirectionsService();
+                    var directionsService = new maps.DirectionsService();
 
-                    directionsDisplay.setMap($scope.map.control.getGmap());
+                    directionsDisplay.setMap(map);
 
                     var locationArray = [];
                     for (var i = 0; i < busStops.length; i++) {
-
+                        locationArray.push(busStops[i].Location);
                     }
 
                     var waypoints = [];
@@ -46,18 +36,15 @@
                         origin: start,
                         destination: end,
                         waypoints: waypoints,
-                        optimizeWaypoints: true
+                        optimizeWaypoints: true,
+                        travelMode: maps.TravelMode.DRIVING
                     };
+
                     directionsService.route(request, function (response, status) {
                         if (status == maps.DirectionsStatus.OK) {
                             directionsDisplay.setDirections(response);
                         }
                     });
-                    UiGmapIsReady.promise()
-                        .then(function (instances) {
-                            var maps = instances[0].map;
-                            //$scope.calculateRoute(maps);
-                        })
                 }
             })
         }
