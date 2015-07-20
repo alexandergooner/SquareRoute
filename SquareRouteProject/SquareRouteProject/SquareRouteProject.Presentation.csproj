@@ -229,7 +229,7 @@
     <Content Include="app\services\AccessCodeUserService.js" />
     <Content Include="app\services\BusStopService.js" />
     <Content Include="app\services\EmailService.js" />
-    <Content Include="app\services\GMapServices.js" />
+    <Content Include="app\services\GMapService.js" />
     <Content Include="app\services\LoginService.js" />
     <Content Include="app\services\RouteDriverService.js" />
     <Content Include="app\services\RouteSchoolService.js" />
