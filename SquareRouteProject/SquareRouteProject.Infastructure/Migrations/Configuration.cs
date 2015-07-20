@@ -29,8 +29,8 @@ namespace SquareRouteProject.Infastructure.Migrations
             Route route = new Route
             {
                 RouteNum = 1401,
-                RouteStart = "ALMEDA GENOA RD. & CHISWICK RD.",
-                RouteEnd = "ALMEDA GENOA RD. & CHISWICK RD.",
+                RouteStart = "BELLAIRE RD & BUFFALO SPEEDWAY",
+                RouteEnd = "WOODSHIRE ST. & STELLA LINK RD.",
                 AccessCodeId = 1,
                 DistrictId = 1,
             };
