@@ -22,31 +22,76 @@ namespace SquareRouteProject.Infastructure.Migrations
             { 
                 AccessCodeValue="ABC"                
             };
+
+            AccessCode accessCode2 = new AccessCode
+            {
+                AccessCodeValue="123"
+            };
+
             District district = new District 
             { 
                 Name = "HISD" 
             };
+
             Route route = new Route
             {
                 RouteNum = 1401,
-                RouteStart = "BELLAIRE RD & BUFFALO SPEEDWAY",
-                RouteEnd = "WOODSHIRE ST. & STELLA LINK RD.",
+                RouteStart = "4400 West 18th Street Houston, Texas",
+                RouteEnd = "11625 Martindale Rd Houston, TX",
                 AccessCodeId = 1,
-                DistrictId = 1,
+                DistrictId = 1
             };
+
+            Route route2 = new Route
+            {
+                RouteNum = 1402,
+                RouteStart = "4400 West 18th Street Houston, Texas",
+                RouteEnd = "5051 Bellfort St Houston, TX",
+                AccessCodeId = 2,
+                DistrictId = 1
+            };
+
             BusStop busStop = new BusStop
             {
-                Location = "ALMEDA GENOA RD. & CHISWICK RD.",
+                Location = "BRUNSWICK CROSSING LN & TEALCREST LN Houston TX",
                 RouteId = 1
+            };
+
+            BusStop busStop2 = new BusStop
+            {
+                Location = "BRUNSWICK MEADOWS DR. & BRIGHT BLUFF Houston TX",
+                RouteId = 1
+            };
+
+            BusStop busStopA = new BusStop
+            {
+                Location = "WEST OREM DR. & GRANDE MONDE DR",
+                RouteId = 2
+            };
+
+            BusStop busStopB = new BusStop
+            {
+                Location = "11764 Imperial Street, Houston, TX ",
+                RouteId = 2
             };
             
             context.AccessCodes.AddOrUpdate(accessCode);
+            context.SaveChanges();
+            context.AccessCodes.AddOrUpdate(accessCode2);
             context.SaveChanges();
             context.Districts.AddOrUpdate(district);
             context.SaveChanges();            
             context.Routes.AddOrUpdate(route);
             context.SaveChanges();
+            context.Routes.AddOrUpdate(route2);
+            context.SaveChanges();
             context.BusStops.AddOrUpdate(busStop);
+            context.SaveChanges();
+            context.BusStops.AddOrUpdate(busStop2);
+            context.SaveChanges();
+            context.BusStops.AddOrUpdate(busStopA);
+            context.SaveChanges();
+            context.BusStops.AddOrUpdate(busStopB);
             context.SaveChanges();
 
             
