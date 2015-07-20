@@ -14,6 +14,9 @@ namespace SquareRouteProject.Domain.Entities
         public int RouteDriverId { get; set; }        
         public int RouteId { get; set; }        
         public Guid UserId { get; set; }
+        public string MobileDeviceId { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
         
 
         public virtual Route Route { get; set; }

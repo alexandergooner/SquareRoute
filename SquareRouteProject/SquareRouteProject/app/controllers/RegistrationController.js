@@ -23,7 +23,7 @@
                 //RoleType: 1                
             };
 
-            userService.addUser(userToRegister).then(registerSuccess, registerFail);            
+            userService.registerUser(userToRegister).then(registerSuccess, registerFail);            
         }
 
         function registerSuccess() {

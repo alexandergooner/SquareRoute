@@ -168,6 +168,9 @@ namespace SquareRouteProject.Infastructure.Migrations
                         RouteDriverId = c.Int(nullable: false, identity: true),
                         RouteId = c.Int(nullable: false),
                         UserId = c.Guid(nullable: false),
+                        MobileDeviceId = c.String(),
+                        Latitude = c.Double(nullable: false),
+                        Longitude = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.RouteDriverId)
                 .ForeignKey("dbo.Routes", t => t.RouteId, cascadeDelete: true)

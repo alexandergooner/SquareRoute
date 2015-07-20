@@ -53,9 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="Migrations\201507181800229_freshStart.cs" />
-    <Compile Include="Migrations\201507181800229_freshStart.Designer.cs">
-      <DependentUpon>201507181800229_freshStart.cs</DependentUpon>
+    <Compile Include="Migrations\201507192333367_freshStart.cs" />
+    <Compile Include="Migrations\201507192333367_freshStart.Designer.cs">
+      <DependentUpon>201507192333367_freshStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Repositories\AccessCodeRepository.cs" />
     <Compile Include="Repositories\AccessCodeUserRepository.cs" />
@@ -106,8 +106,8 @@
     <Content Include="Scripts\lodash.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507181800229_freshStart.resx">
-      <DependentUpon>201507181800229_freshStart.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507192333367_freshStart.resx">
+      <DependentUpon>201507192333367_freshStart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

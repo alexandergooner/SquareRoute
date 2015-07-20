@@ -24,7 +24,7 @@ namespace SquareRouteProject.Presentation.Controllers.api
         public IHttpActionResult AddRouteDriver(RouteDriver routeDriver)
         {
             if (ModelState.IsValid)
-            {
+            {                
                 _unitOfWork.RouteDriverRepository.Repo.Add(routeDriver);
                 _unitOfWork.SaveChanges();
                 return Ok();
@@ -62,6 +62,26 @@ namespace SquareRouteProject.Presentation.Controllers.api
             }
             return BadRequest();
         }
+
+        //POST api/RouteDriver/GPSUpdate
+        [Route("GPSUpdate")]
+        public IHttpActionResult GPSUpdate(LocationUpdate locationUpdate)
+        {
+            if (ModelState.IsValid)
+            {
+                RouteDriver result = _unitOfWork.RouteDriverRepository.GetRouteDriverByMobileDeviceId(locationUpdate.MobileDeviceId);
+                if (result != null) 
+                {
+                    result.Latitude = locationUpdate.Latitude;
+                    result.Longitude = locationUpdate.Longitude;
+                    _unitOfWork.RouteDriverRepository.Repo.Update(result);
+                    _unitOfWork.SaveChanges();
+                    return Ok();
+                }
+                
+            }
+            return BadRequest();
+        }        
         #endregion
         
         #region RouteDriver DELETE

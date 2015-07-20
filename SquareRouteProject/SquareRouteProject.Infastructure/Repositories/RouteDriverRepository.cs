@@ -33,5 +33,10 @@ namespace SquareRouteProject.Infastructure.Repositories
             return Set.Where(x => x.RouteId == routeId).FirstOrDefault();
         }
 
+        public RouteDriver GetRouteDriverByMobileDeviceId(string mobileDeviceId) 
+        {
+            return Set.Where(x => x.MobileDeviceId == mobileDeviceId).FirstOrDefault();
+        }
+
     }
 }

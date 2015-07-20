@@ -39,6 +39,27 @@ namespace SquareRouteProject.Infastructure.Migrations
                 Location = "ALMEDA GENOA RD. & CHISWICK RD.",
                 RouteId = 1
             };
+
+            RouteDriver routeDriver = null;
+            if (context.Users.ToList().Count > 0) 
+            {
+                Guid result = context.Users.Where(x => x.UserName == "alexander.voltaire@gmail.com").Select(x => x.UserId).FirstOrDefault();
+                if (result != null) 
+                {
+                    routeDriver = new RouteDriver
+                    {
+                        UserId = result,
+                        Latitude = 0,
+                        Longitude = 0,
+                        MobileDeviceId = "6e631e8abc44a5ad",
+                        RouteId = 1,
+
+                    }; 
+                }
+
+            }
+            
+            //Guid.TryParse("0f08a254-4c07-4ef4-9557-0ab13cc6392b", out result);                       
             
             context.AccessCodes.AddOrUpdate(accessCode);
             context.SaveChanges();
@@ -49,6 +70,12 @@ namespace SquareRouteProject.Infastructure.Migrations
             context.BusStops.AddOrUpdate(busStop);
             context.SaveChanges();
 
+            if (routeDriver != null) 
+            {
+                context.RouteDrivers.AddOrUpdate(routeDriver);
+                context.SaveChanges();
+            }
+            
             
         }
     }
