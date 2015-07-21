@@ -25,13 +25,15 @@
                     <li><a href="#/dispatcher">Dispatcher</a></li>
                     <li><a href="#/parent">Guardian</a></li>
                     <li><a href="#/googlemaps">Map</a></li>
+                    <li>@User.Identity.Name</li>
                 </ul>
-                <div>
+                @Html.Partial("_LoginPartial")
+                @*<div>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#/registration">Register</a></li>
                         <li><a href="#/login">Login</a></li>
                     </ul>
-                </div>
+                </div>*@
             </div>
            
         </div>
