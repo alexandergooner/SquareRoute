@@ -8,7 +8,7 @@
 
         gMapService.calcRoute = calcRoute;
 
-        function calcRoute(start, busStops, end, map) {
+        function calcRoute(start, busStops, end, map, lat, lon) {
 
             uiGmapGoogleMapApi.then(function (maps) {
                 var directionsDisplay = new maps.DirectionsRenderer();
@@ -18,6 +18,15 @@
                     var directionsService = new maps.DirectionsService();
 
                     directionsDisplay.setMap(map);
+
+                    if (lat != 0 && lon != 0) {
+                        var mylatLon = new google.maps.LatLng(lat, lon);
+                        var marker = new google.maps.Marker({
+                            position: mylatLon,
+                            map: map,
+                            title: 'Driver'
+                        });
+                    }
 
                     var locationArray = [];
                     for (var i = 0; i < busStops.length; i++) {

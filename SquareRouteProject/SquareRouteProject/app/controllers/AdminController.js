@@ -2,7 +2,7 @@
     angular.module('SquareRoute')
         .controller('AdminController', AdminController)
 
-    function AdminController(busStopService, routeService, accessCodeService, userService, $window, uiGmapGoogleMapApi, $modal, $log) {
+    function AdminController(busStopService, routeService, accessCodeService, userService, $window, uiGmapGoogleMapApi) {
         var vm = this;
         vm.message = "Admin View";
 
@@ -85,13 +85,13 @@
         }
 
         //BusStop UPDATE Methods
-        vm.updateBusStop = function () {
+        vm.updateBusStop = function (id,location,routeId) {
 
-
+            vm.show = false;
             vm.input = {
-                BusStopId: busStop.BusStopId,
-                Location: busStop.Location,
-                RouteId: busStop.RouteId
+                BusStopId: id,
+                Location: location,
+                RouteId: routeId
             };
 
             busStopService.updateBusStop(vm.input).then(callSuccess, callFail);
@@ -238,52 +238,11 @@
             console.log(data);
         }
 
-
-
-
-        //______/Modal\______
-
-        var items = ['Route 1', 'Route 2', 'Route 3'];
-
-        vm.animationsEnabled = true;
-
-        vm.open = function (size) {
-            var modalInstance = $modal.open({
-                animation: $scope.animationsEnabled,
-                templateUrl: 'myModalContent.html',
-                controller: 'ModalInstanceController',
-                size: size,
-                resolve: {
-                    items: function () {
-                        return vm.items;
-                    }
-                }
-            });
-
-            modalInstance.result.then(function (selectedItem) {
-                vm.selected = selectedItem;
-            }, function () {
-                $log.info('Modal dismissed at: ' + new Date());
-            });
-        };
-
-        vm.toggleAnimation = function () {
-            vm.animationsEnabled = !vm.animationsEnabled;
-        };
-
-        //______/ModalInstance\________
-
-        vm.items = items;
-        vm.selected = {
-            item: vm.items[0]
-        };
-
-        vm.ok = function () {
-            modalInstance.close($scope.selected.item);
-        };
-
-        vm.cancel = function () {
-            modalInstance.dismiss('cancel');
-        };
+        vm.edit = function (busStop) {
+            vm.show = true;
+            vm.busStopId_Edit = busStop.BusStopId;
+            vm.busStopLocation_Edit = busStop.Location;
+            vm.busStopRouteId_Edit = busStop.RouteId;
+        }
     }
 })();
