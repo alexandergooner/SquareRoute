@@ -13,7 +13,7 @@
                 <div class="btn btn-group" dropdown is-open="status.isopen">
                     <select class="btn btn-default droptown-toggle">
                         <option value="0" label="Please Select" class="dropdown-menu" role="menu"></option>
-                        <option ng-repeat="route in vm.result" value="{{route.RouteId}}"
+                        <option ng-repeat="route in vm.result" value="{{route.RouteNum}}"
                                 ng-selected="{{route.Selected == true}}">
                             {{route.RouteNum}}
                         </option>
@@ -90,20 +90,17 @@
                     <div>
                         <div>
                             <div>
-                                <table class="table table-striped table-bordered">
+                                <table class="table table-striped table-bordered table-condensed">
                                     <thead>
                                         <tr>
-                                            <th>Route ID</th>
+                                            <th>Routhe ID</th>
                                             <th>Route Num</th>
                                             <th>Route Start</th>
                                             <th>Route End</th>
                                             <th>Access Code ID</th>
                                             <th>Access Code Value</th>
                                             <th>District ID</th>
-                                            <th>District Name</th>
-                                            <th>Bus Stops</th>
-                                            <th>Users</th>
-                                            <th>Schools</th>
+                                            <th>District Name</th>           
                                             <th>Driver</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -119,9 +116,8 @@
                                             <td>{{route.AccessCodeValue}}</td>
                                             <td>{{route.DistrictId}}</td>
                                             <td>{{route.DistrictName}}</td>
-                                            <td>{{}}</td>
-                                            <td>{{route.Users}}</td>
-                                            <td>{{route.Schools}}</td>
+
+                            
                                             <td>{{route.Driver}}</td>
                                             <td><div><button class="btn btn-primary" ng-click="open()">Edit</button></div></td>
                                             <td><div><button class="btn btn-danger" ng-click="vm.deleteBusStopById()">Delete</button></div></td>
@@ -139,7 +135,7 @@
 
     <tab heading="BUS STOPS">
         <accordion close-others="oneAtATime">
-            <accordion-group heading="INPUT" class="" is-open="" is-disabled="status.isFirstDisabled">
+            <accordion-group heading="INPUT" class="col-xs-offset-1" is-open="" is-disabled="status.isFirstDisabled">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-offset-2 col-xs-2">                     
@@ -167,7 +163,7 @@
             </accordion-group>
 
             <accordion close-others="oneAtATime">
-                <accordion-group heading="TABLE" class="" is-open="" is-disabled="status.isFirstDisabled">
+                <accordion-group heading="TABLE" class="col-xs-offset-1" is-open="" is-disabled="status.isFirstDisabled">
                     <div>
                         <label>Search</label>
                         <input class="input-group" ng-model="searchKeyword" />
@@ -208,7 +204,7 @@
 
     <tab heading="ACCESS CODES">
         <accordion close-others="oneAtATime">
-            <accordion-group heading="INPUT" class="" is-open="" is-disabled="status.isFirstDisabled">
+            <accordion-group heading="INPUT" class="col-xs-offset-3" is-open="" is-disabled="status.isFirstDisabled">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-offset-2 col-xs-2">
@@ -236,7 +232,7 @@
 
 
             <accordion close-others="oneAtATime">
-                <accordion-group heading="TABLE" class="" is-open="" is-disabled="status.isFirstDisabled">
+                <accordion-group heading="TABLE" class="col-xs-offset-3" is-open="" is-disabled="status.isFirstDisabled">
                     <div>
                         <div>
                             <div>
