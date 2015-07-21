@@ -245,6 +245,7 @@
     <Content Include="app\views\dispatcher.html" />
     <Content Include="app\views\dispatcherTest.html" />
     <Content Include="app\views\driver.html" />
+    <Content Include="app\views\dropDownMapTest.html" />
     <Content Include="app\views\emailTest.html" />
     <Content Include="app\views\googlemaps.html" />
     <Content Include="app\views\login.html" />
@@ -253,6 +254,7 @@
     <Content Include="app\views\registration.html" />
     <Content Include="app\views\TextFile1.txt" />
     <Content Include="app\views\welcome.html" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\other\bootstrap-rtl.css" />
     <Content Include="Content\other\bootstrap-rtl.min.css" />
@@ -278,6 +280,7 @@
     <Content Include="Content\other\Tile.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\Advertising-Square.jpg" />
@@ -288,6 +291,7 @@
     <Content Include="images\Google-maps-techmeupDOTnet.jpg" />
     <Content Include="images\Google-maps-techmeupDOTnet2.jpg" />
     <Content Include="images\ie\banner-overlay.png" />
+    <Content Include="images\logo.png" />
     <Content Include="images\Metro-Bus.jpg" />
     <Content Include="images\o-NEW-YORK-CITY-SKYLINE-facebook.jpg" />
     <Content Include="images\overlay.png" />
@@ -319,10 +323,16 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery.dropotron.min.js" />
     <Content Include="Scripts\jquery.scrollex.min.js" />
     <Content Include="Scripts\jquery.scrolly.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\other\demos.js" />
     <Content Include="Scripts\other\documentation.js" />
     <Content Include="Scripts\other\format.js" />
@@ -343,7 +353,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\lodash.min.js" />
-    <Content Include="Scripts\other\main.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\other\morris-data.js" />
     <Content Include="Scripts\other\morris.js" />
@@ -379,6 +389,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SquareRouteProject.Domain\SquareRouteProject.Domain.csproj">
