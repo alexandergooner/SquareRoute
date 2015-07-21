@@ -245,6 +245,7 @@
     <Content Include="app\views\dispatcher.html" />
     <Content Include="app\views\dispatcherTest.html" />
     <Content Include="app\views\driver.html" />
+    <Content Include="app\views\dropDownMapTest.html" />
     <Content Include="app\views\emailTest.html" />
     <Content Include="app\views\googlemaps.html" />
     <Content Include="app\views\login.html" />
@@ -343,7 +344,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\lodash.min.js" />
-    <Content Include="Scripts\other\main.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\other\morris-data.js" />
     <Content Include="Scripts\other\morris.js" />
@@ -379,6 +380,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SquareRouteProject.Domain\SquareRouteProject.Domain.csproj">
