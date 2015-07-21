@@ -192,7 +192,7 @@
 <div>
     <div>
         <div>
-            <table class="table table-striped table-bordered" ng-controller="ModalController">
+            <table class="table table-striped table-bordered" >
                 <thead>
                     <tr>
                         <th>Route ID</th>
@@ -336,7 +336,7 @@
 </div>
 
 <!-- MODAL CONTROLLER -->
-<div ng-controller="ModalController" class="col-md-2">
+<div  class="col-md-2">
     <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
             <h3 class="modal-title">Edit</h3>
@@ -360,7 +360,7 @@
             Selected: <b>{{ selected.route }}</b>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="vm.updateBusStop()">Update</button>
+            <button class="btn btn-primary" ng-click="vm.updateBusStop(bustop)">Update</button>
             <button class="btn btn-default" ng-click="cancel()">Cancel</button>
         </div>
     </script>
