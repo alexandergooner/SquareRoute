@@ -148,15 +148,15 @@
         }
 
         //Route UPDATE Methods
-        vm.updateRoute = function () {
+        vm.updateRoute = function (id, routeNum, routeStart, routeEnd, accessCodeId, districtId) {
 
             vm.input = {
-                RouteId: vm.routeId_Update,
-                RouteNum: vm.routeNum_Update,
-                RouteStart: vm.routeStart_Update,
-                RouteEnd: vm.routeEnd_Update,
-                AccessCodeId: vm.routeAccessCodeId_Update,
-                DistrictId: vm.routeDistrictId_Update
+                RouteId: id,
+                RouteNum: routeNum,
+                RouteStart: routeStart,
+                RouteEnd: routeEnd,
+                AccessCodeId: accessCodeId,
+                DistrictId: districtId
             };
 
             routeService.updateRoute(vm.input).then(callSuccess, callFail);
@@ -243,6 +243,18 @@
             vm.busStopId_Edit = busStop.BusStopId;
             vm.busStopLocation_Edit = busStop.Location;
             vm.busStopRouteId_Edit = busStop.RouteId;
+        }
+
+        vm.editRoute = function (route) {
+            vm.show = true;
+            vm.routeId_Edit = route.RouteId;
+            vm.routeNum_Edit = route.RouteNum;
+            vm.routeStart_Edit = route.RouteStart;
+            vm.routeEnd_Edit = route.RouteEnd;
+            vm.accessCodeId_Edit = route.AccessCodeId;
+            vm.districtName_Edit = route.DistrictName;
+            vm.driver_Edit = route.Driver;
+
         }
     }
 })();
