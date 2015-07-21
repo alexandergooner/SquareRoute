@@ -12,7 +12,8 @@
         function loginSuccess() {
             $location.path('/welcome');
         }
-        function loginFail() {
+        function loginFail(data) {
+            console.log(data);
         }
     }
 

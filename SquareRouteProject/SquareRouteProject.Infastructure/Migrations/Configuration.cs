@@ -76,6 +76,9 @@ namespace SquareRouteProject.Infastructure.Migrations
             };
             
             RouteDriver routeDriver = null;
+
+
+
             if (context.Users.ToList().Count > 0) 
             {
                 Guid result = context.Users.Where(x => x.UserName == "alexander.voltaire@gmail.com").Select(x => x.UserId).FirstOrDefault();

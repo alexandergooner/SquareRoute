@@ -18,8 +18,8 @@
             }).success(function (data) {
                 $window.sessionStorage.setItem('token', data.access_token);
                 deferred.resolve();
-            }).error(function () {
-                deferred.reject();
+            }).error(function (data) {
+                deferred.reject(data);
             });
 
             return deferred.promise;
