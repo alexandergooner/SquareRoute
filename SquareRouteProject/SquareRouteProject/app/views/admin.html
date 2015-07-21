@@ -74,7 +74,7 @@
     <input class="input-group" ng-model="searchKeyword" />
 </div>
 <div style="border: 1px solid black;">
-    <table class="table table-striped table-bordered" ng-controller="ModalController">
+    <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th><a href="" ng-click="orderByField='busStopId'; reverseSort = !reverseSort"></a>Bus Stop ID</th>
@@ -84,11 +84,18 @@
                 <th>Delete</th>
         </thead>
         <tbody>
+            <tr ng-show="true">
+                <td><input ng-model="id" placeholder="{{vm.busStopId_Edit}}" /></td>
+                <td><input ng-model="location" placeholder="{{vm.busStopLocation_Edit}}" /></td>
+                <td><input ng-model="routeId" placeholder="{{vm.busStopRouteId_Edit}}" /></td>
+                <td><button class="btn btn-primary" ng-click="vm.updateBusStop(id,location,routeId)">Submit</button></td>
+                <td></td>
+            </tr>
             <tr ng-repeat="route in vm.result | filter: searchKeyword | orderBy:orderByField:reverseSort">
                 <td>{{route.BusStopId}}</td>
                 <td>{{route.Location}}</td>
                 <td>{{route.RouteId}}</td>
-                <td><div><button class="btn btn-primary" ng-click="open()">Edit</button></div></td>
+                <td><div><button class="btn btn-primary" ng-click="vm.edit(route)">Edit</button></div></td>
                 <td><div><button class="btn btn-danger" ng-click="vm.deleteBusStopById()">Delete</button></div></td>
             </tr>
         </tbody>

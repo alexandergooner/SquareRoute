@@ -85,13 +85,13 @@
         }
 
         //BusStop UPDATE Methods
-        vm.updateBusStop = function () {
+        vm.updateBusStop = function (id,location,routeId) {
 
-
+            vm.show = false;
             vm.input = {
-                BusStopId: vm.busStopId_Update,
-                Location: vm.busStopLocation_Update,
-                RouteId: vm.busStopRouteId_Update
+                BusStopId: id,
+                Location: location,
+                RouteId: routeId
             };
 
             busStopService.updateBusStop(vm.input).then(callSuccess, callFail);
@@ -238,6 +238,11 @@
             console.log(data);
         }
 
-
+        vm.edit = function (busStop) {
+            vm.show = true;
+            vm.busStopId_Edit = busStop.BusStopId;
+            vm.busStopLocation_Edit = busStop.Location;
+            vm.busStopRouteId_Edit = busStop.RouteId;
+        }
     }
 })();
