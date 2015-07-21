@@ -172,8 +172,8 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th><a href="" ng-click="orderByField='busStopId'; reverseSort = !reverseSort"></a>Bus Stop ID</th>
-                                    <th><a href="" ng-click="orderByField='location'; reverseSort = !reverseSort"></a>Location</th>
+                                    <th>Bus Stop ID</th>
+                                    <th>Location</th>
                                     <th>Route ID</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -207,18 +207,18 @@
             <accordion-group heading="INPUT" class="col-xs-offset-3" is-open="" is-disabled="status.isFirstDisabled">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xs-offset-2 col-xs-2">
+                        <div class="col-xs-offset-1 col-xs-2">
                             <label>
-                                Add Access Code Value
+                                Access Code Value
                                 <input ng-model="vm.accessCodeValue_Add">
                             </label><br />
                             <label>
-                                Add Access Code Route ID:
+                                Access Code Route ID:
                                 <input ng-model="vm.accessCodeRouteId_Add">
                             </label>
                             <button ng-click="vm.addAccessCode()" class="btn btn-success">Add</button>
                         </div>
-                        <div class="col-xs-offset-2 col-xs-2">
+                        <div class="col-xs-offset-1 col-xs-2">
                             <label>
                                 Delete Access Code ID:
                                 <input ng-model="vm.accessCodeId_Delete">
@@ -264,9 +264,7 @@
     </tab>
     <tab heading="USER">
         <accordion close-others="oneAtATime">
-            <!--<accordion-group heading="INPUT" is-open="" is-disabled="status.isFirstDisabled">
-
-            </accordion-group>-->
+          
             <accordion close-others="oneAtATime">
                 <accordion-group heading="TABLE" class="text-center" is-open="" is-disabled="status.isFirstDisabled">
                     <div>
