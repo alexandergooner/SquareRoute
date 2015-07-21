@@ -7,30 +7,6 @@
         vm.message = "Dispatcher View";
 
 
-        vm.routes = [
-            {
-                routeId: 1,
-                routeName: "Route 1"
-            },
-            {
-                routeId: 2,
-                routeName: "Route 2"
-            },
-            {
-                routeId: 3,
-                routeName: "Route 3"
-            },
-            {
-                routeId: 4,
-                routeName: "Route 4"
-            },
-            {
-                routeId: 5,
-                routeName: "Route 5"
-            }
-
-        ];
-
 
         // ______BUS STOPS_________
         // BusStop ADD Methods

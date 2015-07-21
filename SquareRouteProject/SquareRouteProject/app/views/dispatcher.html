@@ -41,35 +41,81 @@
                     <div class="row">
                         <div class="col-xs-offset-1 col-xs-2">
                             <label>
-                                Route: Add - RouteNum
+                                Route #:
                                 <input ng-model="vm.routeNum_Add">
                             </label><br />
                             <label>
-                                Route: Add - RouteStart
+                                Route Start:
                                 <input ng-model="vm.routeStart_Add">
                             </label><br />
                             <label>
-                                Route: Add - RouteEnd
+                                Route End:
                                 <input ng-model="vm.routeEnd_Add">
                             </label><br />
                         </div>
                         <div class="col-xs-offset-1 col-xs-2">
                             <label>
-                                Route: Add - RouteAccessCodeId
+                                Route Access Code ID:
                                 <input ng-model="vm.routeAccessCodeId_Add">
                             </label><br />
                             <label>
-                                Route: Add - RouteDistrictId
+                                Route District ID:
                                 <input ng-model="vm.routeDistrictId_Add">
                             </label>
-                            <button ng-click="vm.addRoute()">AddRoute</button>
+                            <button ng-click="vm.addRoute()" class="btn btn-success">AddRoute</button>
                         </div>
                         <div class="col-xs-offset-1 col-xs-2">
                             <label>
-                                Route: Delete - RouteId
+                                Delete - Route ID:
                                 <input ng-model="vm.routeId_Delete">
-                            </label><br />
-                            <button ng-click="vm.deleteRouteById()">DeleteRoute</button>
+                            </label>
+                            <button ng-click="vm.deleteRouteById()" class="btn btn-danger">DeleteRoute</button>
+                        </div>
+                    </div>
+                </div>
+
+            </accordion-group>
+
+            <accordion-group heading="TABLE" is-open="" is-diabled="status.isFirstDisabled">
+
+                <div>
+                    <div>
+                        <div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Route ID</th>
+                                        <th>Route Num</th>
+                                        <th>Route Start</th>
+                                        <th>Route End</th>
+                                        <th>Access Code ID</th>
+                                        <th>District ID</th>
+                                        <th>Bus Stops</th>
+                                        <th>Users</th>
+                                        <th>Schools</th>
+                                        <th>Driver</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="route in vm.result">
+                                        <td>{{route.RouteId}}</td>
+                                        <td>{{route.RouteNum}}</td>
+                                        <td>{{route.RouteStart}}</td>
+                                        <td>{{route.RouteEnd}}</td>
+                                        <td>{{route.AccessCodeId}}</td>
+                                        <td>{{route.DistrictId}}</td>
+                                        <td>{{route.BusStops}}</td>
+                                        <td>{{route.Users}}</td>
+                                        <td>{{route.Schools}}</td>
+                                        <td>{{route.Driver}}</td>
+                                        <td><div><button class="btn btn-primary" ng-click="open()">Edit</button></div></td>
+                                        <td><div><button class="btn btn-danger" ng-click="vm.deleteBusStopById()">Delete</button></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button ng-click="vm.getAllRoutes()" class="btn btn-default">Get All Routes</button>
                         </div>
                     </div>
                 </div>
@@ -78,10 +124,6 @@
 
 
 
-
-            </accordion-group>
-
-            <accordion-group heading="TABLE" is-open="" is-diabled="status.isFirstDisabled">
 
             </accordion-group>
 
@@ -208,47 +250,6 @@
 
 
 <h3>ROUTES</h3>
-<div>
-    <div>
-        <div>
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Route ID</th>
-                        <th>Route Num</th>
-                        <th>Route Start</th>
-                        <th>Route End</th>
-                        <th>Access Code ID</th>
-                        <th>District ID</th>
-                        <th>Bus Stops</th>
-                        <th>Users</th>
-                        <th>Schools</th>
-                        <th>Driver</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="route in vm.result">
-                        <td>{{route.RouteId}}</td>
-                        <td>{{route.RouteNum}}</td>
-                        <td>{{route.RouteStart}}</td>
-                        <td>{{route.RouteEnd}}</td>
-                        <td>{{route.AccessCodeId}}</td>
-                        <td>{{route.DistrictId}}</td>
-                        <td>{{route.BusStops}}</td>
-                        <td>{{route.Users}}</td>
-                        <td>{{route.Schools}}</td>
-                        <td>{{route.Driver}}</td>
-                        <td><div><button class="btn btn-primary" ng-click="open()">Edit</button></div></td>
-                        <td><div><button class="btn btn-danger" ng-click="vm.deleteBusStopById()">Delete</button></div></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button ng-click="vm.getAllroutes()" class="btn btn-default">Get All Routes</button>
-        </div>
-    </div>
-</div>
 
 <br />
 <br />
