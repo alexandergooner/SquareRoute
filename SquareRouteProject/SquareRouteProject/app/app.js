@@ -34,6 +34,11 @@
                 controller: 'LoginController',
                 controllerAs: 'vm'
             })
+            .when('/logout', {
+                templateUrl: '/app/views/login.html',
+                controller: 'LogoffController',
+                controllerAs: 'vm'
+            })
             .when('/registration', {
                 templateUrl: '/app/views/registration.html',
                 controller: 'RegistrationController',
