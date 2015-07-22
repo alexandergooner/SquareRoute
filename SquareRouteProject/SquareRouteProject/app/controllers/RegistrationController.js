@@ -19,7 +19,7 @@
                 Address: vm.addressLine1 + ' ' + vm.addressLine2,
                 City: vm.city,
                 State: vm.state,
-                PostalCode: vm.postalCode
+                PostalCode: vm.postalCode,
                 //RoleType: 1                
             };
 

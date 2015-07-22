@@ -21,10 +21,39 @@
             </div>
             <div class="navbar-collapse collapse" >
                 <ul class="nav navbar-nav">
-                    @*<li><a href="#/welcome">Home</a></li>*@
-                    <li><a href="#/admin">Admin</a></li>
-                    <li><a href="#/dispatcher">Dispatcher</a></li>
-                    <li><a href="#/parent">Guardian</a></li>
+                    @{
+                         string adminAddress = "";
+                         string adminName = "";
+                         string dispatcherAddress = "";
+                         string dispatcherName = "";
+                         string guardianAddress = "";
+                         string guardianName = "";
+                                           
+                        if (User.IsInRole("Admin"))
+                        {
+                            adminAddress = "#/admin";
+                            adminName = "Admin";
+                            dispatcherAddress = "#/dispatcher";
+                            dispatcherName = "Dispatcher";
+                            guardianAddress = "#/parent";
+                            guardianName = "Guardian";
+                        
+                        } else if(User.IsInRole("Dispatcher"))
+                        {
+                            dispatcherAddress = "#/dispatcher";
+                            dispatcherName = "Dispatcher";
+                        }
+                        else if (User.IsInRole("Guardian")) 
+                        {
+                            guardianAddress = "#/parent";
+                            guardianName = "Guardian";
+                        }
+                    }
+
+                    @*<li><a href="#/welcome">Home</a></li>*@                    
+                    <li><a href=@adminAddress>@adminName</a></li>
+                    <li><a href=@dispatcherAddress>@dispatcherName</a></li>
+                    <li><a href=@guardianAddress>@guardianName</a></li>
                     @*<li><a href="#/googlemaps">Map</a></li>*@
                     @*<li>@User.Identity.Name</li>*@
                 </ul>

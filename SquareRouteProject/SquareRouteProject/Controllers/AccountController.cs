@@ -971,16 +971,30 @@ namespace SquareRouteProject.Presentation.Controllers
         private async void roleAssigner(IdentityUser user) 
         {                        
             //code to add a Role to a user
-            string roleName;
-            bool result = _roles.TryGetValue(user.RoleType, out roleName);
+            String roleName, userRole;  
+          
+            
+            RoleStore roleStore = new RoleStore(new UnitOfWork());
+
+            //Loop creates the roles in database if they don't exist;
+            for (int i = 1; i < _roles.Count+1; i++)
+            {
+                _roles.TryGetValue(i,out roleName);
+                var role = await roleStore.FindByNameAsync(roleName);
+                if (role == null)
+                {
+                    await roleStore.CreateAsync(new IdentityRole { Name = roleName });
+                }   
+            }            
+            
+            bool result = _roles.TryGetValue(user.RoleType, out userRole);
             if (result) 
             {
-                RoleStore roleStore = new RoleStore(new UnitOfWork());
-                UserStore userStore = new UserStore(new UnitOfWork());
+                
+                UserStore userStore = new UserStore(new UnitOfWork());                
                 var u = userStore.getUser(user);
-                await roleStore.CreateAsync(new IdentityRole { Name = roleName, Id = u.UserId });            
-            }
-            
+                await userStore.AddToRoleAsync(user, userRole);                
+            }            
         }
         #endregion
     }

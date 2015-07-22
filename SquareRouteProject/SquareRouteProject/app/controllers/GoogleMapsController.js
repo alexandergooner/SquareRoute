@@ -15,15 +15,17 @@
         }
 
         function callSuccess(routeDriver) {
-            vm.routeStart = routeDriver.Route.RouteStart;
-            vm.routeEnd = routeDriver.Route.RouteEnd;
-            vm.busStops = routeDriver.Route.BusStops;
-            vm.lat = routeDriver.Latitude;
-            vm.lon = routeDriver.Longitude;
-            //After getting all of the required data then make gMapService.calcRoute call
-            gMapService.calcRoute(vm.routeStart, vm.busStops, vm.routeEnd, vm.map, vm.lat, vm.lon);
-            console.log("Success!");
-            console.log(routeDriver);
+            if (routeDriver) {
+                vm.routeStart = routeDriver.Route.RouteStart;
+                vm.routeEnd = routeDriver.Route.RouteEnd;
+                vm.busStops = routeDriver.Route.BusStops;
+                vm.lat = routeDriver.Latitude;
+                vm.lon = routeDriver.Longitude;
+                //After getting all of the required data then make gMapService.calcRoute call
+                gMapService.calcRoute(vm.routeStart, vm.busStops, vm.routeEnd, vm.map, vm.lat, vm.lon);
+                console.log("Success!");
+                console.log(routeDriver);
+            }            
         }
         function callFail(data) {
             vm.result = data;
